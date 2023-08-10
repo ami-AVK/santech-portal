@@ -1,0 +1,33 @@
+---
+import ButtonGrid from "../components/ButtonGrid.astro";
+import Search from "./Search.astro";
+import NavBar from "./NavBar.astro";
+
+---
+
+<div class="hero">
+  <ButtonGrid/>
+  <Search/>
+  <NavBar/>
+</div>
+<style>
+  .hero {
+    background: var(--_2);
+    height: 100dvh;
+  }
+  .hero>*{
+    scroll-snap-align: start;
+  }
+  .link-card{
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+  }
+  .link-card a{
+    display:block;
+    color: white;
+    text-decoration: none;
+    font: var(--link);
+  }
+</style>

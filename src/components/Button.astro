@@ -1,0 +1,46 @@
+---
+const {url, title, icon} = Astro.props;
+---
+<div class="zero">
+  <div class="out_button">
+    <svg class="out_button__icon">
+      <use xlink:href=`#${icon}`></use>
+    </svg>
+
+    <a href={url} class="out_button__title">{title}</a>
+  </div>
+</div>
+<style>
+  .zero{
+    display:flex;
+  }
+  .out_button {
+    box-sizing: border-box;
+    display: flex;
+    height: 40px;
+    padding: 4px 12px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 4px;
+    align-items: center;
+    flex-shrink:1;
+    position: relative;
+
+    border: var(--border_1);
+    border-radius: var(--outer_radius);
+    border-color: var(--transparency-grey, rgba(243, 245, 249, 0.2));
+  }
+
+  .out_button__icon {
+    display: flex;
+    width: 2rem;
+  }
+  
+  .out_button__title {
+    color: var(--gray-6, #f2f2f2);
+    text-align: left;
+    font: var(--link);
+    /* text-transform: uppercase; */
+    text-decoration: none;
+  }
+</style>

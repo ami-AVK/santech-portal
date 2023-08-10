@@ -1,0 +1,12 @@
+[
+    { "title": "JDE doc", "url": "#", "icon": "jde_doc" },
+    { "title": "База знаний", "url": "#", "icon": "database" },
+    { "title": "Oracle Bi", "url": "#", "icon": "oracle" },
+    { "title": "1С:Док", "url": "#", "icon": "1c" },
+    { "title": "1С:Итилиум", "url": "#", "icon": "1c_itilium" },
+    { "title": "JDE", "url": "#", "icon": "jde" },
+    { "title": "S Desk", "url": "#", "icon": "sdesk" },
+    { "title": "Телефонный справочник", "url": "#", "icon": "phone" },
+    { "title": "Портал знаний", "url": "#", "icon": "portal" },
+    { "title": "Santech.ru", "url": "#", "icon": "santech" }
+]

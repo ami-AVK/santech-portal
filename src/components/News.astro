@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/SectionLayout.astro";
+import NewsCard from "./NewsCard.astro";
+---
+
+<Layout title="Короткометражки" icon="">
+  <section class="splide" role="group" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <NewsCard photo="" name="" post="" badge="PROчитай" date="" />
+        <NewsCard photo="" name="" post="" badge="PROчитай" date="" />
+        <NewsCard photo="" name="" post="" badge="PROчитай" date="" />
+        <NewsCard photo="" name="" post="" badge="PROчитай" date="" />
+        <NewsCard photo="" name="" post="" badge="PROчитай" date="" />
+        <NewsCard photo="" name="" post="" badge="PROчитай" date="" />
+        <NewsCard photo="" name="" post="" badge="PROчитай" date="" />
+        <NewsCard photo="" name="" post="" badge="PROчитай" date="" />
+        <NewsCard photo="" name="" post="" badge="PROчитай" date="" />
+      </ul>
+    </div>
+  </section>
+</Layout>
+<script>
+  import Splide from "@splidejs/splide";
+  var splide = new Splide(".splide", {
+    width: "80vw",
+    type: "slide",
+    perPage: 2,
+    // gap: "8px",
+    // padding: "10%",
+    paginationKeyboard: true,
+    keyboard: "focused",
+    focus: "center",
+    start: 0,
+    easing: "ease",
+    waitForTransition: true,
+    updateOnMove: true,
+    breakpoints: {
+		768: {
+			perPage: 1,
+            padding: "10%",
+		},
+  }
+  });
+  splide.mount();
+</script>
+<style>
+  /* .scroll-list{
+        display: flex;
+        gap: 16px;
+        overflow: hidden;
+        width: 100%;
+        scroll-behavior: auto;
+    } */
+</style>

@@ -1,0 +1,60 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import LinkPanel from "../components/LinkPanel.astro";
+import data from "../data/main_links.json";
+
+// export async function getStaticPaths() {
+//   const blogEntries = await getCollection("articles");
+//   return blogEntries.map((entry) => ({
+//     params: { slug: entry.slug },
+//     props: { entry },
+//   }));
+// }
+
+const blogEntries = await getCollection("articles");
+
+let sortedPosts: any = {};
+
+blogEntries.forEach((obj) => {
+  const sortBy = obj.data.category;
+  if (sortedPosts[sortBy]) {
+    sortedPosts[sortBy].push(obj);
+  } else {
+    sortedPosts[sortBy] = [obj];
+  }
+});
+
+---
+
+<div class="link-section">
+  {
+    Object.keys(sortedPosts).map((item) => (
+      <LinkPanel header={item} links={sortedPosts[item]} />
+    ))
+  }
+</div>
+
+<style type="text/css">
+  .link-section {
+    columns: 4;
+    gap: 16px;
+    width: 75%;
+    padding-bottom: 128px;
+    padding-top: 32px;
+  }
+  @media (min-width: 500px) {
+    .link-section {
+      columns: 1;
+    }
+  }
+  @media (min-width: 768px) {
+    .link-section {
+      columns: 2;
+    }
+  }
+  @media (min-width: 1200px) {
+    .link-section {
+      columns: 4;
+    }
+  }
+</style>

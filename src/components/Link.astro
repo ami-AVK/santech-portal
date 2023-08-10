@@ -1,0 +1,49 @@
+---
+const {url, text, header,accent} = Astro.props;
+---
+<!-- <li class="link">
+    <a class:list={['link__title',{"link--header":header, "link--accent":accent}]} href={url}>{text}</a>
+</li> -->
+<li class="link">
+    <a class:list={['link__title',{"link--header":header, "link--accent":accent}]} href=`Статьи/${url}`>{text}</a>
+</li>
+
+<style>
+    .link{
+        background: var(--steel-grey, #F3F5F9);
+        list-style-type: none
+    }
+
+    .link__title{
+        color: var(--black, #333238);
+        display: block;
+
+        font: var(--link);
+        letter-spacing: 0.01rem;
+
+        text-decoration: none;
+        border-radius: var(--inner_radius,16px);
+        
+    }
+    .link__title:hover{
+        background: var(--white, #fff); 
+        box-shadow: var(--shadow-soft-box-shadow);       
+    }
+    
+    
+    /* нужно перебить ховер стандартного вида*/
+    .link .link--header:hover{
+        background: var(--steel-grey, #fff); 
+        box-shadow: none;       
+    }
+    
+    .link .link--accent{
+        background: var(--grad-light-accent);
+        /* padding: 8px 8px; */
+    }
+
+    .link--accent:hover{
+        background: var(--grad-light-accent);
+        box-shadow: var(--accent-shadow-box-shadow);
+    }
+</style>

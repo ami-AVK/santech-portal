@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/SectionLayout.astro";
+import StaffItem from "./StaffItem.astro";
+const { photo, name, post, department } = Astro.props;
+---
+
+<Layout
+  title="Сотрудники"
+  subtitle="Рады приветствовать новых специалистов в нашей компании"
+  icon=""
+>
+  <ul class="staff-list">
+    <StaffItem photo="/img/staff_1.jpg" name="Афанасий Петрович Комсомольцев" post="Менеджер по продажам" department="Отдел Опт"/>
+    <StaffItem photo="/img/staff_1.jpg" name="Афанасий Петрович Комсомольцев" post="Менеджер по продажам" department="Отдел Опт"/>
+    <StaffItem photo="/img/staff_1.jpg" name="Афанасий Петрович Комсомольцев" post="Менеджер по продажам" department="Отдел Опт"/>
+    <StaffItem photo="/img/staff_1.jpg" name="Афанасий Петрович Комсомольцев" post="Менеджер по продажам" department="Отдел Опт"/>
+  </ul>
+</Layout>
+
+<style>
+  .staff-list {
+    display: flex;
+    gap: 64px;
+  }
+  
+</style>

@@ -1,0 +1,47 @@
+---
+import Link from '../components/Link.astro';
+
+const {header, links} = Astro.props;
+---
+<ul class="link-panel">
+  <header class="link-panel__header">{header}</header>
+
+  {links.map((item:any) => (
+    <Link url={item.slug} text={item.data.title}/>
+  ))}
+</ul>
+
+<style>
+  .link-panel {
+    margin-block-start: 0;
+    border-radius: var(--outer_radius);
+    border: var(--border_1);
+    padding: var(--small_padding);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+  
+  .link-panel {
+    break-inside: avoid;
+    /* margin: 1rem; */
+  }
+  .link-panel__header{
+    padding: 0px 8px;
+    font: var(--link);
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 1.5rem; /* 125% */
+    letter-spacing: 0.02rem;
+  }
+  
+  /* style for child component */
+  :global(.link__title){
+    padding: 0px 8px;
+  }
+
+</style>

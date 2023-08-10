@@ -1,0 +1,17 @@
+---
+import IconHeader from "../components/IconHeader.astro";
+
+const { title, icon,subtitle } = Astro.props;
+---
+<div class="section">
+    <IconHeader title={title} iconID={icon} subtitle={subtitle}}/>
+    <slot/>
+</div>
+<style>
+    .section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 256px;
+    }
+</style>
