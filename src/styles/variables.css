@@ -2,7 +2,7 @@
   font-family: "Golos Text VF";
   src: url("asset/fonts/golos-text_vf.woff2") format("woff2");
   font-weight: 400 900;
-  font-display: swap;
+  font-display: fallback;
 }
 
 :root {
