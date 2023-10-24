@@ -1,6 +1,24 @@
 ---
 import Layout from "../layouts/SectionLayout.astro";
----
-<Layout title="Дни рождения" icon="">
+import IconHeader from "../components/IconHeader.astro";
 
-</Layout>
+---
+<section class="flex md:flex-row place-content-center pb-64">
+    <div class="w-full md:w-6/12"></div>
+    <div class="w-full md:w-6/12 flex justify-center flex-col">
+        <IconHeader title={"Дни рождения"} subtitle={"Поздравляем именинников!"}/>
+        <!-- <div class="pl-28"> -->
+            <!-- <h2 class="text-lg uppercase font-black pb-4">Поздравляем именинников!</h2> -->
+            <ul class="pl-28">
+                <li class="pb-1">Некрасов Матвей Захарович</li>
+                <li class="pb-1">Некрасов Матвей Захарович</li>
+                <li class="pb-1">Некрасов Матвей Захарович</li>
+                <li class="pb-1">Некрасов Матвей Захарович</li>
+                <li class="pb-1">Некрасов Матвей Захарович</li>
+                <li class="pb-1">Некрасов Матвей Захарович</li>
+                <li class="pb-1">Некрасов Матвей Захарович</li>
+                <li class="pb-1">Некрасов Матвей Захарович</li>
+            </ul>
+        <!-- </div> -->
+    </div>
+</section>

@@ -1,15 +1,13 @@
 ---
 const {url, title, icon} = Astro.props;
 ---
-<div class="zero">
-  <div class="out_button">
-    <svg class="out_button__icon">
+  <div class="flex flex-row place-items-center gap-4 ring-2 px-3 py-2 rounded-3xl">
+    <svg class="w-8 h-8">
       <use xlink:href=`#${icon}`></use>
     </svg>
 
-    <a href={url} class="out_button__title">{title}</a>
+    <a href={url} class=" leading-5 text-white py-1">{title}</a>
   </div>
-</div>
 <style>
   .zero{
     display:flex;
@@ -17,7 +15,7 @@ const {url, title, icon} = Astro.props;
   .out_button {
     box-sizing: border-box;
     display: flex;
-    height: 40px;
+    /* height: 40px; */
     padding: 4px 12px;
     justify-content: flex-start;
     align-content: flex-start;

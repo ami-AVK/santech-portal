@@ -9,11 +9,13 @@ import News from "../components/News.astro";
 import Birthday from "../components/Birthday.astro";
 import Jobs from "../components/Jobs.astro";
 import Story from "../components/Story.astro";
+import Appbar from "../components/Appbar.astro";
 ---
 
 <Layout title="Портал компании «Сантехкомплект»">
-	<div class="info">
-		<Hero />
+	<Appbar/>
+	<Hero />
+	<div class="flex justify-around flex-col">
 		<LinkSection />
 		<Calendar />
 		<Vote />
@@ -24,11 +26,3 @@ import Story from "../components/Story.astro";
 	</div>
 	<Story/>
 </Layout>
-<style>
-  .info {
-    display: flex;
-    flex-direction: column;
-	justify-content:space-around;
-    /* gap: 256px; */
-  }
-</style>

@@ -1,0 +1,65 @@
+---
+import Icon from "./Icon.astro";
+import Button from "../components/Button.astro";
+const {} = Astro.props;
+
+---
+<div class="m-4 p-4 _outline rounded-2xl transition-all shadow-sm hover:border-slate-100 bg-slate-0 hover:bg-white hover:shadow-xl cursor-pointer flex flex-col gap-4">
+    <div class="flex flex-row place-content-between">
+        <div class="flex-col">
+            <h2 class="uppercase font-black text-lg">Менеджер по продажам</h2>
+            <div class="flex flex-row">
+                <div class="flex flex-row">
+                    <Icon/>
+                    <div class="pl-1 font-bold">г. Видное</div>
+                    <div class="pl-4">Департамент продаж</div>
+                </div>          
+            </div>   
+        </div>
+        <Button title="Перейти"/> 
+    </div>
+    <div class="">
+        <h3 class="font-bold my-2">Задачи</h3>
+        <p>Активно выполнять план продаж, а для этого:</p>
+        <ul class="l list-disc pl-4">
+            <li>Терпеливо консультировать клиентов по продукции компании, помогать им с выбором;</li>
+            <li>Оперативно выставлять счета, контролировать дебиторскую задолженность;</li>
+            <li>Добросовестно оформлять документы, необходимые для отгрузок;</li>
+            <li>Учиться и постоянно развиваться (мы поможем!);</li>
+            <li>Работать на 100% результат.</li>
+        </ul>
+    </div>
+    <details class="py-4 [&_svg]:open:-rotate-180 flex">
+        <summary class="flex cursor-pointer list-none items-center flex-row place-items-center gap-4 ring-2 px-3 py-2 rounded-3xl ">
+            <svg xmlns="http://www.w3.org/2000/svg" class="rotate-0 transform text-blue-700 transition-all duration-300" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="flex-shrink-0">Подробнее</span>
+        </summary>
+        <h3 class="font-bold my-2">Наши ожидания от вас:</h3>
+        <ul class="l list-disc pl-4">
+            <li>Высшее образование (техническое или экономическое);</li>
+            <li>Опыт работы в продажах от года (оптимально- B2B/ FMCG);</li>
+            <li>Профессиональный опыт в строительной тематике приветствуется;</li>
+            <li>Умение работать в офисных программах (специальным – научим!);</li>
+            <li>Грамотная речь;</li>
+            <li>Целеустремлённость, умение работать в команде, желание работать и развиваться.</li>          
+        </ul>
+
+        <h3 class="font-bold my-2">От нас:</h3>
+        <ul class="l list-disc pl-4">
+            <li>Полное соблюдение ТК РФ;</li>
+            <li>График работы 5/2 с 08.00 до 17.00;</li>
+            <li>Система адаптации и наставничества для новых сотрудников;</li>
+            <li>Регулярное обучение (внутреннее/ внешнее/ очное/ дистанционное/ групповое/ индивидуальное);</li>
+            <li>Отличная возможность профессионального развития;</li>
+            <li>Корпоративная парковка и специальная парковка для велосипедистов;</li>
+            <li>Буфет и столовая на территории компании;</li>
+            <li>Корпоративные подарки первоклассникам;</li>
+            <li>Сладкие детские подарки к Новому году;</li>
+            <li>Экскурсии по компании для детей сотрудников;</li>
+            <li>Скидки сотрудникам на покупку продукции компании;</li>
+            <li>Дружный коллектив хороших людей, с которыми приятно иметь дело.</li>    
+        </ul>
+    </details>
+</div>

@@ -11,11 +11,12 @@ import data from "../data/main_links.json";
 //   }));
 // }
 
-const blogEntries = await getCollection("articles");
+const articlesEntries = await getCollection("articles");
+const personsEntries = await getCollection("persons");
 
 let sortedPosts: any = {};
 
-blogEntries.forEach((obj) => {
+articlesEntries.forEach((obj) => {
   const sortBy = obj.data.category;
   if (sortedPosts[sortBy]) {
     sortedPosts[sortBy].push(obj);
@@ -25,8 +26,8 @@ blogEntries.forEach((obj) => {
 });
 
 ---
-
-<div class="link-section">
+{personsEntries[0].slug}
+<div class="link-section columns-1 md:columns-2 lg:columns-4 px-16">
   {
     Object.keys(sortedPosts).map((item) => (
       <LinkPanel header={item} links={sortedPosts[item]} />
@@ -38,7 +39,7 @@ blogEntries.forEach((obj) => {
   .link-section {
     columns: 4;
     gap: 16px;
-    width: 75%;
+    /* width: 75%; */
     padding-bottom: 128px;
     padding-top: 32px;
   }

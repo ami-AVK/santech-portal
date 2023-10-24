@@ -3,20 +3,11 @@ import Button from "../components/Button.astro";
 import data from "../data/header_links.json";
 ---
 
-<div class="link-section">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-xl">
   {
     data.map((item) => (
       <Button title={item.title} url={item.url} icon={item.icon} />
     ))
   }
 </div>
-<style>
-  .link-section{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    /* columns: 3;
-    width:45%; */
-  }
-</style>
 
