@@ -1,12 +1,12 @@
 [
-    { "title": "JDE doc", "url": "#", "icon": "jde_doc" },
-    { "title": "База знаний", "url": "#", "icon": "database" },
-    { "title": "Oracle Bi", "url": "#", "icon": "oracle" },
-    { "title": "1С:Док", "url": "#", "icon": "1c" },
-    { "title": "1С:Итилиум", "url": "#", "icon": "1c_itilium" },
-    { "title": "JDE", "url": "#", "icon": "jde" },
-    { "title": "S Desk", "url": "#", "icon": "sdesk" },
-    { "title": "Телефонный справочник", "url": "#", "icon": "phone" },
-    { "title": "Портал знаний", "url": "#", "icon": "portal" },
-    { "title": "Santech.ru", "url": "#", "icon": "santech" }
+    { "title": "JDE doc", "url": "#", "icon": "jde_doc", "icon_one":"jdedoc_fill" },
+    { "title": "База знаний", "url": "#", "icon": "knowledge_base", "icon_one":"knowlage_fill"  },
+    { "title": "Oracle Bi", "url": "#", "icon": "oracle", "icon_one":"oracle_fill"  },
+    { "title": "1С:Док", "url": "#", "icon": "1c", "icon_one":"1c_fill"  },
+    { "title": "1С:Итилиум", "url": "#", "icon": "1c_itilium", "icon_one":"it_fill"  },
+    { "title": "JDE", "url": "#", "icon": "jde", "icon_one":"jde_fill"  },
+    { "title": "S Desk", "url": "#", "icon": "sdesk", "icon_one":"sdesk_fill"  },
+    { "title": "Телефонный справочник", "url": "/Телефонный%20справочник", "icon": "phone", "icon_one":"phones_fill"  },
+    { "title": "Портал знаний", "url": "#", "icon": "portal", "icon_one":"portal_fill"  },
+    { "title": "Santech.ru", "url": "https://www.santech.ru", "icon": "santech", "icon_one":"santech_fill"  }
 ]

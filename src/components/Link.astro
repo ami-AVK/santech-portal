@@ -1,20 +1,13 @@
 ---
-const {url, text, header,accent} = Astro.props;
+const {url, text, header,accent, class:className} = Astro.props;
 ---
-<!-- <li class="link">
-    <a class:list={['link__title',{"link--header":header, "link--accent":accent}]} href={url}>{text}</a>
-</li> -->
-<li class="link">
-    <a class:list={['link__title',{"link--header":header, "link--accent":accent}]} href=`Статьи/${url}`>{text}</a>
+<li class=" [&_a]:hover:bg-white [&_a]:hover:shadow-lg text-gray-900 ">
+    <a class="px-2  block rounded-2xl" href=`${url}`>{text}</a>
 </li>
 
 <style>
-    .link{
-        background: var(--steel-grey, #F3F5F9);
-        list-style-type: none
-    }
 
-    .link__title{
+    /* .link__title{
         color: var(--black, #333238);
         display: block;
 
@@ -24,11 +17,11 @@ const {url, text, header,accent} = Astro.props;
         text-decoration: none;
         border-radius: var(--inner_radius,16px);
         
-    }
-    .link__title:hover{
+    } */
+    /* .link__title:hover{
         background: var(--white, #fff); 
         box-shadow: var(--shadow-soft-box-shadow);       
-    }
+    } */
     
     
     /* нужно перебить ховер стандартного вида*/

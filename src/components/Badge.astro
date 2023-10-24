@@ -1,21 +1,5 @@
 ---
 const {text, type, class: className} = Astro.props;
 ---
-<p class:list={["badge",className,{badge__department_1:type==1,badge__department_2:type==2}]}>{text}</p>
-<style>
-.badge {
-    border-radius: var(--inner_radius);
-    color: var(--steel-grey);
-    font: var(--small-text);
-    background: #3cd1c0;
-    padding: 4px 8px 4px 8px;
-    position: relative;
-    left: -4px;
-}
-.badge__department_1{
-    background: #d1663c;
-}
-.badge__department_2{
-    background: #7a3cd1;
-}
-</style>
+<p class:list={["rounded-2xl text-xs tracking-wider px-2 py-1 bg-accent-400 text-gray-900",className]}>{text}</p>
+<!-- <div class="rounded-2xl text-xs tracking-wider px-1 py-2 bg-accent-300"></div> -->

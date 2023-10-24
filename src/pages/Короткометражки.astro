@@ -1,0 +1,46 @@
+---
+interface MyInterface {
+    [key: string]: any;
+}
+import { getCollection, getEntry } from 'astro:content';
+
+import Appbar from '../components/Appbar3.astro'
+import Layout from '../layouts/Layout_markdown.astro';
+import Markdown_layout from '../layouts/Layout_markdown_item.astro';
+
+
+const allBlogPosts = await getCollection('articles');
+  
+// создаем словарь
+let sortedPosts:any = Object();
+
+// забираем все категории из коллекции статей и собираем обьект js
+allBlogPosts.forEach((obj) => { 
+let cat = obj.id.substring(0, obj.id.indexOf("/"));
+if (sortedPosts[cat]) {
+    sortedPosts[cat].push(obj);
+} else {
+    sortedPosts[cat] = [obj];
+}
+});
+// Object.keys(sortedPosts).map(entry => ({
+//     params: { slug: entry }, props: { "header":entry,"articles": sortedPosts},
+//   }
+//   ));
+// при сборке принимаем заголовок и список статей этой категории
+// const { header, articles } = Astro.props;
+
+---
+<Layout title="База знаний">
+  <Appbar/>
+  <div class="observe mx-auto max-w-screen-xl pt-16">
+    <h1 class="text-3xl text-main-900 font-black tracking-wider uppercase"> Короткометражки</h1>
+  </div>
+  
+
+
+  
+</Layout>
+
+
+

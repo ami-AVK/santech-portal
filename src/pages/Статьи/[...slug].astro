@@ -1,5 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
+import Appbar from "../../components/Appbar.astro";
+import PortalTable from "../../components/PortalTable.astro";
 import Layout from '../../layouts/Layout_markdown.astro';
 export async function getStaticPaths() {
   const allBlogPosts = await getCollection('articles');
@@ -12,6 +14,9 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 <Layout title={entry.data.title}>
-  <Content/>
+  <Appbar/>
+  <div class="prose prose-lg [&_h1]:text-2xl">
+    <Content/>
+  </div>
 </Layout>
 

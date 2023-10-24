@@ -9,13 +9,12 @@ import News from "../components/News.astro";
 import Birthday from "../components/Birthday.astro";
 import Jobs from "../components/Jobs.astro";
 import Story from "../components/Story.astro";
-import Appbar from "../components/Appbar.astro";
 ---
 
 <Layout title="Портал компании «Сантехкомплект»">
-	<Appbar/>
+
 	<Hero />
-	<div class="flex justify-around flex-col">
+	<div id="#observe" class="flex justify-around flex-col mx-auto ">
 		<LinkSection />
 		<Calendar />
 		<Vote />
@@ -26,3 +25,37 @@ import Appbar from "../components/Appbar.astro";
 	</div>
 	<Story/>
 </Layout>
+<script >
+	document.addEventListener('astro:page-load', () => {
+			const options = {
+				root: null,
+				rootMargin: '0px',
+				threshold: .2
+		};
+
+		
+		const observer:IntersectionObserver = new IntersectionObserver(function(entries, observer) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("opacity-100");
+					entry.target.classList.remove("opacity-0");
+					const svg = entry.target.querySelector("#ew3a956DATx1");
+					svg?svg.classList.add("svg-active"):false;
+					// console.log(entry);
+				} else {
+					entry.target.classList.add("opacity-0");
+					entry.target.classList.remove("opacity-100");
+					
+					const svg = entry.target.querySelector("#ew3a956DATx1");
+					svg?svg.classList.remove("svg-active"):false;
+					// Элемент невидим
+					// console.log("out of view");
+				}
+			});
+		}, options);
+		const elements:NodeListOf<HTMLBaseElement> = document.querySelectorAll('.observe');
+		elements.forEach((element) => {
+			observer.observe(element);
+		});
+	});
+</script>

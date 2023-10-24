@@ -1,0 +1,119 @@
+---
+interface MyInterface {
+    [key: string]: any;
+}
+
+import { getCollection, getEntry } from 'astro:content';
+
+import Appbar from '../../components/Appbar3.astro'
+import Layout from '../../layouts/Layout_markdown.astro';
+import Markdown_layout from '../../layouts/Layout_markdown_item.astro';
+
+export async function getStaticPaths() {
+
+  // забираем все статьи из коллекции
+  const allBlogPosts = await getCollection('articles');
+  
+  // создаем словарь
+  let sortedPosts:any = Object();
+
+  // забираем все категории из коллекции статей и собираем обьект js
+  allBlogPosts.forEach((obj) => { 
+    let cat = obj.id.substring(0, obj.id.indexOf("/"));
+    if (sortedPosts[cat]) {
+      sortedPosts[cat].push(obj);
+    } else {
+      sortedPosts[cat] = [obj];
+    }
+  });
+
+  // для рендера страниц возвращаем только категории с массивом статей для рендера
+  return Object.keys(sortedPosts).map(entry => ({
+    params: { slug: entry }, props: { "header":entry,"articles": sortedPosts},
+  }
+  ));
+}
+
+// при сборке принимаем заголовок и список статей этой категории
+const { header, articles } = Astro.props;
+
+---
+<Layout title={header}>
+  <Appbar>
+      <nav slot="drawer" class="flex flex-col gap-4">
+          <a class="text-md font-extrabold pb-2 block " href="../">
+            Главная
+          </a>
+          <ul>
+            <li class="py-1">
+                <a class=" font-extrabold pb-2 block" href="">
+                  {header}
+                </a>
+                <ul class=" pb-2">
+                  {   
+                    articles[header].map( // наполняем навигацию из коллекции по текущей категории
+                      (item:any) => (
+                        <li class="">
+                          <a class="py-1 px-2 text-sm leading-tight hover:outline lg:hover:bg-white outline-gray-300  block rounded-2xl" href={"#"+item.id} class="" >{item.id.substring(item.id.lastIndexOf("/")+1,item.id.lastIndexOf("."))}</a>
+                        </li>
+                      )
+                    )
+                  }
+                </ul>
+            <li/>
+          {
+            Object.keys(articles).filter((category)=>category!=header).map( // наполняем остальные категории
+              (category) => (
+                <li class="py-1">
+                  <a class=" font-extrabold pb-2 block" href={"./"+category}>
+                    {category}
+                  </a>
+                </li>
+                // ниже закоментил для генерации ссылок из других категорий
+                // articles[category].map(
+                //  (item) => (
+                //     <li>
+                //       <a href={"#"+item.id} class="" >{item.id.substring(item.id.lastIndexOf("/")+1,item.id.lastIndexOf("."))}</a>
+                //     </li>
+                //   )
+                // )
+              )
+            )
+          }
+          </ul>
+      </nav>
+  </Appbar>
+  <div class="flex px-16 py-16 scroll-smooth lg:ml-80">
+    
+    
+      
+    
+    <main class="">
+      <section>
+        <h2>
+          <header class=" text-4xl font-black text-main-900 uppercase leading-2 tracking-wider">
+            {header}
+          </header>
+        </h2>
+        <!-- тут создаем список статей из текущей категории, рендер маркауна ассинхронный так что он происходит для каждой статьи в компоненте Markdown_layout -->
+        {
+          articles[header].map(
+          (item:any) => (
+            <section id={item.id} class="py-32 prose prose-lg prose-headings:font-black prose-headings:tracking-wider [&_h1]:text-3xl [&_h1]:text-main-900 [&_h2]:text-xl [&_h3]:text-lg">
+              <Markdown_layout article={item}/>
+              </section>
+          )
+          )
+        }
+      </section>
+      
+    </main>
+  </div>
+  <!-- <Content/> -->
+
+
+  
+</Layout>
+
+
+

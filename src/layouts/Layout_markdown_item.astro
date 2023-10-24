@@ -1,9 +1,8 @@
-
+---
+const { article } = Astro.props;
+const { Content } = await article.render();
+---
 <div class="markdown_item--default">
+    <Content/>
     <slot />
 </div>
-<style is:global>
-      .markdown_item--default h2{
-        font-size: 1rem;
-      }
-</style>

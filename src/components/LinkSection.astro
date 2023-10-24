@@ -3,21 +3,14 @@ import { getCollection, getEntry } from "astro:content";
 import LinkPanel from "../components/LinkPanel.astro";
 import data from "../data/main_links.json";
 
-// export async function getStaticPaths() {
-//   const blogEntries = await getCollection("articles");
-//   return blogEntries.map((entry) => ({
-//     params: { slug: entry.slug },
-//     props: { entry },
-//   }));
-// }
-
 const articlesEntries = await getCollection("articles");
-const personsEntries = await getCollection("persons");
+
 
 let sortedPosts: any = {};
 
 articlesEntries.forEach((obj) => {
-  const sortBy = obj.data.category;
+  let cat = obj.id.substring(0, obj.id.indexOf("/"));
+  const sortBy = cat;
   if (sortedPosts[sortBy]) {
     sortedPosts[sortBy].push(obj);
   } else {
@@ -25,37 +18,23 @@ articlesEntries.forEach((obj) => {
   }
 });
 
+const categories = Object.keys(sortedPosts);
+
 ---
-{personsEntries[0].slug}
-<div class="link-section columns-1 md:columns-2 lg:columns-4 px-16">
+
+<div class="link-section columns-1 md:columns-2 lg:columns-4 px-16 pb-16 md:pb-32 pt-16 gap-16">
   {
-    Object.keys(sortedPosts).map((item) => (
-      <LinkPanel header={item} links={sortedPosts[item]} />
+    categories.map((category:string) => (
+        <ul class="rounded-2xl _outline flex flex-col items-start justify-start mb-16 break-inside-avoid ">
+          <a class="link-panel__header px-2 uppercase font-extrabold tracking-wide pb-1 leading-tight" href={"База знаний/"+category}>{category}</a>
+          {sortedPosts[category].map((item:any) => (
+            <li class=" [&_a]:hover:bg-white [&_a]:hover:shadow-lg text-gray-900 ">
+              <a class="px-2 py-1 leading-tight block rounded-2xl" href={"База знаний/" + category + "#" +item.slug.substring(item.slug.lastIndexOf("/")+1)}>{item.data.title}</a>
+            </li>
+          ))}
+      </ul>
     ))
   }
 </div>
 
-<style type="text/css">
-  .link-section {
-    columns: 4;
-    gap: 16px;
-    /* width: 75%; */
-    padding-bottom: 128px;
-    padding-top: 32px;
-  }
-  @media (min-width: 500px) {
-    .link-section {
-      columns: 1;
-    }
-  }
-  @media (min-width: 768px) {
-    .link-section {
-      columns: 2;
-    }
-  }
-  @media (min-width: 1200px) {
-    .link-section {
-      columns: 4;
-    }
-  }
-</style>
+

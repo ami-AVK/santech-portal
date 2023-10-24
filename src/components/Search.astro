@@ -1,48 +1,98 @@
-<div class="search">
-    <svg
-      class="icon"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M14.71 14H15.5L20.49 19L19 20.49L14 15.5V14.71L13.73 14.43C12.59 15.41 11.11 16 9.5 16C5.91 16 3 13.09 3 9.5C3 5.91 5.91 3 9.5 3C13.09 3 16 5.91 16 9.5C16 11.11 15.41 12.59 14.43 13.73L14.71 14ZM5 9.5C5 11.99 7.01 14 9.5 14C11.99 14 14 11.99 14 9.5C14 7.01 11.99 5 9.5 5C7.01 5 5 7.01 5 9.5Z"
-        fill="#F3F5F9"
-      />
-    </svg>
-  
-    <div class="title">Поиск</div>
+---
+
+---
+<div class="flex items-center gap-4 shrink w-full isolate max-w-sm text-normal">
+  <div class="relative h-fit w-full">
+    <input tabindex="1" list="suggestions" type="search" id="main-search" name="Search" placeholder="Поиск..." class="
+    peer py-2 pl-10 pr-4 text-sm rounded-3xl w-full text-main transition-color z-50
+    hover:shadow-active hover:outline outline-gray-100/50 
+    focus:outline-none  focus:bg-gray-100  focus:text-gray-900">
+    <span class="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-100 peer-focus:text-gray-900">
+      <button type="submit" title="Search" class="p-1 focus:outline-none focus:ring">
+        <svg class=" w-4 h-4 stroke-2 "><use xlink:href="#search"></use></svg>
+      </button>
+    </span>
+
+    <div class="absolute inset-x-0 px-10 h-fit bg-gray-300 shadow-xl rounded-b-3xl -z-10 top-5" >
+      <ul id="suggestions" class="text-sm text-gray-900 space-y-2 pt-8 pb-4 empty:py-0">
+      </ul>
+    </div>
   </div>
 
-  <style>
-    .search {
-    border-style: solid;
-    border-color: var(--gray-6, #f2f2f2);
-    border-width: 0px 0px 1px 0px;
-    padding: 8px 24px 8px 16px;
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-    justify-content: flex-start;
-    flex-shrink: 0;
-    width: 487px;
-    position: relative;
-  }
-  .icon {
-    flex-shrink: 0;
-    position: relative;
-    overflow: visible;
-  }
-  .title {
-    color: var(--steel-grey, #f3f5f9);
-    text-align: left;
-    font: var(--text, 400 16px/140% "Golos Text VF", sans-serif);
-    position: relative;
-  }
+</div>
+<script>
+  import type { objectInputType } from 'astro/zod'
+  import Fuse from 'fuse.js'
+  document.addEventListener('astro:page-load', () => {
+    
+      const options = {
+      keys: ['title','sname',"ext" ,'tags']
+    }
+    const list = [
+      {
+        "title": "Больничный лист",
+        "tags": ["Больничный лист", "Болезнь"],
+        "url": "/База%20знаний/Кадровые%20вопросы#больничный-лист"
+      },
+      {
+        "title": "График обучения",
+        "tags": ["График", "Обучение"],
+        "url": "/База%20знаний/Активный%20сантеховец#график-обучения"
+      },
+      {
+        "sname": "Купятов",
+        "ext": "1253",
+        "name": "Иван Васильевич",
+        "url": "/База%20знаний/Активный%20сантеховец#график-обучения"
+      },
+      {
+        "sname": "Иванов",
+        "ext": "3274",
+        "name": "Петр Васильевич",
+        "url": "./Телефонный%20справочник"
+      }
+    ]
+    const fuse = new Fuse(list, options)
+
+    const input:HTMLInputElement = document.getElementById("main-search") as HTMLInputElement;
+    const search_result:HTMLBaseElement = document.getElementById('suggestions') as HTMLBaseElement;
+
+    if(input){
+      // добавил чтобы при клике по ссылке успевал перейти, а то не успевает сработать
+      input.addEventListener("focusout", function(){
+        setTimeout(function(){
+          search_result.innerHTML ="";
+        },100);
+        
+      });
+      // ищем 
+      input.oninput = function() {
+        if(search_result){
+          search_result.innerHTML = generateOptionList(fuse.search(input.value).slice(0, 4)) as string;
+        }
+      };
+      
+    }
+    function generateOptionList(results:any){
+      let html = ""
+      for (let item of results) {
+        if(item.item.sname){
+          html +=
+          `<li class="font-bold">
+            <a href="${item.item.url}" class="relative z-50">&#9990; ${item.item.sname} <span class="text-normal">${item.item.name}</span> <span class="text-normal text-main-900">${item.item.ext}</span> </a>
+          </li>`;
+        }
+        else{
+          html +=
+          `<li class="">
+            <a href="${item.item.url}">${item.item.title?item.item.title:""}${item.item.sname?item.item.sname:""}</a>
+          </li>`;
+        }
+
+      }
+      return html;
+    }
+});
+</script>
+
   
-  </style>

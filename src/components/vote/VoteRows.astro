@@ -2,18 +2,21 @@
 import VoteRow from "./VoteRow.astro";
 const { vote_data } = Astro.props;
 ---
-<div class="vote-wrapper">
-  <div class="Vote_block">
+<div class="flex gap-16">
+  <div class="relative">
+    <img src="/asset/img/vote.svg" alt="" class="w-96">
+  </div>
+  <div class="flex flex-col gap-2 flex-wrap">
 
     <!-- {vote_data.map((row) =>(<VoteRow index={1} title={row.data} value={row.value}/>))}  -->
   
-  <VoteRow index={1} title={vote_data[0].title} value={vote_data[0].value}/>
-  <VoteRow index={2} title={vote_data[0].title} value={vote_data[0].value}/>
-  <VoteRow index={3} title={vote_data[0].title} value={vote_data[0].value}/>
-  <VoteRow index={4} title={vote_data[0].title} value={vote_data[0].value}/>
-  <VoteRow index={5} title={vote_data[0].title} value={vote_data[0].value}/>
-  <VoteRow index={6} title={vote_data[0].title} value={vote_data[0].value}/>
-  <VoteRow index={7} title={vote_data[0].title} value={vote_data[0].value}/>
+    <VoteRow index={1} title={vote_data[0].title} value={vote_data[0].value}/>
+    <VoteRow index={2} title={vote_data[0].title} value={vote_data[0].value}/>
+    <VoteRow index={3} title={vote_data[0].title} value={vote_data[0].value}/>
+    <VoteRow index={4} title={vote_data[0].title} value={vote_data[0].value}/>
+    <VoteRow index={5} title={vote_data[0].title} value={vote_data[0].value}/>
+    <VoteRow index={6} title={vote_data[0].title} value={vote_data[0].value}/>
+    <VoteRow index={7} title={vote_data[0].title} value={vote_data[0].value}/>
   </div>
 </div>
 

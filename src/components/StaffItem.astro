@@ -1,116 +1,25 @@
 ---
 import Badge from "./Badge.astro";
 const { photo, name, post, department } = Astro.props;
+// 
 ---
 
-<li class="staff-item">
-  <div class="staff-item__frame">
-    <img class="staff-item__photo" src={photo} />
+<li class="relative flex flex-wrap lg:flex-col items-center text-gray-900
+  [&>div:first-child]:hover:scale-[1.35] [&>div:first-child]:hover:border-accent-400 [&>div:first-child]:hover:shadow-active [&>div:first-child]:hover:-top-4
+  [&>div:nth-child(2)]:hover:top-[19rem]
+  [&_.details]:hover:h-64 [&_.details]:hover:opacity-100"> 
+  <div class="absolute top-0 transition-all duration-300 ease-in-out rounded-full overflow-hidden border-16 border-gray-300">
+    <img class="rounded-full scale-[1.1]" src={photo} />
   </div>
-  <div class="staff-item__capture">
-    <Badge
-      text={department}
-      type={Math.round(Math.random()) + 1}
-      class=".staff-item__badge"
-    />
-    <p class="staff-item__title">{name}</p>
-    <p class="staff-item__secondary-text">{post}</p>
-    <p class="staff-item__details">Николай отвечает за разработку стратегий продаж, установление целей и планирование бюджета, а также за увеличение продаж компании. 
-        Он следит за реализацией планов, работает с клиентами.</p>
+  <div class="flex flex-col staff-item__capture relative top-[16rem] transition-all duration-300 ease-in-out pb-32 pl-8 ">
+    <p class=" rounded-3xl text-xs text-white font-light px-2 py-1 mb-1 relative -left-2 bg-amber-500 place-self-start">
+      {department}
+    </p>
+    <p class="font-extrabold text-base/5 pb-1">{name}</p>
+    <p class="font-normal text-sm/5 pb-1">{post}</p>
+    <p class="top-24 absolute details overflow-y-hidden transition-all duration-300 text-sm opacity-0 ">Николай отвечает за разработку стратегий продаж, установление целей и планирование бюджета, а также за увеличение продаж компании. 
+      Он следит за реализацией планов, работает с клиентами.</p>
+    
     
   </div>
 </li>
-<style>
-  .staff-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 250px;
-  }
-
-  .staff-item__frame {
-    transition-property: transform, background;
-    transition-duration: var(--animation-speed);
-    transition-timing-function: ease-in-out;
-
-    background: var(--grad-light-accent-fade);
-
-    border-radius: 200px;
-    border-style: solid;
-    border-color: var(--dark-grey, #e1e4e9);
-    border-width: 1px;
-  }
-  .staff-item__photo {
-    margin: 16px;
-    border-radius: 250px;
-    border-style: solid;
-    border-color: var(--steel-grey, #e1e4e9);
-    width: 250px;
-    height: 250px;
-    box-shadow: var(--shadow-box-shadow);
-  }
-
-  .staff-item__capture {
-    top: 0;
-    transition: top var(--animation-speed) ease-in-out;
-    margin-top: 16px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-start;
-    justify-content: center;
-  }
-  .staff-item:hover{
-    z-index: 10000;
-  }
-  .staff-item:hover > .staff-item__frame {
-    transform: scale(1.5);
-    background: var(--accent);
-  }
-  .staff-item:hover > .staff-item__capture {
-    top: 64px;
-    /* background: var(--grad-light-accent); */
-  }
-  .staff-item:hover .staff-item__details {
-    opacity: 1;
-    /* background: var(--grad-light-accent); */
-  }
-
-  .staff-item__title {
-    color: var(--black, #333238);
-    text-align: left;
-    font: var(--text-bold);
-    position: relative;
-    flex: 1;
-  }
-  .staff-item__secondary-text {
-    color: var(--black, #333238);
-    text-align: left;
-    font: var(--text);
-    position: relative;
-    align-self: stretch;
-  }
-  .staff-item__details{
-    transition: opacity var(--animation-speed) ease-in-out;
-    opacity: 0;
-    padding: 8px 0;
-    color: var(--black);
-    font: var(--mid-text);
-  }
-  .staff-item__badge {
-    background: #d1663c;
-    border-radius: 10px;
-    padding: 4px 8px 4px 8px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .staff-item__badge {
-    padding: 4px 8px 4px 8px;
-  }
-</style>

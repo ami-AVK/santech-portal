@@ -1,5 +1,5 @@
 ---
-import cheerio from 'cheerio';
+// import cheerio from 'cheerio';
 // import axios from 'axios';
 // import JSDOM from 'jsdom';
 // // const axios = require('axios');
@@ -411,22 +411,24 @@ const html = `
 </tr>
 </tbody></table>
 `; 
-const $ = cheerio.load(html);
+// const $ = cheerio.load(html);
 
-// remove all styles
-$('*').removeAttr('style');
+// // remove all styles
+// $('*').removeAttr('style');
 
-// remove all classes
-$('*').removeAttr('class');
+// // remove all classes
+// $('*').removeAttr('class');
 
-// remove all unnecessary tags
-$('font, span').each(function() {
-  $(this).replaceWith($(this).html());
-});
+// // remove all unnecessary tags
+// $('font, span').each(function() {
+//   $(this).replaceWith($(this).html());
+// });
 
-// get the cleaned HTML cod
-const cleanedHtml = $.html();
-console.log(cleanedHtml); 
+// // get the cleaned HTML cod
+// const cleanedHtml = $.html();
+// console.log(cleanedHtml); 
 ---
-<p set:html={cleanedHtml}>
-</p>
+<section set:html={html}>
+</section>
+
+

@@ -1,0 +1,15 @@
+---
+const {year, events, class:className} = Astro.props;
+---
+<div  class:list={["",className]}>
+    <div class="hover:bg-gray-200 rounded-3xl p-8 m-2 md:m-8 flex-col gap-4 flex  min-w-min">
+        <h4 class="self-stretch flex-col justify-start items-start gap-4 flex ">
+            <div class=" text-main-900 text-3xl font-black font-['Golos Text VF'] uppercase leading-9 tracking-widest">{year}</div>
+        </h4>
+        <ul class="self-stretch flex-col justify-start items-start gap-2.5 flex list-disc">
+            {events.map((event:string[])=>(
+                <li class="text-xl text-gray-900  tracking-tight">{event}</li>
+            ))}
+        </ul>
+    </div>
+  </div>

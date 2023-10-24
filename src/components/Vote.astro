@@ -1,7 +1,54 @@
 ---
 import Layout from "../layouts/SectionLayout.astro";
-import VoteRows from "../components/vote/VoteRows.astro";
+import Button from "../components/Button.astro";
+// const vote_data=[{"title":"Знаменитые истории об Аладдине, Али-бабе и Синдбаде","value":65}];
+const vote_data = [
+    {title: '"Думай как миллионер" - Т. Харв Экер', value:35},
+    {title: '"Богатый папа, бедный папа" - Р. Кийосаки', value:22},
+    {title: '"Искусство войны" - Сунь Цзы', value:11},
+    {title: '"Мастерство общения" - Д. Карнеги', value:5},
+    {title: '"7 навыков высокоэффективных людей" - С. Кови', value:66},
+    {title: '"Миф о лидерстве" - Дж. Коллинз', value:54},
+    {title: '"Мозг и деньги" - Дж. Макконелл', value:32},
+    {title: '"Искусство управления людьми" - Д. Карнеги', value:69},
+    {title: '"Путь к финансовой свободе" - Б. Бичара', value:32},
+];
+// [&_.overlay]:hover:backdrop-blur-sm
 ---
-<Layout title="Голосование" icon="">
-    <VoteRows vote_data={[{"title":"Знаменитые истории об Аладдине, Али-бабе и Синдбаде","value":65}]}/>
+<Layout title="Голосование" subtitle="Выбираем лучшую книгу по бизнесу" icon="#reports" id="vote" class="pt-32 lg:ml-16">
+    <div class="absolute h-72 w-72 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-6 rotate-[37deg]"></div>
+    <div class="flex gap-2 items-center px-16 relative pt-8">
+        <div class="absolute -top-128 -z-10 mx-auto lg:-top-96 lg:right-4">
+          <img src="/asset/img/vote_.svg" alt="" class="w-[38rem]">
+        </div>
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-12 w-full z-0">
+            {vote_data.map((vote, index)=>(
+
+                <div class="relative flex justify-between gap-3  rounded-3xl lg:max-w-full justify-self-stretch  hover:_ place-self-start cursor-pointer 
+                 [&_.overlay]:hover:shadow-xl 
+                ">
+                    
+                    <div class="flex gap-3 text-gray-700">
+                        <div class="font-extrabold text-xl pl-1 ">№{index}</div>
+                        <div class="">
+                            <h3 class="text-md whitespace-normal pb-2 font-bold">{vote.title}</h3>
+                            <p class="text-sm"> 
+
+                                </p>
+                            <div class="w-full bg-gray-300/20 rounded-full relative pb-1">
+                                <div class="bg-accent-400 h-2 rounded-full w-[45%]"></div>
+                                <div class="absolute left-1 top-2.5 text-gray-700 text-xs">{vote.value} голосов</div>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overlay absolute -inset-3 -bottom-4 rounded-4xl m-auto bg-white -z-10 shadow-xs transition-shadow"></div>
+                    <!--  <div class="on-submit absolute -inset-3 -bottom-4 left-full bottom-full bg-accent-400 rounded-4xl m-auto  z-10 transition-all "></div>-->
+                    <Button class="bg-slate-100 hover:bg-accent-400 hover:shadow-active transition text-xs lg:max-w-min max-h-min place-self-start self-start" title="Выбрать этот"/> 
+                </div>
+
+            ))}
+
+        </div> 
+      </div> 
 </Layout>

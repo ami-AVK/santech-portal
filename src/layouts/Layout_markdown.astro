@@ -1,24 +1,30 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+import SVG_sprite from '../icons/SVG_sprite.astro';
 import '../styles/variables.css';
 import '../styles/markdown.css';
+import '../styles/splide-default.min.css';
 const { title } = Astro.props;
+
 // const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Портал компании «Сантехкомплект»" />
+    <meta name="description" content="Портал компании «Сантехкомплект»"/>
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="stylesheet" href="/styles/global.css" />
+    <ViewTransitions />
+    <script is:inline src="/asset/js/splide.min.js"></script>
+    <script is:inline src="/asset/js/cdn.jsdelivr.net_npm_fuse.js@6.6.2.js"></script>
+    <!-- <link rel="stylesheet" href="/styles/global.css" /> -->
   </head>
   <body>
-    <div class="markdown--default">
+    <SVG_sprite/>
         <slot />
-    </div>
   </body>
 </html>

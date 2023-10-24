@@ -1,211 +1,35 @@
 ---
 import Badge from "./Badge.astro";
-const { photo, name, post, badge, date } = Astro.props;
+import Button from "./Button.astro";
+const { photo, title, post, badge, date } = Astro.props;
+const CATEGORY_COLORS:any = {
+  'Стратегия':'bg-orange-300',
+  'Новинки ассортимента': "bg-blue-300",
+  'PROчитай': "bg-green-300",
+  "Развитие": "bg-red-300",
+  "Обучение": "bg-yellow-300",
+}
 ---
 <!-- props: {"property1":{"type":"VARIANT","defaultValue":"'lg'","variantOptions":["LG","XS","Variant3"]}} -->
-<div class="splide__slide property-1-lg">
-    <div class="property-1-lg__frame-104">
-      <div class="property-1-lg__frame-422">
-        <img class="property-1-lg__rectangle-26" src="rectangle-26.png" />
-      </div>
-      <div class="property-1-lg__link">
-        <div class="property-1-lg__frame-92">
-            <Badge
-            text={badge}
-            type={Math.round(Math.random()) + 1}
-            class=".staff-item__badge"
-          />
-          <div class="property-1-lg__frame-2">
-            <div class="property-1-lg__title2">26.04.2023 14:25</div>
-          </div>
-        </div>
-        <div class="property-1-lg__frame-29">
-          <div class="property-1-lg__title3">
-            Компания Сантехкомплект запускает программу лояльности для клиентов.
-          </div>
-          <div class="property-1-lg__title4">
-            Оригинал Аладдина не тот, каким вы себе его представляли.Знаменитых
-            историй об Аладдине, Али-Бабе и Синдбаде не было в оригинальной версии
-            «1001 ночи»,они появились только в более поздних изданиях. Более того,
-            Аладдин жил со своей матерью и не был сиротой, как думают многие. Ах
-            да, изначально он был китайцем...
-          </div>
-        </div>
-      </div>
+<div class="my-6 _outline bg-gray-200 rounded-3xl gap-2 splide__slide shadow-xl duration-300 scale-[0.8] transition-all opacity-70 max-w-screen-sm">
+  <div class="max-h-64 overflow-hidden rounded-t-3xl scale-100">
+    <img src="/img/news_1.png" alt="" class=""/>
+  </div>
+  <div class="flex flex-col p-4">
+    <div class="flex justify-between items-center pl-2 pb-1">
+      <Badge
+              text={badge}
+              class={CATEGORY_COLORS[badge]||"bg-accent-300"}
+            />
+      <span class="text-xs">
+        26.10.2023 14:25
+      </span>
     </div>
+    <div class="pl-3 pb-2">
+      <h3 class="text-md font-extrabold leading-tight pb-2">{title}</h3>
+      <p class="text-sm"> {post}</p>
+    </div>
+    <Button url="/Короткометражки" title="Подробнее" class="transition-all hover:bg-gray-100 hover:shadow-md mt-auto"></Button>
   </div>
 
-
-  <style>
-
-.property-1-lg {
-  border-radius: 24px;
-  border-style: solid;
-  border-color: var(--dark-grey, #e1e4e9);
-  border-width: 1px;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  width: 319px;
-  height: 415px;
-  position: relative;
-  transform: scale(.8);
-  transition: transform .3s;
-}
-.is-active {
-  /* transition: transform .2s; */
-  background-color: var(--accent);
-  transform: scale(1);
-}
-.is-active .property-1-lg__frame-104{
-  box-shadow: var(--accent-shadow-box-shadow);
-  
-}
-.property-1-lg__frame-104 {
-  transition: box-shadow .2s;
-  background: var(--steel-grey, #f3f5f9);
-  border-radius: 16px;
-  border-style: solid;
-  border-color: var(--steel-grey, #f3f5f9);
-  border-width: 1px;
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  /* box-shadow: var(
-    --shadow-box-shadow,
-    0px 2.75px 9px 0px rgba(0, 0, 0, 0.19),
-    0px 0.25px 3px 0px rgba(0, 0, 0, 0.04)
-  ); */
-  overflow: hidden;
-}
-.property-1-lg__frame-422 {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
-}
-.property-1-lg__rectangle-26 {
-  border-radius: 8px;
-  align-self: stretch;
-  flex-shrink: 0;
-  height: 155px;
-  position: relative;
-}
-.property-1-lg__link {
-  border-radius: 10px;
-  padding: 0px 16px 16px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-}
-.property-1-lg__frame-92 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  align-self: stretch;
-  flex-shrink: 0;
-  position: relative;
-}
-.property-1-lg__frame-1 {
-  background: var(--red, #eb5757);
-  border-radius: 10px;
-  padding: 2px 8px 2px 8px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
-}
-.property-1-lg__title {
-  color: var(--gray-6, #f2f2f2);
-  text-align: left;
-  font: 500 12px/100% "Golos Text VF", sans-serif;
-  text-transform: uppercase;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.property-1-lg__frame-2 {
-  border-radius: 10px;
-  padding: 2px 8px 2px 8px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
-}
-.property-1-lg__title2 {
-  color: var(--black, #333238);
-  text-align: left;
-  font: 500 12px/100% "Golos Text VF", sans-serif;
-  text-transform: uppercase;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.property-1-lg__frame-29 {
-  padding: 0px 0px 0px 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-}
-.property-1-lg__title3 {
-  color: var(--black, #333238);
-  text-align: left;
-  font: 700 16px/130% "Golos Text VF", sans-serif;
-  position: relative;
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.property-1-lg__title4 {
-  color: var(--black, #333238);
-  text-align: left;
-  font: 500 14px/150% "Golos Text VF", sans-serif;
-  position: relative;
-  align-self: stretch;
-  flex: 1;
-  text-overflow: ellipsis;
-
-/* Нужно, чтобы это заработало */
-overflow: hidden;
-white-space:pre-wrap;
-line-clamp: 2;
-}
-
-  </style>
+</div>

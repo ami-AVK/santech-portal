@@ -1,9 +1,10 @@
 ---
 import IconHeader from "../components/IconHeader.astro";
 
-const { title, icon,subtitle } = Astro.props;
+const { title, icon,subtitle, class:className, full } = Astro.props;
 ---
-<div class="flex flex-col self-center pb-64">
-    <IconHeader title={title} iconID={icon} subtitle={subtitle}/>
+<div class:list={["observe mx-auto pb-72 relative max-w-full  duration-500 transition-opacity opacity-0",{"mx-0":full}]}>
+    <IconHeader title={title} iconID={icon} subtitle={subtitle} class={className}/>
     <slot/>
 </div>
+<div class="opacity-0 "></div>
