@@ -5,11 +5,11 @@ import Button from "../components/Button.astro";
 const {} = Astro.props;
 
 ---
-<div class="m-4 p-4 _outline rounded-2xl transition-all shadow-sm hover:border-slate-100 bg-slate-0 hover:bg-white/20 hover:shadow-xl cursor-pointer flex flex-col gap-4">
+<div class="m-2 p-2 md:m-4 md:p-4 _outline rounded-2xl transition-all shadow-sm hover:border-slate-100 bg-slate-0 hover:bg-white/20 hover:shadow-xl cursor-pointer flex flex-col gap-4">
     <div class="flex flex-row place-content-between items-start">
-        <div class="flex-col flex gap-2">
-            <h2 class="uppercase font-black text-lg">Менеджер по продажам</h2>
-            <div class="flex flex-row">
+        <div class="flex-col flex gap-2 ">
+            <h2 class="uppercase font-black text-md md:text-lg leading-normal">Менеджер по продажам</h2>
+            <div class="flex flex-row text-sm lg:text-md">
                 <div class="flex flex-row">
                     <Icon/>
                     <div class="pl-1 font-bold">г. Видное</div>

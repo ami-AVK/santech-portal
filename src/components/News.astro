@@ -63,7 +63,7 @@ const posts=[
   document.addEventListener('astro:page-load', () => {
   var splide = new Splide("#news", {
     type: "slide",
-    perPage: 3,
+    perPage: 1.5,
     gap: "2rem",
     paginationKeyboard: true,
     keyboard: "focused",
@@ -73,13 +73,9 @@ const posts=[
     waitForTransition: true,
     updateOnMove: true,
     trimSpace: false,
-    // padding: "2rem",
+    padding: "2rem",
     // autoWidth:true,
-    breakpoints: {
-      768: {
-        perPage: 2
-      },
-    }
+
   });
   splide.mount();
 

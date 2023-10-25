@@ -220,8 +220,8 @@ details:has(input:checked) {
   opacity: 1 !important;
 }
 .splide__arrow{
-  margin-left: 4rem !important;
-  margin-right: 4rem !important;
+  margin-left: 0rem !important;
+  margin-right: 0rem !important;
   background-color: white !important;
 }
 .active-background {

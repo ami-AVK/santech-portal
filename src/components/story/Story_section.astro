@@ -48,7 +48,7 @@ import PhotoSlider from "./PhotoSlider.astro";
 
         var splide = new Splide(`#photoSlider_${slider.dataset.id}`, {
             type: "slide",
-            perPage: 4,
+            perPage: 2,
             gap: "2rem",
             paginationKeyboard: true,
             keyboard: "focused",
@@ -58,11 +58,7 @@ import PhotoSlider from "./PhotoSlider.astro";
             waitForTransition: true,
             updateOnMove: true,
             autoWidth:true,
-            breakpoints: {
-                768: {
-                    perPage: 2
-                },
-            }
+
         });
         splide.mount();
       })
