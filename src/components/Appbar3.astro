@@ -5,6 +5,7 @@ import Button from "./Button.astro";
 import Drawer from "./Drawer.astro";
 const pathname = new URL(Astro.request.url).pathname;
 const main = pathname[0];
+console.log(pathname.split("/")[1]);
 
 
 				// data.map((item) => (
@@ -20,7 +21,7 @@ const main = pathname[0];
 <header class="p-4 bg-gray-100/20 border-b border-white backdrop-blur-sm text-gray-100 sticky top-0  z-10 ">
 
 	<div class="flex justify-between h-fit px-4 gap-4 transition-all">
-        <a href={main} aria-label="Back to homepage" class="flex items-center object-center lg:w-72">
+        <a href="./" aria-label="Back to homepage" class="flex items-center object-center lg:w-72">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 29.3 14.3" class="h-6 text-main-900 lg:hidden">
 				<path class="cls-1" d="m5.8,6.61c-.08.53.06,1.05.38,1.47.65.88,1.9,1.06,2.78.4L20.32,0h-6.64s-7.1,5.31-7.1,5.31c-.43.32-.7.78-.78,1.31Zm14.86,2.6l4.05,5.21h5.06s-5.77-7.7-5.77-7.7l-3.34,2.5Zm-4.78,3.57l1.23,1.64h5.23s-3.13-4.12-3.13-4.12l-3.33,2.49Zm-5.83-2.82c-.7.52-1.53.77-2.35.76-1.14-.02-2.26-.55-3-1.53-.61-.82-.87-1.82-.72-2.84.15-1.01.68-1.9,1.5-2.51L10.61,0h-6.57s-.91.67-.91.67C-.31,3.23-1.03,8.09,1.53,11.53c2.55,3.43,7.39,4.15,10.83,1.62L30.06,0h-6.68s-13.34,9.96-13.34,9.96Z"/>
 			</svg>
