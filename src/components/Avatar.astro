@@ -5,12 +5,12 @@ const {mail, name, post, photo, status, phone, ext} = Astro.props;
     [&_.show]:hover:visible [&_.show]:hover:opacity-100
     " 
     >
-        <div class="flex items-center gap-1 relative">
+        <div class="flex items-center gap-1 relative ">
             {status && <img src="/img/10Years.png" class="w-8 absolute -left-8 top" alt="" />}
             <img class="object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
             <div class="flex flex-col gap-0">
                 <h2 class="text-sm font-medium text-gray-900 px-2 -mb-0.5">{name}</h2>
-                <a class="text-xs font-normal tracking-wide text-gray-500 flex place-self-start px-2" href={"mailto:" + mail}>{mail}</a>
+                <a class="text-xs font-normal tracking-wide text-gray-500 flex place-self-start px-2 " href={"mailto:" + mail}>{mail}</a>
             </div>
         </div>
         <div class="show absolute invisible min-w-max min-h-max left-22 bottom-12 transition opacity-0 duration-300">

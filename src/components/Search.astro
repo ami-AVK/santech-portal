@@ -1,19 +1,19 @@
 ---
 
 ---
-<div class="flex items-center gap-4 shrink w-full isolate max-w-sm text-normal">
+<div class="flex items-center gap-4 shrink w-full isolate lg:max-w-sm text-normal ml-auto">
   <div class="relative h-fit w-full">
     <input tabindex="1" list="suggestions" type="search" id="main-search" name="Search" placeholder="Поиск..." class="
     peer py-2 pl-10 pr-4 text-sm rounded-3xl w-full text-main transition-color z-50
     hover:shadow-active hover:outline outline-gray-100/50 
     focus:outline-none  focus:bg-gray-100  focus:text-gray-900">
-    <span class="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-100 peer-focus:text-gray-900">
+    <span class="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-600 peer-focus:text-gray-900">
       <button type="submit" title="Search" class="p-1 focus:outline-none focus:ring">
         <svg class=" w-4 h-4 stroke-2 "><use xlink:href="#search"></use></svg>
       </button>
     </span>
 
-    <div class="absolute inset-x-0 px-10 h-fit bg-gray-300 shadow-xl rounded-b-3xl -z-10 top-5" >
+    <div class="absolute inset-x-0 px-10 h-fit bg-gray-200 shadow-xl rounded-b-3xl -z-10 top-5" >
       <ul id="suggestions" class="text-sm text-gray-900 space-y-2 pt-8 pb-4 empty:py-0">
       </ul>
     </div>

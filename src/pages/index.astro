@@ -1,4 +1,6 @@
 ---
+import Appbar from "../components/Appbar3.astro";
+
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import LinkSection from "../components/LinkSection.astro";
@@ -12,8 +14,8 @@ import Story from "../components/Story.astro";
 ---
 
 <Layout title="Портал компании «Сантехкомплект»">
-
 	<Hero />
+	<Appbar/>
 	<div id="#observe" class="flex justify-around flex-col mx-auto ">
 		<LinkSection />
 		<Calendar />

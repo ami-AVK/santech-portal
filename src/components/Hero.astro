@@ -1,9 +1,16 @@
 ---
-// import ButtonGrid from "../components/ButtonGrid.astro";
+import { getCollection, getEntry } from "astro:content";
 import Search from "./Search.astro";
 import NavBar from "./NavBar.astro";
 import Button from "../components/Button.astro";
 import data from "../data/header_links.json";
+
+// const main_links = await getCollection("test",({ id }) => {
+//   return id == "links";
+// });
+// main_links.forEach((obj) => {
+//   console.log(obj);  
+// });
 ---
 
 <div class="hero px-16 sm:min-h-screen gap-16 py-16 flex flex-col place-content-between mt-auto z-50">

@@ -254,6 +254,22 @@ details:has(input:checked) {
   50%{background-position:100% 25%}
   100%{background-position:0% 76%}
 }
+
+/* .bullet:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 4rem;
+  left: -0.5rem;
+  background-color: #165080;
+} */
+.bullet{
+  text-decoration: underline;
+}
 /* .splide__pagination{
   bottom: -1rem !important;
   

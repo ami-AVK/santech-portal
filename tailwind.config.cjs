@@ -71,6 +71,9 @@ module.exports = {
           outlineOffset: "1rem",
           outlineStyle: "solid",
         },
+        ".under":{
+          borderBottom: "1px solid",
+        }
       });
     },
 

@@ -1,10 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import LinkPanel from "../components/LinkPanel.astro";
-import data from "../data/main_links.json";
 
 const articlesEntries = await getCollection("articles");
-
 
 let sortedPosts: any = {};
 
@@ -28,8 +25,8 @@ const categories = Object.keys(sortedPosts);
         <ul class="rounded-2xl _outline flex flex-col items-start justify-start mb-16 break-inside-avoid ">
           <a class="link-panel__header px-2 uppercase font-extrabold tracking-wide pb-1 leading-tight" href={"База знаний/"+category}>{category}</a>
           {sortedPosts[category].map((item:any) => (
-            <li class=" [&_a]:hover:bg-white [&_a]:hover:shadow-lg text-gray-900 ">
-              <a class="px-2 py-1 leading-tight block rounded-2xl" href={"База знаний/" + category + "#" +item.slug.substring(item.slug.lastIndexOf("/")+1)}>{item.data.title}</a>
+            <li  class="group  text-gray-900 ">
+              <a data-accent={item.data.accent} class=" group-hover:bg-white group-hover:shadow-lg group-hover::shadow-lg px-2 py-1 leading-tight block rounded-2xl data-[accent]:bg-accent-400 group-hover:data-[accent]:bg-accent-300 group-hover:data-[accent]:shadow-active" href={"База знаний/" + category + "#" +item.slug.substring(item.slug.lastIndexOf("/")+1)}>{item.data.title}</a>
             </li>
           ))}
       </ul>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1102.84 620.87">
+  <defs>
+    <linearGradient id="b" x1="712.88" y1="82.45" x2="659.41" y2="238.01" gradientTransform="translate(458.45 -273.81) rotate(47.72) scale(.71)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7773a"/>
+      <stop offset=".2" stop-color="#f65c45"/>
+      <stop offset=".4" stop-color="#f54e53"/>
+      <stop offset=".6" stop-color="#f44b6c"/>
+      <stop offset=".8" stop-color="#f44683"/>
+      <stop offset="1" stop-color="#f2429a"/>
+    </linearGradient>
+    <linearGradient id="c" x1="468.35" y1="59.78" x2="422.8" y2="276.76" gradientTransform="translate(215.63 -243.2) rotate(39.78)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff7d4"/>
+      <stop offset=".48" stop-color="#ffe259"/>
+      <stop offset="1" stop-color="#ffa751"/>
+    </linearGradient>
+    <linearGradient id="d" x1="871.52" y1="187.94" x2="817.78" y2="419.25" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#adfdff"/>
+      <stop offset=".03" stop-color="#a3f3fa"/>
+      <stop offset=".18" stop-color="#7acbe8"/>
+      <stop offset=".3" stop-color="#61b3dd"/>
+      <stop offset=".37" stop-color="#58aad9"/>
+      <stop offset=".57" stop-color="#4091c4"/>
+      <stop offset=".98" stop-color="#035191"/>
+      <stop offset="1" stop-color="#004e8f"/>
+    </linearGradient>
+    <linearGradient id="e" x1="173.7" y1="572.06" x2="295.95" y2="348.3" gradientTransform="translate(591.91 -105.59) rotate(64.78)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#18c0cc"/>
+      <stop offset=".34" stop-color="#31d6c6"/>
+      <stop offset=".65" stop-color="#47eac1"/>
+      <stop offset="1" stop-color="#b8ffe8"/>
+    </linearGradient>
+    <clipPath id="f">
+      <circle cx="268.01" cy="302.46" r="148.68" transform="translate(-135.37 278.1) rotate(-45)" fill="none" stroke-width="0"/>
+    </clipPath>
+  </defs>
+  <g>
+    <circle cx="706.78" cy="158.67" r="58.86" transform="translate(113.93 574.89) rotate(-47.72)" fill="url(#b)" stroke="#fff" stroke-miterlimit="10"/>
+    <g>
+      <circle cx="443.88" cy="176.37" r="138.14" fill="none" stroke="#fff" stroke-dasharray="0 0 21.6 29.46" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <circle cx="443.88" cy="176.37" r="112.57" transform="translate(-10.09 324.87) rotate(-39.78)" fill="url(#c)" stroke="#fff" stroke-miterlimit="10"/>
+    </g>
+    <g>
+      <circle cx="568.18" cy="324.27" r="186.71" fill="none" stroke="#fff" stroke-miterlimit="10"/>
+      <path d="m568.18,324.27l-186.71-.87c.47-102.1,84.61-185.85,186.71-185.85s186.71,84.29,186.71,186.71h-186.71Z" fill="#f9fafc" stroke="#f3f5f9" stroke-miterlimit="10"/>
+      <path d="m568.18,324.27l-186.71-.87c.47-102.1,84.61-185.85,186.71-185.85s186.71,84.29,186.71,186.71h-186.71Z" fill="#f3f5f9" stroke="#f3f5f9" stroke-miterlimit="10"/>
+      <circle cx="568.18" cy="324.27" r="186.71" fill="none" stroke="#fff" stroke-miterlimit="10"/>
+    </g>
+    <g>
+      <circle cx="844.91" cy="302.46" r="138.14" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <circle cx="844.91" cy="302.46" r="115.5" fill="url(#d)" stroke="#f3f5f9" stroke-miterlimit="10" stroke-width=".49"/>
+    </g>
+    <circle cx="268.01" cy="302.46" r="148.68" transform="translate(-135.37 278.1) rotate(-45)" fill="url(#e)" stroke="#fff" stroke-miterlimit="10"/>
+  </g>
+  <g clip-path="url(#f)">
+    <rect x="-10.83" y="350.72" width="592.84" height="342.38" fill="#f3f5f9" stroke="#f3f5f9" stroke-miterlimit="10" stroke-width="1.3"/>
+  </g>
+</svg>

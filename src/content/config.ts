@@ -7,6 +7,7 @@ const articlesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     category: z.string(),
+    accent: z.boolean().optional(),
     tags: z.array(z.string()),
   }),
 });
@@ -18,9 +19,13 @@ const personCollection = defineCollection({
     tags: z.array(z.string()),
   }),
 });
+const dataCollection = defineCollection({
+  type: 'data', // v2.5.0 and later
+});
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
   'articles': articlesCollection,
   'persons': personCollection,
+  'test':dataCollection,
 };

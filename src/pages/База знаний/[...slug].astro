@@ -5,6 +5,7 @@ interface MyInterface {
 
 import { getCollection, getEntry } from 'astro:content';
 
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Appbar from '../../components/Appbar3.astro'
 import Layout from '../../layouts/Layout_markdown.astro';
 import Markdown_layout from '../../layouts/Layout_markdown_item.astro';
@@ -40,21 +41,21 @@ const { header, articles } = Astro.props;
 ---
 <Layout title={header}>
   <Appbar>
-      <nav slot="drawer" class="flex flex-col gap-4">
-          <a class="text-md font-extrabold pb-2 block " href="../">
+      <nav slot="drawer" class="flex flex-col gap-4 py-2">
+          <a class="text-md font-extrabold pb-2 block uppercase tracking-wide" href="../">
             Главная
           </a>
-          <ul>
+          <ul class="">
             <li class="py-1">
-                <a class=" font-extrabold pb-2 block" href="">
+                <a class=" font-bold pb-2 block leading-tight" href="">
                   {header}
                 </a>
-                <ul class=" pb-2">
+                <ul class=" pb-1">
                   {   
                     articles[header].map( // наполняем навигацию из коллекции по текущей категории
                       (item:any) => (
-                        <li class="">
-                          <a class="py-1 px-2 text-sm leading-tight hover:outline lg:hover:bg-white outline-gray-300  block rounded-2xl" href={"#"+item.id} class="" >{item.id.substring(item.id.lastIndexOf("/")+1,item.id.lastIndexOf("."))}</a>
+                        <li class="relative">
+                          <a class="relative py-1 px-2 text-sm leading-tight hover:outline lg:hover:bg-white outline-gray-300/50  block rounded-2xl" href={"#"+item.id} data-link={item.id}>{item.id.substring(item.id.lastIndexOf("/")+1,item.id.lastIndexOf("."))}</a>
                         </li>
                       )
                     )
@@ -64,8 +65,8 @@ const { header, articles } = Astro.props;
           {
             Object.keys(articles).filter((category)=>category!=header).map( // наполняем остальные категории
               (category) => (
-                <li class="py-1">
-                  <a class=" font-extrabold pb-2 block" href={"./"+category}>
+                <li class="py-1.5">
+                  <a class=" font-bold block leading-tight" href={"./"+category}>
                     {category}
                   </a>
                 </li>
@@ -82,26 +83,24 @@ const { header, articles } = Astro.props;
           }
           </ul>
       </nav>
+      <div class="border-b border-gray-900"></div>
   </Appbar>
+
   <div class="flex px-16 py-16 scroll-smooth lg:ml-80">
-    
-    
-      
-    
     <main class="">
       <section>
-        <h2>
-          <header class=" text-4xl font-black text-main-900 uppercase leading-2 tracking-wider">
-            {header}
-          </header>
-        </h2>
+          <div class="flex  flex-col gap-2">
+            <Breadcrumbs level1="База знаний" level2={header} class="-ml-4"></Breadcrumbs>
+            <h1 class="text-4xl uppercase text-main-900 tracking-wider font-black">{header}</h1>
+          </div>
+
         <!-- тут создаем список статей из текущей категории, рендер маркауна ассинхронный так что он происходит для каждой статьи в компоненте Markdown_layout -->
         {
           articles[header].map(
           (item:any) => (
-            <section id={item.id} class="py-32 prose prose-lg prose-headings:font-black prose-headings:tracking-wider [&_h1]:text-3xl [&_h1]:text-main-900 [&_h2]:text-xl [&_h3]:text-lg">
+            <section id={item.id} class="observe-link py-32 prose prose-lg prose-headings:font-black prose-headings:tracking-wider [&_h1]:text-3xl [&_h1]:text-main-900 [&_h2]:text-xl [&_h3]:text-lg">
               <Markdown_layout article={item}/>
-              </section>
+            </section>
           )
           )
         }
@@ -110,10 +109,35 @@ const { header, articles } = Astro.props;
     </main>
   </div>
   <!-- <Content/> -->
-
-
   
 </Layout>
 
 
-
+<script>
+  	document.addEventListener('astro:page-load', () => {
+      const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: .4
+      };
+      const observer:IntersectionObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            const allLinks:NodeListOf<HTMLBaseElement> = document.querySelectorAll(`[data-link]`);
+            allLinks?.forEach(function(other_link) {other_link.classList.remove("underline");});
+            const links:NodeListOf<HTMLBaseElement> = document.querySelectorAll(`[data-link="${id}"]`);
+            links?.forEach(function(link) {link.classList.add("underline");});
+          } else {
+            // const id = entry.target.getAttribute("id");
+            // const links:NodeListOf<HTMLBaseElement> = document.querySelectorAll(`[data-link="${id}"]`);
+            // links?.forEach(function(link) {link.classList.remove("font-black");});
+          }
+        });
+      }, options);
+      const elements:NodeListOf<HTMLBaseElement> = document.querySelectorAll('.observe-link');
+      elements.forEach((element) => {
+        observer.observe(element);
+      });
+	});
+</script>
