@@ -1,9 +1,9 @@
 ---
 import IconHeader from "../components/IconHeader.astro";
 
-const { title, icon,subtitle, class:className, full } = Astro.props;
+const { title, icon,subtitle, class:className, full, id } = Astro.props;
 ---
-<div class:list={["observe mx-auto pb-72 relative max-w-full  duration-500 transition-opacity opacity-0",{"mx-0":full}]}>
+<div class:list={["observe mx-auto pb-72 relative max-w-full  duration-500 transition-opacity opacity-0",{"mx-0":full}]} id={id?id:false}>
     <IconHeader title={title} iconID={icon} subtitle={subtitle} class={className}/>
     <slot/>
 </div>

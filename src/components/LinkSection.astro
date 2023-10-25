@@ -23,15 +23,18 @@ const categories = Object.keys(sortedPosts);
   {
     categories.map((category:string) => (
         <ul class="rounded-2xl _outline flex flex-col items-start justify-start mb-16 break-inside-avoid ">
-          <a class="link-panel__header px-2 uppercase font-extrabold tracking-wide pb-1 leading-tight" href={"База знаний/"+category}>{category}</a>
+          <a class="link-panel__header px-2 uppercase font-extrabold tracking-wide pb-1 leading-tight" href={"./"+category}>{category}</a>
           {sortedPosts[category].map((item:any) => (
             <li  class="group  text-gray-900 ">
-              <a data-accent={item.data.accent} class=" group-hover:bg-white group-hover:shadow-lg group-hover::shadow-lg px-2 py-1 leading-tight block rounded-2xl data-[accent]:bg-accent-400 group-hover:data-[accent]:bg-accent-300 group-hover:data-[accent]:shadow-active" href={"База знаний/" + category + "#" +item.slug.substring(item.slug.lastIndexOf("/")+1)}>{item.data.title}</a>
+              <a data-accent={item.data.accent} class=" group-hover:bg-white group-hover:shadow-lg group-hover::shadow-lg px-2 py-1 leading-tight block rounded-2xl data-[accent]:bg-accent-400 group-hover:data-[accent]:bg-accent-300 group-hover:data-[accent]:shadow-active" 
+              href={"./" +item.id.split("/")[0]+"#" +item.id}>{item.data.title}</a>
+              
             </li>
           ))}
       </ul>
     ))
   }
 </div>
+<!-- href={"База знаний/" + category + "#" +item.slug.substring(item.slug.lastIndexOf("/")+1)}>{item.data.title} -->
 
 

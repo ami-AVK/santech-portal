@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Table from "../components/tables/Table.astro";
 import Appbar from '../components/Appbar3.astro'
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+const pathname = new URL(Astro.request.url).pathname;
+var count = (pathname.match(/\//g) || []).length;
+console.log(count);
 ---
 <Layout title="Портал компании «Сантехкомплект»">
     <Appbar/>

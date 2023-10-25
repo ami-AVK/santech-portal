@@ -5,10 +5,10 @@ interface MyInterface {
 
 import { getCollection, getEntry } from 'astro:content';
 
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Appbar from '../../components/Appbar3.astro'
-import Layout from '../../layouts/Layout_markdown.astro';
-import Markdown_layout from '../../layouts/Layout_markdown_item.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Appbar from '../components/Appbar3.astro'
+import Layout from '../layouts/Layout_markdown.astro';
+import Markdown_layout from '../layouts/Layout_markdown_item.astro';
 
 export async function getStaticPaths() {
 
@@ -37,12 +37,14 @@ export async function getStaticPaths() {
 
 // при сборке принимаем заголовок и список статей этой категории
 const { header, articles } = Astro.props;
-
+const pathname = new URL(Astro.request.url).pathname;
+var count = (pathname.match(/\//g) || []).length;
+console.log(count);
 ---
 <Layout title={header}>
   <Appbar>
       <nav slot="drawer" class="flex flex-col gap-4 py-2">
-          <a class="text-md font-extrabold pb-2 block uppercase tracking-wide" href="../">
+          <a class="text-md font-extrabold pb-2 block uppercase tracking-wide" href="./">
             Главная
           </a>
           <ul class="">
@@ -86,10 +88,10 @@ const { header, articles } = Astro.props;
       <div class="border-b border-gray-900"></div>
   </Appbar>
 
-  <div class="flex px-16 py-16 scroll-smooth lg:ml-80">
-    <main class="">
+  <div class="flex px-4 md:px-16 py-16 scroll-smooth lg:ml-80 ">
+    <main class="w-full">
       <section>
-          <div class="flex  flex-col gap-2">
+          <div class="flex flex-col gap-2">
             <Breadcrumbs level1="База знаний" level2={header} class="-ml-4"></Breadcrumbs>
             <h1 class="text-4xl uppercase text-main-900 tracking-wider font-black">{header}</h1>
           </div>
