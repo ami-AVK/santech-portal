@@ -47,7 +47,7 @@ const posts=[
     <div class="absolute h-72 bottom-64 inset-x-0 bg-slate-300 -z-50 bg-gradient-to-b from-gray-300 to-gray-100"></div>
 
   
-  <section class="relative splide overflow-hidden pb-16" role="group" id="news">
+  <section class="splide overflow-hidden pb-16" role="group" id="news">
     <div class="splide__track py-3">
       <ul class="splide__list">
         {posts.map((post)=>(
@@ -59,8 +59,9 @@ const posts=[
   </section>
 </Layout>
 <script>
+  import Splide from "@splidejs/splide";
   document.addEventListener('astro:page-load', () => {
-  var splide = new Splide(".splide", {
+  var splide = new Splide("#news", {
     type: "slide",
     perPage: 3,
     gap: "2rem",
@@ -78,7 +79,7 @@ const posts=[
       768: {
         perPage: 2
       },
-  }
+    }
   });
   splide.mount();
 
