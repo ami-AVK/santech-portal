@@ -9,7 +9,48 @@ console.log(count);
 ---
 <Layout title="Портал компании «Сантехкомплект»">
     <Appbar>
-        
+        <nav slot="drawer" class="flex flex-col gap-4 py-2">
+            <a class="text-md font-extrabold pb-2 block uppercase tracking-wide" href="/santech-portal/">
+              Главная
+            </a>
+            <ul class="">
+              <li class="py-1">
+                  <a class=" font-bold pb-2 block leading-tight" href="">
+                    Департамент продаж "Строительство"
+                  </a>
+                  <ul class=" pb-1">
+                    {   
+                      ["Отдел №1", "Отдел №2","Отдел №3","Отдел №4"].map( // наполняем навигацию из коллекции по текущей категории
+                        (item:any) => (
+                          <li class="relative">
+                            <a class="relative py-1 px-2 text-sm leading-tight hover:outline lg:hover:bg-white outline-gray-300/50  block rounded-2xl" href={"#"} >{item}</a>
+                          </li>
+                        )
+                      )
+                    }
+                    {
+                        ["Департамент №1", "Департамент №2","Департамент №3","Департамент №4"].map( // наполняем остальные категории
+                          (category) => (
+                            <li class="py-1.5">
+                              <a class=" font-bold block leading-tight" href={"#"}>
+                                {category}
+                              </a>
+                            </li>
+                            // ниже закоментил для генерации ссылок из других категорий
+                            // articles[category].map(
+                            //  (item) => (
+                            //     <li>
+                            //       <a href={"#"+item.id} class="" >{item.id.substring(item.id.lastIndexOf("/")+1,item.id.lastIndexOf("."))}</a>
+                            //     </li>
+                            //   )
+                            // )
+                          )
+                        )
+                      }
+                  </ul>
+              </li>
+            </ul>
+        </nav>
     </Appbar>
     <div class="flex flex-col px-4 md:px-8 xl:px-32 scroll-smooth">
         <div class="py-16 pl-4 md:pl-16">
