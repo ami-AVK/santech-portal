@@ -1,0 +1,16 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Golos Text VF";
+        src: url("/santech-portal/asset/fonts/golos-text_vf.woff2") format("woff2");
+        font-weight: 400 900;
+        font-display: fallback;
+      }
+    html {
+      font-family: "Golos Text VF", system-ui, sans-serif;
+    }
+  }
