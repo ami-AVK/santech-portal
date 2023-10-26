@@ -17,9 +17,9 @@ const vote_data = [
 ---
 <Layout title="Голосование" subtitle="Выбираем лучшую книгу по бизнесу" icon="#reports" id="vote" class="pt-32 lg:ml-16">
     <div class="absolute h-72 w-72 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-6 rotate-[37deg]"></div>
-    <div class="flex gap-2 items-center px-16 relative pt-8">
-        <div class="absolute -top-128 -z-10 mx-auto lg:-top-96 lg:right-4">
-          <img src="./asset/img/vote_.svg" alt="" class="w-[38rem]">
+    <div class="flex gap-2 items-center px-8 md:px-16 relative pt-8">
+        <div class="absolute -top-72 md:-top-128 -z-10 md:mx-auto lg:-top-96 lg:right-4">
+          <img src="/santech-portal/asset/img/vote_.svg" alt="" class="w-full md:w-[38rem]">
         </div>
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-12 w-full z-0">
             {vote_data.map((vote, index)=>(

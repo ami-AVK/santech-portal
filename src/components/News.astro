@@ -42,8 +42,8 @@ const posts=[
 ];
 ---
 
-<Layout title="Короткометражки" icon="#stats-report" full class="ml-32 [&_svg]:text-white">
-  <div class="absolute h-40 w-40 -z-50 bg-gradient-to-b from-accent-300 to-accent-400 shadow-active rounded-4xl -top-12 -rotate-12 left-24"></div>
+<Layout title="Короткометражки" icon="#stats-report" full class="md:ml-32 [&_svg]:text-white">
+  <div class="absolute h-20 w-20 md:h-40 md:w-40 -z-50 bg-gradient-to-b from-accent-300 to-accent-400 shadow-active rounded-4xl -top-4 md:-top-12 -rotate-12 left-4 md:left-24"></div>
     <div class="absolute h-72 bottom-64 inset-x-0 bg-slate-300 -z-50 bg-gradient-to-b from-gray-300 to-gray-100"></div>
 
   
@@ -63,7 +63,7 @@ const posts=[
   document.addEventListener('astro:page-load', () => {
   var splide = new Splide("#news", {
     type: "slide",
-    perPage: 1.5,
+    perPage: 1,
     gap: "2rem",
     paginationKeyboard: true,
     keyboard: "focused",
@@ -73,8 +73,14 @@ const posts=[
     waitForTransition: true,
     updateOnMove: true,
     trimSpace: false,
-    padding: "2rem",
-    // autoWidth:true,
+    padding: "0",
+    mediaQuery: "max",
+    breakpoints: {
+			640: {
+			  perPage: 1.5,
+        padding: "2rem",
+		  },
+		},
 
   });
   splide.mount();

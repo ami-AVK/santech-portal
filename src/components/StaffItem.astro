@@ -4,20 +4,17 @@ const { photo, name, post, department } = Astro.props;
 // 
 ---
 
-<li class="relative flex flex-wrap lg:flex-col items-center text-gray-900
-  [&>div:first-child]:hover:scale-[1.35] [&>div:first-child]:hover:border-accent-400 [&>div:first-child]:hover:shadow-active [&>div:first-child]:hover:-top-4
-  [&>div:nth-child(2)]:hover:top-[19rem]
-  [&_.details]:hover:h-64 [&_.details]:hover:opacity-100"> 
-  <div class="absolute top-0 transition-all duration-300 ease-in-out rounded-full overflow-hidden border-16 border-gray-300">
-    <img class="rounded-full scale-[1.1]" src={photo} />
+<li class="group relative flex flex-col md:flex-row lg:flex-col items-center text-gray-900"> 
+  <div class="group-hover:scale-[1.35] group-hover:border-accent-400 group-hover:shadow-active group-hover:-top-4 absolute top-0 transition-all duration-300 ease-in-out rounded-full overflow-hidden border-16 border-gray-300">
+    <img class="rounded-full scale-[1.1] group-hover:z-50" src={photo} />
   </div>
-  <div class="flex flex-col staff-item__capture relative top-[16rem] transition-all duration-300 ease-in-out pb-32 pl-8 ">
+  <div class="group-hover:z-50 group-hover:top-[19rem] flex flex-col staff-item__capture relative top-[16rem] transition-all duration-300 ease-in-out pb-32 pl-8 ">
     <p class=" rounded-3xl text-xs text-white font-light px-2 py-1 mb-1 relative -left-2 bg-amber-500 place-self-start">
       {department}
     </p>
     <p class="font-extrabold text-base/5 pb-1">{name}</p>
     <p class="font-normal text-sm/5 pb-1">{post}</p>
-    <p class="top-24 absolute details overflow-y-hidden transition-all duration-300 text-sm opacity-0 ">Николай отвечает за разработку стратегий продаж, установление целей и планирование бюджета, а также за увеличение продаж компании. 
+    <p class="top-24 lg:absolute details overflow-y-hidden transition-all duration-300 text-sm lg:opacity-0  group-hover:lg:h-64 group-hover:lg:opacity-100">Николай отвечает за разработку стратегий продаж, установление целей и планирование бюджета, а также за увеличение продаж компании. 
       Он следит за реализацией планов, работает с клиентами.</p>
     
     
