@@ -58,8 +58,9 @@ const posts=[
     </div>
   </section>
 </Layout>
+
 <script>
-  import Splide from "@splidejs/splide";
+
   document.addEventListener('astro:page-load', () => {
   var splide = new Splide("#news", {
     type: "slide",
@@ -88,12 +89,3 @@ const posts=[
 });
 </script>
 
-<style>
-  /* .scroll-list{
-        display: flex;
-        gap: 16px;
-        overflow: hidden;
-        width: 100%;
-        scroll-behavior: auto;
-    } */
-</style>

@@ -1,9 +1,4 @@
-@font-face {
-  font-family: "Golos Text VF";
-  src: url("asset/fonts/golos-text_vf.woff2") format("woff2");
-  font-weight: 400 900;
-  font-display: fallback;
-}
+
 
 :root {
     /* Colors */
@@ -185,75 +180,11 @@
     --border_1: 1px solid var(--dark-grey, #E1E4E9);
   }
 
-body{
-  background: var(--steel-grey);
-}
-
-.animation-details label:hover{
-  cursor: pointer;
-}
-.animation-details label::before{
-  cursor: pointer;
-}
-.animation-details label::before{
-  max-width: 500px;
-  box-sizing: border-box;
-  margin-top: 5px;
-  background: white;
-  transition: max-height 400ms ease-out;
-
-  max-height: 4rem; /* Set a max-height value just enough to show the summary content */
-  overflow: hidden; /* Hide the rest of the content */
-}
-input:checked + details,
-details:has(input:checked) {
-  max-height: 800px; /* Set a max-height value enough to show all the content */
-}
 
 
-.is-active{
-  --tw-scale-x: 1 !important;
-  --tw-scale-y: 1 !important;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
-  filter: blur(0) !important;
-  --tw-blur: blur(0px) grayscale(0) !important;
-  opacity: 1 !important;
-}
-.splide__arrow{
-  margin-left: 0rem !important;
-  margin-right: 0rem !important;
-  background-color: white !important;
-}
-.active-background {
-  background: linear-gradient(315deg, #75fff0, #7bf3d2);
-  background-size: 400% 400%;
 
-  -webkit-animation: BackgroundActive 4s ease infinite;
-  -moz-animation: BackgroundActive 4s ease infinite;
-  -o-animation: BackgroundActive 4s ease infinite;
-  animation: BackgroundActive 4s ease infinite;
-}
 
-@-webkit-keyframes BackgroundActive {
-  0%{background-position:0% 76%}
-  50%{background-position:100% 25%}
-  100%{background-position:0% 76%}
-}
-@-moz-keyframes BackgroundActive {
-  0%{background-position:0% 76%}
-  50%{background-position:100% 25%}
-  100%{background-position:0% 76%}
-}
-@-o-keyframes BackgroundActive {
-  0%{background-position:0% 76%}
-  50%{background-position:100% 25%}
-  100%{background-position:0% 76%}
-}
-@keyframes BackgroundActive {
-  0%{background-position:0% 76%}
-  50%{background-position:100% 25%}
-  100%{background-position:0% 76%}
-}
+
 
 /* .bullet:before {
   content: "";

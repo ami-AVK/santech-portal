@@ -4,13 +4,86 @@
 @tailwind utilities;
 
 @layer base {
-    @font-face {
-        font-family: "Golos Text VF";
-        src: url("/santech-portal/asset/fonts/golos-text_vf.woff2") format("woff2");
-        font-weight: 400 900;
-        font-display: fallback;
-      }
-    html {
-      font-family: "Golos Text VF", system-ui, sans-serif;
-    }
+  @font-face {
+    font-family: "Golos Text VF";
+    src: url("/santech-portal/asset/fonts/golos-text_vf.woff2") format("woff2");
+    font-weight: 400 900;
+    font-display: fallback;
   }
+  html {
+    font-family: "Golos Text VF", system-ui, sans-serif;
+  }
+  body{
+    @apply bg-gray-100;
+  }
+}
+
+@-webkit-keyframes BackgroundActive {
+  0% {
+    background-position: 0% 76%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 76%;
+  }
+}
+@-moz-keyframes BackgroundActive {
+  0% {
+    background-position: 0% 76%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 76%;
+  }
+}
+@-o-keyframes BackgroundActive {
+  0% {
+    background-position: 0% 76%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 76%;
+  }
+}
+@keyframes BackgroundActive {
+  0% {
+    background-position: 0% 76%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 76%;
+  }
+}
+
+.active-background {
+  background: linear-gradient(315deg, #75fff0, #7bf3d2);
+  background-size: 400% 400%;
+
+  -webkit-animation: BackgroundActive 4s ease infinite;
+  -moz-animation: BackgroundActive 4s ease infinite;
+  -o-animation: BackgroundActive 4s ease infinite;
+  animation: BackgroundActive 4s ease infinite;
+}
+.is-active {
+  --tw-scale-x: 1 !important;
+  --tw-scale-y: 1 !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+  filter: blur(0) !important;
+  --tw-blur: blur(0px) grayscale(0) !important;
+  opacity: 1 !important;
+}
+.splide__arrow {
+  margin-left: 0rem !important;
+  margin-right: 0rem !important;
+  background-color: white !important;
+}
