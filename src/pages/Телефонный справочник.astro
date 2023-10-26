@@ -8,9 +8,11 @@ var count = (pathname.match(/\//g) || []).length;
 console.log(count);
 ---
 <Layout title="Портал компании «Сантехкомплект»">
-    <Appbar/>
+    <Appbar>
+        
+    </Appbar>
     <div class="flex flex-col px-4 md:px-8 xl:px-32 scroll-smooth">
-        <div class="py-16 pl-16">
+        <div class="py-16 pl-4 md:pl-16">
             <div class="flex flex-col gap-2">
                 <Breadcrumbs level1="База знаний" level2="Телефонный справочник" class="-ml-4"></Breadcrumbs>
                 <h1 class="text-3xl uppercase font-black tracking-wide">Телефонный справочник</h1>

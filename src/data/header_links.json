@@ -6,7 +6,7 @@
     { "title": "1С:Итилиум", "url": "#", "icon": "1c_itilium", "icon_one":"it_fill"  },
     { "title": "JDE", "url": "#", "icon": "jde", "icon_one":"jde_fill"  },
     { "title": "S Desk", "url": "#", "icon": "sdesk", "icon_one":"sdesk_fill"  },
-    { "title": "Телефонный справочник", "url": "./Телефонный%20справочник", "icon": "phone", "icon_one":"phones_fill"  },
+    { "title": "Телефонный справочник", "url": "/santech-portal/Телефонный%20справочник", "icon": "phone", "icon_one":"phones_fill"  },
     { "title": "Портал знаний", "url": "#", "icon": "portal", "icon_one":"portal_fill"  },
     { "title": "Santech.ru", "url": "https://www.santech.ru", "icon": "santech", "icon_one":"santech_fill"  }
 ]

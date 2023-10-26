@@ -15,8 +15,8 @@ const CATEGORY_COLORS:any = {
   <div class="max-h-64 overflow-hidden rounded-t-3xl scale-100">
     <img src="/santech-portal/img/news_1.png" alt="" class=""/>
   </div>
-  <div class="flex flex-col p-4">
-    <div class="flex justify-between items-center pl-2 pb-1">
+  <div class="flex flex-col p-2 py-3 md:p-4">
+    <div class="flex justify-between items-center pl-2 pb-2 md:pb-1">
       <Badge
               text={badge}
               class={CATEGORY_COLORS[badge]||"bg-accent-300"}
@@ -26,8 +26,8 @@ const CATEGORY_COLORS:any = {
       </span>
     </div>
     <div class="pl-3 pb-2">
-      <h3 class="text-md font-extrabold leading-tight pb-2">{title}</h3>
-      <p class="text-sm"> {post}</p>
+      <h3 class="text-xs md:text-md font-extrabold leading-4 pb-2">{title}</h3>
+      <p class="text-xs md:text-sm"> {post}</p>
     </div>
     <Button url="/santech-portal/Короткометражки" title="Подробнее" class="transition-all hover:bg-gray-100 hover:shadow-md mt-auto"></Button>
   </div>
