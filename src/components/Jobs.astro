@@ -13,8 +13,20 @@ import JobCard from "./Job.astro";
         <JobCard/>
     </div>
     <div class="animate-spin"></div>
-   
- 
+    <div id="buffer-copy-alert" class="fixed invisible opacity-0 h-8 bottom-8 right-8 transition-opacity">
+        <div class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-accent-400 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-gray-900">
+            <div class="absolute top-2/4 left-1 h-5 w-5 -translate-y-2/4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293zM9 4a1 1 0 012 0v2H9V4z"></path>
+              </svg>
+            </div>
+            <div class="ml-4 mt-px">Данные по вакансии скопированы в буфер</div>
+          </div>
+    </div>
 </section>
 <script type="text/javascript">
     var elements = document.querySelectorAll(".clipboard");
@@ -25,7 +37,8 @@ import JobCard from "./Job.astro";
     });
     }
     function setClipboard(elem) {
-        const text = elem.getAttribute('value-to-keep')
+        const id = elem.getAttribute('id'); // UUID из кнопки, соответсвует data-buffer-id из details
+        const text = document.querySelector(`[data-buffer-id="${id}"]`).textContent // Нужно отформатировать
         const type = "text/plain";    
         const blob = new Blob([text], { type });
         const data = [new ClipboardItem({ [type]: blob })];
@@ -33,15 +46,19 @@ import JobCard from "./Job.astro";
         navigator.clipboard.write(data).then(
             () => {
                 // elem.classList.add("bg-gray-300");
+                const alert_chip = document.getElementById("buffer-copy-alert");
+                alert_chip.classList.remove("opacity-0");
+                alert_chip.classList.remove("invisible");
                 elem.classList.add("animate-add");
                 setTimeout(function(){
                     elem.classList.remove("animate-add");
-                },1000);
-
-                console.log("Успешно");
+                    alert_chip.classList.add("opacity-0");
+                    alert_chip.classList.add("invisible");
+                },1500);
+                // console.log("Успешно");
             },
             () => {
-                console.log("Не очень");
+                // console.log("Не очень");
             },
     );
 }

@@ -1,9 +1,9 @@
 ---
-
+const UUID:string = crypto.randomUUID();
 ---
-<div class="flex items-center gap-4 shrink w-full isolate lg:max-w-sm text-normal ml-auto">
+<div data-searchUUID={UUID} class="flex items-center gap-4 shrink w-full isolate lg:max-w-sm text-normal ml-auto">
   <div class="relative h-fit w-full">
-    <input tabindex="1" list="suggestions" type="search" id="main-search" name="Search" placeholder="Поиск..." class="
+    <input tabindex="1" list="suggestions" type="search" id=`main-search_${UUID}` name="Search" placeholder="Поиск..." class="
     peer py-2 pl-10 pr-4 text-sm rounded-3xl w-full text-main transition-color z-50
     hover:shadow-active hover:outline outline-gray-100/50 
     focus:outline-none  focus:bg-gray-100  focus:text-gray-900">
@@ -14,7 +14,7 @@
     </span>
 
     <div class="absolute inset-x-0 px-10 h-fit bg-gray-200 shadow-xl rounded-b-3xl -z-10 top-5" >
-      <ul id="suggestions" class="text-sm text-gray-900 space-y-2 pt-8 pb-4 empty:py-0">
+      <ul id=`suggestions_${UUID}` class="text-sm text-gray-900 space-y-2 pt-8 pb-4 empty:py-0 text-xs md:text-md">
       </ul>
     </div>
   </div>
@@ -32,47 +32,112 @@
       {
         "title": "Больничный лист",
         "tags": ["Больничный лист", "Болезнь"],
-        "url": "/База%20знаний/Кадровые%20вопросы#больничный-лист"
+        "url": "/santech-portal/Кадровые%20вопросы#больничный-лист"
       },
       {
         "title": "График обучения",
         "tags": ["График", "Обучение"],
-        "url": "/База%20знаний/Активный%20сантеховец#график-обучения"
+        "url": "/santech-portal/Активный%20сантеховец#график-обучения"
       },
       {
         "sname": "Купятов",
         "ext": "1253",
         "name": "Иван Васильевич",
-        "url": "/База%20знаний/Активный%20сантеховец#график-обучения"
+        "url": "/santech-portal/Телефонный%20справочник"
       },
       {
         "sname": "Иванов",
         "ext": "3274",
-        "name": "Петр Васильевич",
-        "url": "./Телефонный%20справочник"
+        "name": "Полина Демидовна",
+        "url": "/santech-portal/Телефонный%20справочник"
+      }
+      ,
+      {
+        "sname": "Семенов",
+        "ext": "5313",
+        "name": "Екатерина Викторовна",
+        "url": "/santech-portal/Телефонный%20справочник"
+      }
+      ,
+      {
+        "sname": "Семенов",
+        "ext": "8558",
+        "name": "Владислав Сергеевич",
+        "url": "/santech-portal/Телефонный%20справочник"
+      }
+      ,
+      {
+        "sname": "Денисов",
+        "ext": "6565",
+        "name": "Платон Макарович",
+        "url": "/santech-portal/Телефонный%20справочник"
+      }
+      ,
+      {
+        "sname": "Тихонов",
+        "ext": "8723",
+        "name": "Екатерина Викторовна",
+        "url": "/santech-portal/Телефонный%20справочник"
+      }
+      ,
+      {
+        "sname": "Евсеева",
+        "ext": "3302",
+        "name": "Варвара Ивановна",
+        "url": "/santech-portal/Телефонный%20справочник"
+      }
+      ,
+      {
+        "sname": "Шувалов",
+        "ext": "3413",
+        "name": "Иван Георгиевич",
+        "url": "/santech-portal/Телефонный%20справочник"
+      }
+      ,
+      {
+        "sname": "Евсеева",
+        "ext": "4625",
+        "name": "Варвара Ивановна",
+        "url": "/santech-portal/Телефонный%20справочник"
+      }
+      ,
+      {
+        "sname": "Потапова",
+        "ext": "7473",
+        "name": "Полина Демидовна",
+        "url": "/santech-portal/Телефонный%20справочник"
       }
     ]
     const fuse = new Fuse(list, options)
+    
+    const searches = document.querySelectorAll('[data-searchUUID]') as NodeListOf<HTMLElement>;
+    console.log(searches);
+    searches.forEach((search:HTMLElement)=>
+      {
+        const searchUUID = search.dataset.searchuuid;
+        const input:HTMLInputElement = document.getElementById(`main-search_${searchUUID}`) as HTMLInputElement;
+        const search_result:HTMLBaseElement = document.getElementById(`suggestions_${searchUUID}`) as HTMLBaseElement;
 
-    const input:HTMLInputElement = document.getElementById("main-search") as HTMLInputElement;
-    const search_result:HTMLBaseElement = document.getElementById('suggestions') as HTMLBaseElement;
-
-    if(input){
-      // добавил чтобы при клике по ссылке успевал перейти, а то не успевает сработать
-      input.addEventListener("focusout", function(){
-        setTimeout(function(){
-          search_result.innerHTML ="";
-        },100);
-        
-      });
-      // ищем 
-      input.oninput = function() {
-        if(search_result){
-          search_result.innerHTML = generateOptionList(fuse.search(input.value).slice(0, 4)) as string;
+        if(input){
+          // добавил чтобы при клике по ссылке успевал перейти, а то не успевает сработать
+          input.addEventListener("focusout", function(){
+            setTimeout(function(){
+              search_result.innerHTML ="";
+            },100);
+            
+          });
+          // ищем 
+          input.oninput = function() {
+            if(search_result){
+              search_result.innerHTML = generateOptionList(fuse.search(input.value).slice(0, 4)) as string;
+            }
+          };
+              
         }
-      };
-      
-    }
+
+      }
+    )
+   
     function generateOptionList(results:any){
       let html = ""
       for (let item of results) {

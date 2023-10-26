@@ -4,6 +4,7 @@ import Button from "../components/Button.astro";
 
 const {} = Astro.props;
 
+const UUID:string = crypto.randomUUID();
 ---
 <div class="m-2 p-2 md:m-4 md:p-4 _outline rounded-2xl transition-all shadow-sm hover:border-slate-100 bg-slate-0 hover:bg-white/20 hover:shadow-xl cursor-pointer flex flex-col gap-4">
     <div class="flex flex-row place-content-between items-start">
@@ -17,10 +18,10 @@ const {} = Astro.props;
                 </div>          
             </div>   
         </div>
-        <Button class="clipboard bg-accent-400" icon="share-ios" valueToKeep="Менеджер по продажам в г. Видное"/> 
+        <Button id={UUID} class="clipboard bg-accent-400" icon="share-ios" valueToKeep="Менеджер по продажам в г. Видное"/> 
     </div>
 
-    <details class="py-4 [&_svg]:open:-rotate-180 flex ">
+    <details data-buffer-id={UUID} class="py-4 [&_svg]:open:-rotate-180 flex ">
         <summary class="flex cursor-pointer list-none items-center flex-row place-items-center gap-4 px-3 py-2 rounded-3xl ">
             <!-- <input type="checkbox" name="approach-two" id="approach-two" class="hidden"/> -->
             <svg xmlns="http://www.w3.org/2000/svg" class="rotate-0 transform text-blue-700 transition-all duration-300" width="24" height="24" viewBox="0 0 24 24" fill="none">
