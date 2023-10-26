@@ -3,9 +3,15 @@ import { getCollection, getEntry } from "astro:content";
 
 const articlesEntries = await getCollection("articles");
 
+let sortedBlogPosts = articlesEntries.sort((a, b) => {
+  const article_1:number = a.data.order as number;
+  const article_2:number = b.data.order as number? b.data.order as number:10000000;
+  return article_1-article_2;
+});
+
 let sortedPosts: any = {};
 
-articlesEntries.forEach((obj) => {
+sortedBlogPosts.forEach((obj) => {
   let cat = obj.id.substring(0, obj.id.indexOf("/"));
   const sortBy = cat;
   if (sortedPosts[sortBy]) {
@@ -14,6 +20,14 @@ articlesEntries.forEach((obj) => {
     sortedPosts[sortBy] = [obj];
   }
 });
+const categoryOrder = ["Наша компания", "Всё для менеджеров по продажам и закупкам", "Кадровые вопросы", "Бухгалтерские вопросы", "Правила IT", "Административные вопросы", "Активный сантеховец", "Заявки"];
+// let acc={};
+sortedPosts = Object.keys(sortedPosts)
+  .sort((a, b) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b))
+  .reduce((acc:any, key:string) => {
+    acc[key] = sortedPosts[key as any] as any;
+    return acc;
+  }, {});
 
 const categories = Object.keys(sortedPosts);
 
@@ -23,11 +37,11 @@ const categories = Object.keys(sortedPosts);
   {
     categories.map((category:string) => (
         <ul class="rounded-2xl _outline flex flex-col items-start justify-start mb-16 break-inside-avoid ">
-          <a class="link-panel__header px-2 uppercase font-extrabold tracking-wide pb-1 leading-tight" href={"./"+category}>{category}</a>
+          <a class="link-panel__header px-2 uppercase font-extrabold tracking-wide pb-1 leading-tight" href={"/santech-portal/"+category}>{category}</a>
           {sortedPosts[category].map((item:any) => (
             <li  class="group  text-gray-900 ">
               <a data-accent={item.data.accent} class=" group-hover:bg-white group-hover:shadow-lg group-hover::shadow-lg px-2 py-1 leading-tight block rounded-2xl data-[accent]:bg-accent-400 group-hover:data-[accent]:bg-accent-300 group-hover:data-[accent]:shadow-active" 
-              href={"./" +item.id.split("/")[0]+"#" +item.id}>{item.data.title}</a>
+              href={"/santech-portal/" +item.id.split("/")[0]+"#" +item.id}>{item.data.title}</a>
               
             </li>
           ))}

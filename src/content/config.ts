@@ -8,6 +8,7 @@ const articlesCollection = defineCollection({
     title: z.string(),
     category: z.string(),
     accent: z.boolean().optional(),
+    order: z.number().optional(),
     tags: z.array(z.string()),
   }),
 });
