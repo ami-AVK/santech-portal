@@ -1,6 +1,13 @@
 ---
-interface MyInterface {
-    [key: string]: any;
+interface Event {
+    day: number;
+    month: string;
+    time: string;
+    location: string;
+    title: string;
+    post: string;
+    url?: string;
+    image?: string;
 }
 import { getCollection, getEntry } from 'astro:content';
 
@@ -9,34 +16,70 @@ import Layout from '../layouts/Layout_markdown.astro';
 import Markdown_layout from '../layouts/Layout_markdown_item.astro';
 
 
-const allBlogPosts = await getCollection('articles');
-  
-// создаем словарь
-let sortedPosts:any = Object();
-
-// забираем все категории из коллекции статей и собираем обьект js
-allBlogPosts.forEach((obj) => { 
-let cat = obj.id.substring(0, obj.id.indexOf("/"));
-if (sortedPosts[cat]) {
-    sortedPosts[cat].push(obj);
-} else {
-    sortedPosts[cat] = [obj];
-}
-});
-// Object.keys(sortedPosts).map(entry => ({
-//     params: { slug: entry }, props: { "header":entry,"articles": sortedPosts},
-//   }
-//   ));
-// при сборке принимаем заголовок и список статей этой категории
-// const { header, articles } = Astro.props;
-
+const events:Event[] =[
+    {
+        day: 23,
+        month: "октября",
+        time:"08:00—10:00",
+        location: "Корпус 4, кабинет 24",
+        title: "Обучение Alcaplast",
+        post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Цель партнерства - разработать интеллектуальные сантехнические системы, интегрированные с системами автоматизации и управления зданием, оптимизирующие использование воды и повышающие общую энергоэффективность.",
+        url: "/santech-portal/События",
+        image: "/santech-portal/img/События/1.jpg"
+    },
+    {
+        day: 24,
+        month: "октября",
+        time:"13:20",
+        location: "Корпус 1, кабинет 11",
+        title: "Обучение Alcaplast",
+        post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, заключила партнерство с группой ведущих архитекторов. Цель партнерства - разработать интеллектуальные сантехнические системы, интегрированные с системами автоматизации и управления зданием, оптимизирующие использование воды и повышающие общую энергоэффективность.",
+        url: "/santech-portal/События",
+        image: "/santech-portal/img/События/1.jpg"
+    },
+    {
+        day: 26,
+        month: "октября",
+        time:"14:10",
+        location: "Корпус 1, кабинет 16",
+        title: "Обучение Alcaplast",
+        post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Цель партнерства - разработать интеллектуальные сантехнические системы, интегрированные с системами автоматизации и управления зданием, оптимизирующие использование воды и повышающие общую энергоэффективность.",
+        url: "/santech-portal/События",
+        image: "/santech-portal/img/События/1.jpg"
+    },
+    {
+        day: 30,
+        month: "октября",
+        time:"14:50",
+        location: "Корпус 3, кабинет 7",
+        title: "Обучение Alcaplast",
+        post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Цель партнерства - разработать интеллектуальные сантехнические системы, интегрированные с системами автоматизации и управления зданием, оптимизирующие использование воды и повышающие общую энергоэффективность.",
+        url: "/santech-portal/События",
+        image: "/santech-portal/img/События/1.jpg"
+    }
+];
 ---
 <Layout title="База знаний">
-  <Appbar/>
+  <Appbar>   
+   </Appbar>
   <div class="observe mx-auto max-w-screen-xl pt-16">
     <h1 class="text-3xl text-main-900 font-black tracking-wider uppercase pl-12 pt-16">Анонс мероприятий</h1>
+    <section>
+      <ul class="flex flex-wrap gap-16">
+      {
+        events.slice(1).map((event)=>(
+          <li class="min-w-min basis-1 grow py-3 px-4 _outline rounded-3xl">
+            <h3 class="uppercase text-lg font-black tracking-wider leading-tight pb-4">{event.title}</h3>
+            <p>{event.post}</p>
+            <p>{event.day} {event.month} {event.time}</p>
+          </li>
+        ))
+      }
+      </ul>
+    </section>
   </div>
-  
+
+
 
 
   
