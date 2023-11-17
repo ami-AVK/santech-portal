@@ -87,3 +87,28 @@
   margin-right: 0rem !important;
   background-color: white !important;
 }
+
+.grid-4-col{
+  display: grid;
+  grid-auto-flow: dense;
+  /* grid-auto-rows: 100px; */
+  /* grid-auto-column: 1fr; */
+  /* grid-gap: 5px; */
+}
+
+.grid-4-col :nth-child(10n + 2),
+.grid-4-col :nth-child(10n + 5),
+.grid-4-col :nth-child(10n + 7),
+.grid-4-col :nth-child(10n + 8) {
+  grid-column: span 2;
+}
+.grid-4-col :nth-child(10n + 9) {
+  grid-column: 3;
+}
+.grid-4-col :nth-child(10n + 3) {
+  grid-column: 4;
+}
+.grid-4-col :nth-child(10n + 1),
+.grid-4-col :nth-child(10n + 10) {
+  grid-row: span 2;
+}
