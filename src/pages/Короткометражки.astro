@@ -74,12 +74,7 @@ const posts=[
 <Layout title="База знаний">
   
 
-  <!-- <div class="max-w-screen-xl mx-auto pt-16 relative">
-    <div class="flex flex-col gap-2">
-        <Breadcrumbs level1="Короткометражки" level2="Короткометражки" class="-ml-4"></Breadcrumbs>
-        <h1 class="text-3xl uppercase font-black tracking-wide">Короткометражки</h1>
-    </div>
-  </div> -->
+
   <div class="px-16 flex pb-4 gap-32 min-h-screen w-full  justify-center items-center max-w-screen-xl mx-auto">
     <div class="relative rounded-4xl max-w-[40%]">
       <img src="/santech-portal/img/news_1.png" alt="" class="rounded-4xl _outline"/>
@@ -99,7 +94,19 @@ const posts=[
 
   </div>
   <Appbar/>
-  <div id="scroll-driver" class="grid grid-4-col gap-16 mx-auto max-w-screen-xl px-16 py-16">
+  <div class="max-w-screen-xl mx-auto pt-16 relative">
+    <div class="flex flex-col gap-2">
+        <Breadcrumbs level1="Короткометражки" level2="Короткометражки" class="-ml-4"></Breadcrumbs>
+        <h1 class="text-3xl uppercase font-black tracking-wide">Короткометражки</h1>
+    </div>
+  </div>
+  <div class="flex gap-4 mx-auto max-w-screen-xl pt-8 pb-4">
+    {posts.map(post => (
+      <Badge text={post.category}/>
+    ))}
+    
+  </div>
+  <div id="scroll-driver" class="grid grid-4-col gap-16 mx-auto max-w-screen-xl py-16">
     <!-- scoll-driven-element-scale -->
 
     <!-- {posts.map(post => (
@@ -166,10 +173,11 @@ const posts=[
     
     </div> -->
     {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,11,1,11,1,1,].map((index)=>(
-      <div class="p-4 rounded-3xl  _outline min-w-min ">
-        <h3>Партнерство с ведущей строительной фирмой для предоставления комплексных сантехнических решений</h3>
-        <p>roll swept built information stared fifty determine soil nest announced origin sing generally country about vast finger sister wrong solid happy joy find physical1</p>
-        <Button url="/santech-portal/Короткометражки" title="Подробнее" class="transition-all hover:bg-gray-100 hover:shadow-md text-xs md:text-base"></Button>
+      <div class="p-4 rounded-3xl  _outline min-w-min flex flex-col">
+        <h3 class="pb-2 font-extrabold leading-tight">Партнерство с ведущей строительной фирмой для предоставления комплексных сантехнических решений</h3>
+        <p class="text-sm">roll swept built information stared fifty determine soil nest announced origin sing generally country about vast finger sister wrong solid happy joy find physical1</p>
+        <div class=" pt-4">
+          <Button url="/santech-portal/Короткометражки" title="Подробнее" class="transition-all bg-accent-400 hover:bg-accent-300 hover:shadow-active text-xs md:text-base"></Button></div>
       </div>
     ))}
    
