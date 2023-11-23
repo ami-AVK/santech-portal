@@ -34,6 +34,8 @@ module.exports = {
           900: "#165080",
         },
         accent: {
+          100: "#e7fffc",
+          200: "#aafff6",
           300: "#75fff0",
           400: "#7bf3d2",
           DEFAULT: "#7bf3d2",
@@ -63,7 +65,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
-
+    require('@tailwindcss/container-queries'),
     function ({ addComponents, theme }) {
       addComponents({
         "._outline": {
@@ -73,7 +75,8 @@ module.exports = {
         },
         ".under":{
           borderBottom: "1px solid",
-        }
+        },
+
       });
     },
 

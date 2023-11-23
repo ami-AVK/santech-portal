@@ -43,13 +43,13 @@ const posts=[
 ---
 
 <Layout title="Короткометражки" icon="#stats-report" full class="md:ml-32 [&_svg]:text-white">
-  <div class="absolute h-20 w-20 md:h-40 md:w-40 -z-50 bg-gradient-to-b from-accent-300 to-accent-400 shadow-active rounded-4xl -top-4 md:-top-12 -rotate-12 left-4 md:left-24"></div>
-    <div class="absolute h-72 bottom-64 inset-x-0 bg-slate-300 -z-50 bg-gradient-to-b from-gray-300 to-gray-100"></div>
+  <div class="absolute w-20 h-20 md:h-40 md:w-40 -z-50 bg-gradient-to-b from-accent-300 to-accent-400 shadow-active rounded-4xl -top-4 md:-top-12 -rotate-12 left-4 md:left-24"></div>
+    <div class="absolute inset-x-0 h-72 bottom-64 bg-slate-300 -z-50 bg-gradient-to-b from-gray-300 to-gray-100"></div>
 
   
-  <section class="splide overflow-hidden pb-16" role="group" id="news">
-    <div class="splide__track py-8">
-      <ul class="splide__list">
+  <section class="pb-16 overflow-hidden splide " role="group" id="news">
+    <div class="py-8 splide__track ">
+      <ul class="splide__list ">
         {posts.map((post)=>(
           <NewsCard photo="" title={post.title} post={post.post} badge={post.category} date={post.date} />
         ))}
@@ -67,6 +67,7 @@ const posts=[
     perPage: 1,
     gap: "2rem",
     paginationKeyboard: true,
+    pagination: false,
     keyboard: "focused",
     focus: "center",
     start: 1,
@@ -75,11 +76,16 @@ const posts=[
     updateOnMove: true,
     trimSpace: false,
     padding: "0",
-    mediaQuery: "max",
+    mediaQuery: "min",
     breakpoints: {
-			640: {
-			  perPage: 1.2,
-        padding: "2rem",
+      320:{
+        start: 0,
+        perPage: 1.2,
+      },
+			768: {
+			  perPage: 3,
+        start: 2,
+        // padding: "1rem",
 		  },
 		},
 

@@ -12,11 +12,11 @@ const CATEGORY_COLORS:any = {
 ---
 <!-- props: {"property1":{"type":"VARIANT","defaultValue":"'lg'","variantOptions":["LG","XS","Variant3"]}} -->
 <div class="flex flex-col self-center my-6 pb-4 _outline bg-gray-200 rounded-3xl gap-2 splide__slide shadow-xl duration-300 scale-[0.8] transition-all opacity-70 min-w-32 max-w-screen-sm">
-  <div class="max-h-64 overflow-hidden rounded-t-3xl scale-100">
+  <div class="overflow-hidden scale-100 max-h-64 rounded-t-3xl">
     <img src="/santech-portal/img/news_1.png" alt="" class=""/>
   </div>
   <div class="flex flex-col p-2 py-3 md:p-4">
-    <div class="flex justify-between items-center pl-2 pb-2 md:pb-1">
+    <div class="flex items-center justify-between pb-2 pl-2 md:pb-1">
       <Badge
               text={badge}
               class={CATEGORY_COLORS[badge]||"bg-accent-300"}
@@ -25,11 +25,11 @@ const CATEGORY_COLORS:any = {
         26.10.2023 14:25
       </span>
     </div>
-    <div class="pl-3 pb-2 leading-4">
-      <h3 class="text-xs md:text-lg font-extrabold pb-2 md:leading-5">{title}</h3>
-      <p class="text-xs md:text-sm"> {post}</p>
+    <div class="pb-2 pl-3 leading-4">
+      <h3 class="pb-2 text-xs font-extrabold md:text-lg md:leading-5">{title}</h3>
+      <!-- <p class="text-xs md:text-sm"> {post}</p> -->
     </div>
-    <Button url="/santech-portal/Короткометражки" title="Подробнее" class="transition-all hover:bg-gray-100 hover:shadow-md text-xs md:text-base"></Button>
+    <Button url="/santech-portal/Короткометражки" title="Подробнее" class="text-xs transition-all hover:bg-gray-100 hover:shadow-md md:text-base"></Button>
   </div>
 
 </div>

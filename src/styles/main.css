@@ -16,7 +16,29 @@
   body{
     @apply bg-gray-100;
   }
+
 }
+@layer utilities{
+  .badge-yellow{
+    @apply bg-gradient-to-bl from-yellow-400/80 to-yellow-200/80;
+  }
+  .badge-red{
+    @apply bg-gradient-to-bl from-red-400/80 to-red-200/80;
+  }
+  .badge-green{
+    @apply bg-gradient-to-bl from-green-400/80 to-green-200/80;
+  }
+  .badge-blue{
+    @apply bg-gradient-to-bl from-blue-400/80 to-blue-200/80;
+  }
+  .badge-orange{
+    @apply bg-gradient-to-bl from-orange-400/80 to-orange-200/80;
+  }
+  .badge-indigo{
+    @apply bg-gradient-to-bl from-indigo-400/80 to-indigo-200/80;
+  }
+}
+
 
 @-webkit-keyframes BackgroundActive {
   0% {
@@ -95,20 +117,23 @@
   /* grid-auto-column: 1fr; */
   /* grid-gap: 5px; */
 }
-
-.grid-4-col :nth-child(10n + 2),
-.grid-4-col :nth-child(10n + 5),
-.grid-4-col :nth-child(10n + 7),
-.grid-4-col :nth-child(10n + 8) {
+.grid-4-col>div{
+  height: 16rem;
+}
+.grid-4-col> div:nth-child(10n + 2),
+.grid-4-col> div:nth-child(10n + 5),
+.grid-4-col> div:nth-child(10n + 7),
+.grid-4-col> div:nth-child(10n + 8) {
   grid-column: span 2;
 }
-.grid-4-col :nth-child(10n + 9) {
+.grid-4-col> div:nth-child(10n + 9) {
+  grid-column: 2;
+}
+.grid-4-col> div:nth-child(10n + 3) {
   grid-column: 3;
 }
-.grid-4-col :nth-child(10n + 3) {
-  grid-column: 4;
-}
-.grid-4-col :nth-child(10n + 1),
-.grid-4-col :nth-child(10n + 10) {
+.grid-4-col> div:nth-child(10n + 1),
+.grid-4-col> div:nth-child(10n + 10) {
   grid-row: span 2;
+  height: 34rem;
 }

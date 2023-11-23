@@ -6,6 +6,7 @@ import { getCollection, getEntry } from 'astro:content';
 import NewsCard from "../components/NewsCard.astro";
 import Badge from "../components/Badge.astro";
 import Button from "../components/Button.astro";
+import Card from "../components/NewsCard_.astro";
 import Appbar from '../components/Appbar3.astro'
 import Breadcrumbs from '../components/Breadcrumbs.astro'
 import Layout from '../layouts/Layout_markdown.astro';
@@ -67,119 +68,67 @@ const posts=[
     title: "Партнерство с ведущими архитекторами для проектирования интеллектуальных сантехнических систем",
     post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Целью партнерства является разработка интеллектуальных сантехнических систем, интегрированных с системами автоматизации и управления зданием, оптимизирующих использование воды и повышающих общую энергоэффективность.",
     date:"26.10.2023 12:37",
-    category: "Стратегия" 
+    category: "Стратегия"
   },
 ];
 ---
 <Layout title="База знаний">
-  
-
-
-  <div class="px-16 flex pb-4 gap-32 min-h-screen w-full  justify-center items-center max-w-screen-xl mx-auto">
+  <div class="flex items-center justify-center w-full max-w-screen-xl min-h-screen gap-32 px-16 pb-4 mx-auto">
     <div class="relative rounded-4xl max-w-[40%]">
       <img src="/santech-portal/img/news_1.png" alt="" class="rounded-4xl _outline"/>
-      <img src="/santech-portal/img/news_1.png" alt="" class="rounded-4xl blur-xl scale-110 absolute top-0 -z-10 opacity-50"/>
+      <img src="/santech-portal/img/news_1.png" alt="" class="absolute top-0 scale-110 opacity-50 rounded-4xl blur-xl -z-10"/>
+      <div class="absolute h-128 w-128 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-24 -left-12 -rotate-12"></div>
     </div>
     <div class="flex flex-col">
       <Badge text={posts[0].category}/>
-      <h2 class="pl-2 font-extrabold text-4xl tracking-wide uppercase max-w-2xl py-2">{posts[0].title}</h2>
+      <h2 class="max-w-2xl py-2 pl-2 text-4xl font-extrabold tracking-wide uppercase">{posts[0].title}</h2>
       <span class="pl-2 text-xs font-normal tracking-wide ">
         {posts[0].date}
       </span>
-      <div class="pl-2 flex flex-col py-16  prose normal-case leading-loose font-normal pr ">
+      <div class="flex flex-col py-16 pl-2 font-normal leading-loose prose normal-case pr ">
         {posts[0].post}
       </div>
-      <Button url="/santech-portal/Короткометражки#scroll-driver" title="Другие новости" class="transition-all bg-accent-400 hover:bg-accent-300 hover:shadow-active text-xs md:text-base"></Button>
+      <Button url="/santech-portal/Короткометражки#scroll-driver" title="Другие новости" class="text-xs transition-all bg-accent-400 hover:bg-accent-300 hover:shadow-active md:text-base"></Button>
     </div>
 
   </div>
   <Appbar/>
-  <div class="max-w-screen-xl mx-auto pt-16 relative">
+  <div class="relative max-w-screen-xl pt-16 mx-auto">
     <div class="flex flex-col gap-2">
         <Breadcrumbs level1="Короткометражки" level2="Короткометражки" class="-ml-4"></Breadcrumbs>
-        <h1 class="text-3xl uppercase font-black tracking-wide">Короткометражки</h1>
+        <h1 class="text-3xl font-black tracking-wide uppercase">Короткометражки</h1>
     </div>
   </div>
-  <div class="flex gap-4 mx-auto max-w-screen-xl pt-8 pb-4">
+  <!-- <div class="flex max-w-screen-xl gap-4 pt-8 pb-4 mx-auto">
     {posts.map(post => (
       <Badge text={post.category}/>
     ))}
     
-  </div>
-  <div id="scroll-driver" class="grid grid-4-col gap-16 mx-auto max-w-screen-xl py-16">
-    <!-- scoll-driven-element-scale -->
+  </div> -->
 
-    <!-- {posts.map(post => (
-          <div class="flex flex-col my-6 pb-4  bg-gray-200 rounded-3xl gap-2 shadow-xl  transition-all min-w-[32rem] max-w-screen-sm basis-1 grow">
-            <div class="max-h-64 overflow-hidden rounded-t-3xl scale-100">
-              <img src="/santech-portal/img/news_1.png" alt="" class=""/>
-            </div>
-            <div class="flex flex-col p-2 py-3 md:p-4">
-              <div class="flex justify-between items-center pl-2 pb-2 md:pb-1">
-                <Badge text={post.category}/>
-                <span class="text-xs">
-                  26.10.2023 14:25
-                </span>
-              </div>
-              <div class="pl-3 pb-2 leading-4">
-                <h3 class="text-xs md:text-lg font-extrabold pb-2 md:leading-5">{post.title}</h3>
-                <p class="text-xs md:text-sm">{post.post}</p>
-              </div>
-             
-            </div>
-          
-          </div>
-    ))} -->
-    <!-- {posts.map(post => (
-          <div class="flex flex-col my-6 pb-4  bg-gray-200 rounded-3xl gap-2 shadow-xl  transition-all min-w-[32rem] max-w-screen-sm basis-1 grow">
-            <div class="max-h-64 overflow-hidden rounded-t-3xl scale-100">
-              <img src="/santech-portal/img/news_1.png" alt="" class=""/>
-            </div>
-            <div class="flex flex-col p-2 py-3 md:p-4">
-              <div class="flex justify-between items-center pl-2 pb-2 md:pb-1">
-                <Badge text={post.category}/>
-                <span class="text-xs">
-                  26.10.2023 14:25
-                </span>
-              </div>
-              <div class="pl-3 pb-2 leading-4">
-                <h3 class="text-xs md:text-lg font-extrabold pb-2 md:leading-5">{post.title}</h3>
-                <p class="text-xs md:text-sm">{post.post}</p>
-              </div>
-             
-            </div>
-          
-          </div>
-    ))} -->
-
-
-    <!-- <div class="scoll-driven-element flex flex-col my-6 pb-4 odd:col-span-2  bg-gray-200 rounded-3xl gap-2 shadow-xl  transition-all min-w-[32rem] max-w-screen-sm basis-1 grow">
-      <div class="max-h-64 overflow-hidden rounded-t-3xl scale-100">
-        <img src="/santech-portal/img/news_1.png" alt="" class=""/>
-      </div>
-      <div class="flex flex-col p-2 py-3 md:p-4">
-        <div class="flex justify-between items-center pl-2 pb-2 md:pb-1">
-          <Badge/>
-          <span class="text-xs">
-            26.10.2023 14:25
-          </span>
-        </div>
-        <div class="pl-3 pb-2 leading-4">
-          <h3 class="text-xs md:text-lg font-extrabold pb-2 md:leading-5">HHIhh jfeo joioefw fjjo e </h3>
-          <p class="text-xs md:text-sm">roll swept built information stared fifty determine soil nest announced origin sing generally country about vast finger sister wrong solid happy joy find physical1</p>
-        </div>
-        <Button url="/santech-portal/Короткометражки" title="Подробнее" class="transition-all hover:bg-gray-100 hover:shadow-md text-xs md:text-base"></Button>
-      </div>
+  <div id="scroll-driver" class="grid max-w-screen-xl gap-8 py-16 mx-auto grid-4-col ">
+     {[1,1,1,1,1,1,].map((index)=>(
+        <Card/>
+      ))}
+    </div>
     
-    </div> -->
-    {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,11,1,11,1,1,].map((index)=>(
-      <div class="p-4 rounded-3xl  _outline min-w-min flex flex-col">
-        <h3 class="pb-2 font-extrabold leading-tight">Партнерство с ведущей строительной фирмой для предоставления комплексных сантехнических решений</h3>
-        <p class="text-sm">roll swept built information stared fifty determine soil nest announced origin sing generally country about vast finger sister wrong solid happy joy find physical1</p>
-        <div class=" pt-4">
-          <Button url="/santech-portal/Короткометражки" title="Подробнее" class="transition-all bg-accent-400 hover:bg-accent-300 hover:shadow-active text-xs md:text-base"></Button></div>
-      </div>
-    ))}
+    <div class="flex flex-col max-w-screen-xl mx-auto">
+      {posts.map(post => (
+        <h2 class="w-full pl-3 text-xl font-black tracking-wide uppercase">{post.category}</h2>
+        <div class="grid grid-cols-3 gap-4 py-8">
+          
+          {[1,1,1,1,1,1,1,1,1,1,1 ].map((index)=>(
+            <div class="flex max-w-lg gap-4 text-sm hover:bg-white hover:shadow-xl rounded-3xl shrink-1 basis-1">
+                <a class="flex flex-col p-2 pl-3 cursor-pointer min-w-min">
+                    <span class="text-xs">26.10.2023 14:25</span>
+                    <h3 class="self-center font-normal leading-tight">Партнерство с ведущей строительной фирмой для предоставления комплексных сантехнических решений</h3>
+                </a>
+            </div>
+          ))}
+        </div>    
+      ))}
+
+    
    
 
 
