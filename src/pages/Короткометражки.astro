@@ -73,38 +73,56 @@ const posts=[
 ];
 ---
 <Layout title="База знаний">
-  <div class="flex items-center justify-center w-full max-w-screen-xl min-h-screen gap-32 px-16 pb-4 mx-auto">
-    <div class="relative rounded-4xl max-w-[40%]">
+  <Appbar/>
+  <!-- Секция новости -->
+  <div class="relative flex items-center justify-center w-full min-h-screen gap-32 pt-64 pb-4 mx-auto ">
+    <!-- <div class="relative rounded-4xl max-w-[40%]">
       <img src="/santech-portal/img/news_1.png" alt="" class="rounded-4xl _outline"/>
       <img src="/santech-portal/img/news_1.png" alt="" class="absolute top-0 scale-110 opacity-50 rounded-4xl blur-xl -z-10"/>
       <div class="absolute h-128 w-128 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-24 -left-12 -rotate-12"></div>
+    </div> -->
+    <div class="absolute inset-x-0 top-0 overflow-hidden group h-128 -z-10 ">
+      <div class="absolute inset-0 z-10 badge-teal backdrop-grayscale-[1]"></div>
+        <img src="/santech-portal/img/news_1.png" alt="" class="object-cover w-full"/>
     </div>
-    <div class="flex flex-col">
-      <Badge text={posts[0].category}/>
-      <h2 class="max-w-2xl py-2 pl-2 text-4xl font-extrabold tracking-wide uppercase">{posts[0].title}</h2>
-      <span class="pl-2 text-xs font-normal tracking-wide ">
-        {posts[0].date}
-      </span>
-      <div class="flex flex-col py-16 pl-2 font-normal leading-loose prose normal-case pr ">
-        {posts[0].post}
+    <div class="relative flex flex-col gap-8 pb-32 ">
+
+     
+      <div class="py-8">
+        <h2 class="max-w-4xl py-2 pl-2 text-4xl font-extrabold tracking-wide uppercase">{posts[0].title}</h2>
+        <div class="flex items-center w-full gap-8 py-2">
+          <Badge text={posts[0].category}/>
+          <span class="text-xs"> {posts[0].date}</span>
+        </div>
       </div>
-      <Button url="/santech-portal/Короткометражки#scroll-driver" title="Другие новости" class="text-xs transition-all bg-accent-400 hover:bg-accent-300 hover:shadow-active md:text-base"></Button>
+
+      <div class="flex flex-col max-w-screen-lg pl-2 font-normal leading-loose prose normal-case prose-p:text-lg prose-p:leading-9 prose-p:tracking-wide">
+        <p>
+          {posts[0].post}
+        </p>
+        <p>
+          {posts[0].post}
+        </p>
+        <p>
+          {posts[0].post}
+        </p>
+      </div>
+      <!-- <Button url="/santech-portal/Короткометражки#scroll-driver" title="Другие новости" class="text-xs transition-all bg-accent-400 hover:bg-accent-300 hover:shadow-active md:text-base"></Button> -->
     </div>
 
+
   </div>
-  <Appbar/>
+  <!--  -->
+
+  <!-- Заголовок  -->
   <div class="relative max-w-screen-xl pt-16 mx-auto">
     <div class="flex flex-col gap-2">
         <Breadcrumbs level1="Короткометражки" level2="Короткометражки" class="-ml-4"></Breadcrumbs>
         <h1 class="text-3xl font-black tracking-wide uppercase">Короткометражки</h1>
     </div>
   </div>
-  <!-- <div class="flex max-w-screen-xl gap-4 pt-8 pb-4 mx-auto">
-    {posts.map(post => (
-      <Badge text={post.category}/>
-    ))}
-    
-  </div> -->
+  <!--  -->
+
 
   <div id="scroll-driver" class="grid max-w-screen-xl gap-8 py-16 mx-auto grid-4-col ">
      {[1,1,1,1,1,1,].map((index)=>(

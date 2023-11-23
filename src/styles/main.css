@@ -28,6 +28,9 @@
   .badge-green{
     @apply bg-gradient-to-bl from-green-400/80 to-green-200/80;
   }
+  .badge-teal{
+    @apply bg-gradient-to-bl from-teal-400/80 to-teal-200/80;
+  }
   .badge-blue{
     @apply bg-gradient-to-bl from-blue-400/80 to-blue-200/80;
   }
