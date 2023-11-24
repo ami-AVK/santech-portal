@@ -1,31 +1,30 @@
 ---
 interface MyInterface {
-    [key: string]: any;
+  [key: string]: any;
 }
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry } from "astro:content";
 import NewsCard from "../components/NewsCard.astro";
 import Badge from "../components/Badge.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/NewsCard_.astro";
-import Appbar from '../components/Appbar3.astro'
-import Breadcrumbs from '../components/Breadcrumbs.astro'
-import Layout from '../layouts/Layout_markdown.astro';
-import Markdown_layout from '../layouts/Layout_markdown_item.astro';
+import Appbar from "../components/Appbar3.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Layout from "../layouts/Layout_markdown.astro";
+import Markdown_layout from "../layouts/Layout_markdown_item.astro";
 
+const allBlogPosts = await getCollection("articles");
 
-const allBlogPosts = await getCollection('articles');
-  
 // создаем словарь
-let sortedPosts:any = Object();
+let sortedPosts: any = Object();
 
 // забираем все категории из коллекции статей и собираем обьект js
-allBlogPosts.forEach((obj) => { 
-let cat = obj.id.substring(0, obj.id.indexOf("/"));
-if (sortedPosts[cat]) {
+allBlogPosts.forEach((obj) => {
+  let cat = obj.id.substring(0, obj.id.indexOf("/"));
+  if (sortedPosts[cat]) {
     sortedPosts[cat].push(obj);
-} else {
+  } else {
     sortedPosts[cat] = [obj];
-}
+  }
 });
 // Object.keys(sortedPosts).map(entry => ({
 //     params: { slug: entry }, props: { "header":entry,"articles": sortedPosts},
@@ -33,160 +32,223 @@ if (sortedPosts[cat]) {
 //   ));
 // при сборке принимаем заголовок и список статей этой категории
 // const { header, articles } = Astro.props;
-const posts=[
+
+// ["badge-indigo","badge-blue","badge-orange","badge-yellow","badge-green","badge-red"]
+const catagories = [
+  {
+    name: "PROчитай",
+    
+    colorClass: "badge-red",
+  },
+  {
+    name: "Развитие",
+    colorClass: "badge-blue",
+  },
+  {
+    name: "Обучение",
+    colorClass: "badge-orange",
+  },
+  {
+    name: "Новинки ассортимента",
+    colorClass: "badge-yellow",
+  },
+  {
+    name: "Иновации",
+    colorClass: "badge-green",
+  },
+  {
+    name: "Стратегия",
+    colorClass: "badge-indigo",
+  },
+];
+
+const badge_class = catagories[Math.round(Math.random()*5)];
+
+const posts = [
   {
     title: "Выпущена новая линейка экологически чистых сантехнических решений",
     post: "Ведущая компания по производству инженерного сантехнического оборудования выпустила новую линейку экологичных продуктов, предназначенных для снижения потребления воды и обеспечения экологической безопасности. Инновационные решения включают в себя смесители с низким расходом воды, водосберегающие душевые лейки и энергоэффективные водонагреватели, позволяющие клиентам минимизировать воздействие на окружающую среду без ущерба для производительности.",
-    date:"14.10.2023 10:18",
-    category: "PROчитай" 
+    date: "14.10.2023 10:18",
+    category: catagories[0],
   },
   {
-    title: "Партнерство с ведущей строительной фирмой для предоставления комплексных сантехнических решений",
+    title:
+      "Партнерство с ведущей строительной фирмой для предоставления комплексных сантехнических решений",
     post: "В рамках стратегического курса на комплексное обслуживание своих клиентов компания, производящая инженерное сантехническое оборудование, заключила партнерство с ведущей строительной фирмой. Сотрудничество позволит компании предоставлять комплексные сантехнические решения для крупномасштабных проектов, предлагая клиентам из строительной отрасли универсальное решение.",
-    date:"17.10.2023 14:25",
-    category: "Развитие" 
+    date: "17.10.2023 14:25",
+    category: catagories[1],
   },
   {
-    title: "Запущена ведущая в отрасли программа обучения специалистов-сантехников",
+    title:
+      "Запущена ведущая в отрасли программа обучения специалистов-сантехников",
     post: "Осознавая важность квалифицированных специалистов в области сантехники, компания, производящая инженерное сантехническое оборудование, представила ведущую в отрасли программу обучения. Программа направлена на повышение уровня знаний и навыков специалистов-сантехников, ознакомление их с новейшими методиками и передовым опытом установки и обслуживания продукции компании.",
-    date:"26.10.2023 12:37",
-    category: "Обучение" 
+    date: "26.10.2023 12:37",
+    category: catagories[2],
   },
   {
-    title: "Новая линейка клапанов высокого давления для промышленного применения",
+    title:
+      "Новая линейка клапанов высокого давления для промышленного применения",
     post: "Компания, производящая инженерное сантехническое оборудование, представила новую линейку клапанов высокого давления, специально разработанных для применения в промышленности. Эти клапаны рассчитаны на эксплуатацию в экстремальных условиях и обеспечивают надежную и эффективную работу в сложных условиях, что делает их идеальными для использования на заводах, электростанциях и других промышленных объектах.",
-    date:"14.10.2023 10:18",
-    category: "Новинки ассортимента" 
+    date: "14.10.2023 10:18",
+    category: catagories[3],
   },
   {
-    title: "Инновационные решения в области водоподготовки для устойчивого строительства",
+    title:
+      "Инновационные решения в области водоподготовки для устойчивого строительства",
     post: "Для поддержки растущего спроса на экологичные методы строительства компания, производящая инженерное сантехническое оборудование, разработала инновационные решения в области водоподготовки. Эти решения помогают подрядчикам и застройщикам соблюдать экологические нормы и снижать воздействие на местные источники воды за счет эффективной очистки и повторного использования воды на строительных площадках.",
-    date:"17.10.2023 14:25",
-    category: "Иновации" 
+    date: "17.10.2023 14:25",
+    category: catagories[4],
   },
   {
-    title: "Партнерство с ведущими архитекторами для проектирования интеллектуальных сантехнических систем",
+    title:
+      "Партнерство с ведущими архитекторами для проектирования интеллектуальных сантехнических систем",
     post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Целью партнерства является разработка интеллектуальных сантехнических систем, интегрированных с системами автоматизации и управления зданием, оптимизирующих использование воды и повышающих общую энергоэффективность.",
-    date:"26.10.2023 12:37",
-    category: "Стратегия"
+    date: "26.10.2023 12:37",
+    category: catagories[5],
   },
 ];
+const random_post = posts[Math.round(Math.random()*5)];
 ---
-<Layout title="База знаний">
-  <Appbar/>
-  <!-- Секция новости -->
-  <div class="relative flex items-center justify-center w-full min-h-screen gap-32 pt-64 pb-4 mx-auto ">
-    <!-- <div class="relative rounded-4xl max-w-[40%]">
-      <img src="/santech-portal/img/news_1.png" alt="" class="rounded-4xl _outline"/>
-      <img src="/santech-portal/img/news_1.png" alt="" class="absolute top-0 scale-110 opacity-50 rounded-4xl blur-xl -z-10"/>
-      <div class="absolute h-128 w-128 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-24 -left-12 -rotate-12"></div>
-    </div> -->
-    <div class="absolute inset-x-0 top-0 overflow-hidden group h-128 -z-10 ">
-      <div class="absolute inset-0 z-10 badge-teal backdrop-grayscale-[1]"></div>
-        <img src="/santech-portal/img/news_1.png" alt="" class="object-cover w-full"/>
-    </div>
-    <div class="relative flex flex-col gap-8 pb-32 ">
 
-     
-      <div class="py-8">
-        <h2 class="max-w-4xl py-2 pl-2 text-4xl font-extrabold tracking-wide uppercase">{posts[0].title}</h2>
+<Layout title="База знаний">
+  <Appbar />
+  <!-- Секция новости -->
+  <div
+    class="relative flex flex-col items-center justify-center w-full min-h-screen pb-4 mx-auto"
+  >
+    <div class="relative flex flex-col w-full mb-12 h-128">
+      <div
+        class="absolute inset-x-0 top-0 overflow-hidden group h-128 -z-10 rounded-b-4xl"
+      >
+        <div class:list={["absolute inset-0 z-10 backdrop-grayscale-[1]",random_post.category.colorClass]}>
+        </div>
+        <img
+          src="/santech-portal/img/news_1.png"
+          alt=""
+          class="object-cover w-full"
+        />
+      </div>
+      <div class="w-full max-w-screen-lg py-8 mx-auto mt-auto">
+        <h2
+          class="max-w-4xl py-2 pl-2 text-4xl font-extrabold tracking-wide uppercase"
+        >
+          {random_post.title}
+        </h2>
         <div class="flex items-center w-full gap-8 py-2">
-          <Badge text={posts[0].category}/>
-          <span class="text-xs"> {posts[0].date}</span>
+          <Badge text={random_post.category.name} class={random_post.category.colorClass}/>
+          <span class="text-xs"> {random_post.date}</span>
         </div>
       </div>
-
-      <div class="flex flex-col max-w-screen-lg pl-2 font-normal leading-loose prose normal-case prose-p:text-lg prose-p:leading-9 prose-p:tracking-wide">
+    </div>
+    
+    <div class="flex flex-col gap-4 pb-16">
+      <div
+        class="flex flex-col max-w-screen-lg pl-2 font-normal leading-loose prose-sm normal-case md:prose-lg prose-p:text-lg prose-p:leading-9 prose-p:tracking-wide"
+      >
         <p>
-          {posts[0].post}
+          {random_post.post}
         </p>
         <p>
-          {posts[0].post}
+          {random_post.post}
         </p>
         <p>
-          {posts[0].post}
+          {random_post.post}
         </p>
       </div>
       <!-- <Button url="/santech-portal/Короткометражки#scroll-driver" title="Другие новости" class="text-xs transition-all bg-accent-400 hover:bg-accent-300 hover:shadow-active md:text-base"></Button> -->
     </div>
-
-
   </div>
   <!--  -->
 
   <!-- Заголовок  -->
   <div class="relative max-w-screen-xl pt-16 mx-auto">
     <div class="flex flex-col gap-2">
-        <Breadcrumbs level1="Короткометражки" level2="Короткометражки" class="-ml-4"></Breadcrumbs>
-        <h1 class="text-3xl font-black tracking-wide uppercase">Короткометражки</h1>
+      <Breadcrumbs
+        level1="Короткометражки"
+        level2="Короткометражки"
+        class="-ml-4"
+      />
+      <h1 class="text-3xl font-black tracking-wide uppercase">
+        Короткометражки
+      </h1>
     </div>
   </div>
   <!--  -->
 
+  <ul
+    id="scroll-driver"
+    class="grid max-w-screen-xl gap-8 py-16 mx-auto grid-4-col"
+  >
+    {[1, 1, 1, 1, 1, 1].map((index) => <Card />)}
+  </ul>
 
-  <div id="scroll-driver" class="grid max-w-screen-xl gap-8 py-16 mx-auto grid-4-col ">
-     {[1,1,1,1,1,1,].map((index)=>(
-        <Card/>
-      ))}
-    </div>
-    
-    <div class="flex flex-col max-w-screen-xl mx-auto">
-      {posts.map(post => (
-        <h2 class="w-full pl-3 text-xl font-black tracking-wide uppercase">{post.category}</h2>
-        <div class="grid grid-cols-3 gap-4 py-8">
-          
-          {[1,1,1,1,1,1,1,1,1,1,1 ].map((index)=>(
-            <div class="flex max-w-lg gap-4 text-sm hover:bg-white hover:shadow-xl rounded-3xl shrink-1 basis-1">
-                <a class="flex flex-col p-2 pl-3 cursor-pointer min-w-min">
-                    <span class="text-xs">26.10.2023 14:25</span>
-                    <h3 class="self-center font-normal leading-tight">Партнерство с ведущей строительной фирмой для предоставления комплексных сантехнических решений</h3>
-                </a>
+  <div class="flex flex-col max-w-screen-xl mx-auto">
+    {
+      catagories.map((category) => (
+        <>
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-extrabold tracking-wide uppercase">
+              <div class:list={["px-3 rounded-3xl", category.colorClass]}>{category.name}</div>
+            </h2>
+            <div class="flex gap-4">
+              <a class="bg-gray-200 rounded-full cursor-pointer hover:bg-white">
+                <svg class="w-6 h-6 md:w-8 md:h-8 "><use xlink:href="#arrow_left"></use></svg>
+              </a>
+              <a class="bg-gray-200 rounded-full cursor-pointer hover:bg-white">
+                <svg class="w-6 h-6 rotate-180 md:w-8 md:h-8"><use xlink:href="#arrow_left"></use></svg>
+              </a>
             </div>
-          ))}
-        </div>    
-      ))}
-
-    
-   
-
-
-  
-</Layout>
-<style>
-@supports(animation-range: 0vh 40vh) {
-
-    @keyframes move-and-size {
+          </div>
+          <ul class="grid grid-cols-3 gap-4 py-8">
+            {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((index) => (
+              <!--_ShortNews-->
+              <li class="flex max-w-lg gap-4 text-sm hover:bg-white hover:shadow-xl rounded-3xl shrink-1 basis-1">
+                <a class="flex flex-col p-2 pl-3 cursor-pointer min-w-min">
+                  <span class="text-xs">26.10.2023 14:25</span>
+                  <h3 class="self-center font-normal leading-tight">
+                    Партнерство с ведущей строительной фирмой для предоставления
+                    комплексных сантехнических решений
+                  </h3>
+                </a>
+              </li>
+              <!--_ShortNews-->
+            ))}
+          </ul>
+        </>
+      ))
+    }
+  </div>
+  <style>
+    @supports (animation-range: 0vh 40vh) {
+      @keyframes move-and-size {
         from {
           transform: scale(1.3);
           opacity: 0;
           /* filter: blur(12px); */
-            /* background-position: 50% 0; */
+          /* background-position: 50% 0; */
         }
 
         to {
-            /* background-position: 50% 100%; */
-            transform: scale(1);
-            opacity: 1;
-            /* height: 10vh; */
+          /* background-position: 50% 100%; */
+          transform: scale(1);
+          opacity: 1;
+          /* height: 10vh; */
         }
-    }
+      }
 
-
-    #scroll-driver {
+      #scroll-driver {
         /* animation: move-and-size linear forwards; */
         view-timeline-name: --header-block;
-        
+
         /* animation-timeline: scroll(); */
         /* animation-range: 00vh 60vh; */
+      }
+      .scoll-driven-element-scale {
+        animation: move-and-size ease-in forwards;
+        /* animation-timeline: --header-block; */
+        animation-timeline: view(block 80% 0%);
+        /* animation-range: exit-crossing 0vh  exit-crossing 120vh; */
+      }
     }
-    .scoll-driven-element-scale{
-      animation: move-and-size ease-in forwards;
-      /* animation-timeline: --header-block; */
-      animation-timeline: view(block 80% 0%);
-      /* animation-range: exit-crossing 0vh  exit-crossing 120vh; */
-    }
-}
-
-</style>
-
-
+  </style>
+</Layout>

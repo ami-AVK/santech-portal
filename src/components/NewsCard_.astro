@@ -1,41 +1,49 @@
 ---
 import Button from "../components/Button.astro";
 import Badge from "../components/Badge.astro";
-const badge_class = ["badge-indigo","badge-blue","badge-orange","badge-yellow","badge-green","badge-red"][Math.round(Math.random()*5)];
+const catagories = [
+  {
+    name: "PROчитай",
+    colorClass: "badge-indigo",
+  },
+  {
+    name: "Развитие",
+    colorClass: "badge-blue",
+  },
+  {
+    name: "Обучение",
+    colorClass: "badge-orange",
+  },
+  {
+    name: "Новинки ассортимента",
+    colorClass: "badge-yellow",
+  },
+  {
+    name: "Иновации",
+    colorClass: "badge-green",
+  },
+  {
+    name: "Стратегия",
+    colorClass: "badge-red",
+  },
+];
+const badge_class = catagories[Math.round(Math.random()*5)];
 ---
-<div class="@container group flex h-32 gap-4  hover:bg-white hover:shadow-xl rounded-4xl overflow-hidden">
+<!--_HotNews-->
+<li class="@container group flex h-32 gap-4  hover:bg-white hover:shadow-xl rounded-4xl overflow-hidden">
     <a href="#" class="relative flex object-fill cursor-pointer">
         <div class="relative h-full overflow-hidden rounded-4xl -z-10">
-            <div class:list={["absolute inset-0 z-10 transition-opacity opacity-100 group-hover:opacity-0 backdrop-grayscale",badge_class]}></div>
+            <div class:list={["absolute inset-0 z-10 transition-opacity opacity-100 group-hover:opacity-0 backdrop-grayscale",badge_class.colorClass]}></div>
             <img src="/santech-portal/img/news_1.png" alt="" class="object-cover h-full @md:h-auto @md:w-full 0"/>
         </div>
         <div class="absolute top-0 flex items-center justify-between w-full px-5 py-6">
-          <Badge text="Категория" class={badge_class + ""}/>
+          <Badge text={badge_class.name} class={badge_class.colorClass + ""}/>
           <span class="text-xs">26.10.2023 14:25</span>
         </div>
         <div class="absolute bottom-0 z-20 flex flex-col min-w-min">
-          
           <h3 class="z-10 self-center px-6 py-4 mt-auto font-bold leading-tight tracking-wider text-gray-900 uppercase shadow-sm">Партнерство с ведущей строительной фирмой для предоставления комплексных сантехнических решений</h3>
           <div class="absolute top-0 bottom-0 w-full transition-transform translate-y-full bg-white group-hover:translate-y-0"></div>
         </div>
     </a>
-</div>
-<!-- <style is:global>
-.container-img{
-    display: none;
-    /* width: 50%; */
-  }
-.tee{
-    container: wrapper/size;
-}
-@container wrapper (height > 128px) {
-  .container-portrait{
-    flex-direction: column;
-  }
-  .container-img{
-    display: block;
-    /* width: auto; */
-  }
-}
-
-</style> -->
+</li>
+<!--_HotNews -->
