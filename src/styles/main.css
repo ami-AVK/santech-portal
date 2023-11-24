@@ -19,6 +19,12 @@
 
 }
 @layer utilities{
+  .overlay::before{
+    @apply absolute inset-0 z-10 transition-opacity opacity-100 group-hover:opacity-0 backdrop-grayscale content-['']
+  }
+  .badge-main{
+    @apply bg-gradient-to-bl from-main-300/80 to-main-100/80;
+  }
   .badge-yellow{
     @apply bg-gradient-to-bl from-yellow-300/80 to-yellow-100/80;
   }

@@ -6,7 +6,8 @@ import { getCollection, getEntry } from "astro:content";
 import NewsCard from "../components/NewsCard.astro";
 import Badge from "../components/Badge.astro";
 import Button from "../components/Button.astro";
-import Card from "../components/NewsCard_.astro";
+import GridSlider from "../components/GridSlider.astro";
+import Card from "../components/GridCard.astro";
 import Appbar from "../components/Appbar3.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Layout from "../layouts/Layout_markdown.astro";
@@ -53,7 +54,7 @@ const catagories = [
     colorClass: "badge-yellow",
   },
   {
-    name: "Иновации",
+    name: "Инновации",
     colorClass: "badge-green",
   },
   {
@@ -62,14 +63,13 @@ const catagories = [
   },
 ];
 
-const badge_class = catagories[Math.round(Math.random()*5)];
-
 const posts = [
   {
     title: "Выпущена новая линейка экологически чистых сантехнических решений",
     post: "Ведущая компания по производству инженерного сантехнического оборудования выпустила новую линейку экологичных продуктов, предназначенных для снижения потребления воды и обеспечения экологической безопасности. Инновационные решения включают в себя смесители с низким расходом воды, водосберегающие душевые лейки и энергоэффективные водонагреватели, позволяющие клиентам минимизировать воздействие на окружающую среду без ущерба для производительности.",
     date: "14.10.2023 10:18",
     category: catagories[0],
+    url: "https://cdn.midjourney.com/6490cc15-0005-4a48-ace7-a3a431b7d0e5/0_2.png"
   },
   {
     title:
@@ -77,6 +77,7 @@ const posts = [
     post: "В рамках стратегического курса на комплексное обслуживание своих клиентов компания, производящая инженерное сантехническое оборудование, заключила партнерство с ведущей строительной фирмой. Сотрудничество позволит компании предоставлять комплексные сантехнические решения для крупномасштабных проектов, предлагая клиентам из строительной отрасли универсальное решение.",
     date: "17.10.2023 14:25",
     category: catagories[1],
+    url: "https://cdn.midjourney.com/f7c252a9-2a5f-4fc1-90c9-6feca42c59bf/0_3.png"
   },
   {
     title:
@@ -84,6 +85,7 @@ const posts = [
     post: "Осознавая важность квалифицированных специалистов в области сантехники, компания, производящая инженерное сантехническое оборудование, представила ведущую в отрасли программу обучения. Программа направлена на повышение уровня знаний и навыков специалистов-сантехников, ознакомление их с новейшими методиками и передовым опытом установки и обслуживания продукции компании.",
     date: "26.10.2023 12:37",
     category: catagories[2],
+    url: "https://cdn.midjourney.com/28abed28-9b27-4c44-81c8-287031d59326/0_3.png"
   },
   {
     title:
@@ -91,6 +93,7 @@ const posts = [
     post: "Компания, производящая инженерное сантехническое оборудование, представила новую линейку клапанов высокого давления, специально разработанных для применения в промышленности. Эти клапаны рассчитаны на эксплуатацию в экстремальных условиях и обеспечивают надежную и эффективную работу в сложных условиях, что делает их идеальными для использования на заводах, электростанциях и других промышленных объектах.",
     date: "14.10.2023 10:18",
     category: catagories[3],
+    url: "https://cdn.midjourney.com/fc8b51c7-b4cc-4e99-b0e2-e7ce462f6fb5/0_1.png"
   },
   {
     title:
@@ -98,6 +101,7 @@ const posts = [
     post: "Для поддержки растущего спроса на экологичные методы строительства компания, производящая инженерное сантехническое оборудование, разработала инновационные решения в области водоподготовки. Эти решения помогают подрядчикам и застройщикам соблюдать экологические нормы и снижать воздействие на местные источники воды за счет эффективной очистки и повторного использования воды на строительных площадках.",
     date: "17.10.2023 14:25",
     category: catagories[4],
+    url: "https://cdn.midjourney.com/bfe5118f-5e69-4e0d-a40e-1a2f67cdfd65/0_1.png"
   },
   {
     title:
@@ -105,14 +109,18 @@ const posts = [
     post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Целью партнерства является разработка интеллектуальных сантехнических систем, интегрированных с системами автоматизации и управления зданием, оптимизирующих использование воды и повышающих общую энергоэффективность.",
     date: "26.10.2023 12:37",
     category: catagories[5],
+    url: "https://cdn.midjourney.com/d386ca4e-bbbb-443e-af93-75f6fd82ed46/0_3.png"
   },
 ];
 const random_post = posts[Math.round(Math.random()*5)];
+
+const bg_img = "bg-[url(https://cdn.midjourney.com/6490cc15-0005-4a48-ace7-a3a431b7d0e5/0_2.png)]";
 ---
 
-<Layout title="База знаний">
+<Layout title="Короткометражки">
   <Appbar />
-  <!-- Секция новости -->
+  
+  <!--_Секция главной новости -->
   <div
     class="relative flex flex-col items-center justify-center w-full min-h-screen pb-4 mx-auto"
   >
@@ -120,13 +128,8 @@ const random_post = posts[Math.round(Math.random()*5)];
       <div
         class="absolute inset-x-0 top-0 overflow-hidden group h-128 -z-10 rounded-b-4xl"
       >
-        <div class:list={["absolute inset-0 z-10 backdrop-grayscale-[1]",random_post.category.colorClass]}>
-        </div>
-        <img
-          src="/santech-portal/img/news_1.png"
-          alt=""
-          class="object-cover w-full"
-        />
+        <div class:list={["absolute inset-0 z-10 backdrop-grayscale-[1]",random_post.category.colorClass]}></div>
+        <div class:list={["absolute inset-0 bg-center bg-cover",bg_img]}></div>
       </div>
       <div class="w-full max-w-screen-lg py-8 mx-auto mt-auto">
         <h2
@@ -155,10 +158,10 @@ const random_post = posts[Math.round(Math.random()*5)];
           {random_post.post}
         </p>
       </div>
-      <!-- <Button url="/santech-portal/Короткометражки#scroll-driver" title="Другие новости" class="text-xs transition-all bg-accent-400 hover:bg-accent-300 hover:shadow-active md:text-base"></Button> -->
+      
     </div>
   </div>
-  <!--  -->
+  <!--_/Секция главной новости  -->
 
   <!-- Заголовок  -->
   <div class="relative max-w-screen-xl pt-16 mx-auto">
@@ -168,10 +171,11 @@ const random_post = posts[Math.round(Math.random()*5)];
         level2="Короткометражки"
         class="-ml-4"
       />
-      <h1 class="text-3xl font-black tracking-wide uppercase">
+      <h2 class="text-3xl font-black tracking-wide uppercase">
         Короткометражки
-      </h1>
+      </h2>
     </div>
+    <div class="absolute -bottom-64 h-96 w-96 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl rotate-12 right-16"></div>
   </div>
   <!--  -->
 
@@ -179,17 +183,17 @@ const random_post = posts[Math.round(Math.random()*5)];
     id="scroll-driver"
     class="grid max-w-screen-xl gap-8 py-16 mx-auto grid-4-col"
   >
-    {[1, 1, 1, 1, 1, 1].map((index) => <Card />)}
+    {[1, 1, 1, 1, 1, 1].map((index) => <Card post={posts[Math.round(Math.random()*5)]} />)}
   </ul>
 
   <div class="flex flex-col max-w-screen-xl mx-auto">
     {
       catagories.map((category) => (
-        <>
+        <section>
           <div class="flex items-center justify-between">
-            <h2 class="text-xl font-extrabold tracking-wide uppercase">
+            <h3 class="text-2xl font-extrabold tracking-wide uppercase">
               <div class:list={["px-3 rounded-3xl", category.colorClass]}>{category.name}</div>
-            </h2>
+            </h3>
             <div class="flex gap-4">
               <a class="bg-gray-200 rounded-full cursor-pointer hover:bg-white">
                 <svg class="w-6 h-6 md:w-8 md:h-8 "><use xlink:href="#arrow_left"></use></svg>
@@ -211,10 +215,12 @@ const random_post = posts[Math.round(Math.random()*5)];
                   </h3>
                 </a>
               </li>
+
               <!--_ShortNews-->
             ))}
+            
           </ul>
-        </>
+        </section>
       ))
     }
   </div>

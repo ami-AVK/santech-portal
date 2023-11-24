@@ -1,0 +1,32 @@
+---
+import { Splide } from '@splidejs/splide';
+import { Grid } from '@splidejs/splide-extension-grid';
+
+
+---
+<section class="pb-16 overflow-hidden splide " role="group" id="grid_splide">
+    <div class="py-8 splide__track ">
+      <ul class="splide__list ">
+        {[1,2,3,4,5,6,7,8,9].map((post)=>(
+          <div class="p-8 text-4xl font-black uppercase rounded-4xl bg-slate-400"> {post} </div>
+        ))}
+        
+      </ul>
+    </div>
+  </section>
+<script>
+    import { Splide } from '@splidejs/splide';
+    import { Grid } from '@splidejs/splide-extension-grid';
+    new Splide( '#grid_splide', {
+        perPage: 1,
+    grid: {
+		rows: 10,
+		cols: 1,
+		gap : {
+			row: '1rem',
+			col: '1.5rem',
+		},
+  },
+} ).mount({Grid});
+
+</script>
