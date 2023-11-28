@@ -32,23 +32,33 @@ sortedPosts = Object.keys(sortedPosts)
 const categories = Object.keys(sortedPosts);
 
 ---
+<!--   -->
+<section class=" columns-1 md:columns-2 lg:columns-3 xl:columns-4  gap-16 max-w-screen-2xl mx-auto">
 
-<div class="link-section columns-1 md:columns-2 lg:columns-4 px-8 md:px-16 pb-16 md:pb-32 pt-16 gap-16">
-  {
+ {
     categories.map((category:string) => (
-        <ul class="rounded-2xl _outline flex flex-col items-start justify-start mb-16 break-inside-avoid ">
+        <ul class="rounded-2xl _outline flex flex-col items-start justify-start mb-16 break-inside-avoid">
           <a class="link-panel__header px-2 uppercase font-extrabold tracking-wide pb-1 leading-tight" href={"/santech-portal/"+category}>{category}</a>
           {sortedPosts[category].map((item:any) => (
             <li  class="group  text-gray-900 ">
               <a data-accent={item.data.accent} class=" group-hover:bg-white group-hover:shadow-lg group-hover::shadow-lg px-2 py-1 leading-tight block rounded-2xl data-[accent]:bg-accent-400 group-hover:data-[accent]:bg-accent-300 group-hover:data-[accent]:shadow-active" 
               href={"/santech-portal/" +item.id.split("/")[0]+"#" +item.id}>{item.data.title}</a>
-              
             </li>
           ))}
       </ul>
     ))
   }
-</div>
-<!-- href={"База знаний/" + category + "#" +item.slug.substring(item.slug.lastIndexOf("/")+1)}>{item.data.title} -->
+    <!--Баннер -->
+    <a href="#" class="my-4 bg-slate-400 ">
+      <img
+          class="w-full rounded-3xl"
+        src="https://cdn.midjourney.com/bfe5118f-5e69-4e0d-a40e-1a2f67cdfd65/0_1.png"
+      />
+    </a>
+    <!--_Баннер -->
+
+  
+</section>
+
 
 

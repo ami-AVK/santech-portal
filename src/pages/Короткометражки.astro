@@ -8,6 +8,7 @@ import Badge from "../components/Badge.astro";
 import Button from "../components/Button.astro";
 import GridSlider from "../components/GridSlider.astro";
 import Card from "../components/GridCard.astro";
+import Gallery from "../components/Gallery.astro";
 import Appbar from "../components/Appbar3.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Layout from "../layouts/Layout_markdown.astro";
@@ -144,9 +145,9 @@ const bg_img = "bg-[url(https://cdn.midjourney.com/6490cc15-0005-4a48-ace7-a3a43
       </div>
     </div>
     
-    <div class="flex flex-col gap-4 pb-16">
+    <div class="flex flex-col gap-4 pb-16 max-w-screen-lg">
       <div
-        class="flex flex-col max-w-screen-lg pl-2 font-normal leading-loose prose-sm normal-case md:prose-lg prose-p:text-lg prose-p:leading-9 prose-p:tracking-wide"
+        class="flex flex-col pl-2 font-normal leading-loose prose-sm normal-case md:prose-lg prose-p:text-lg prose-p:leading-9 prose-p:tracking-wide"
       >
         <p>
           {random_post.post}
@@ -158,7 +159,7 @@ const bg_img = "bg-[url(https://cdn.midjourney.com/6490cc15-0005-4a48-ace7-a3a43
           {random_post.post}
         </p>
       </div>
-      
+      <Gallery/>
     </div>
   </div>
   <!--_/Секция главной новости  -->

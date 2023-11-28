@@ -16,6 +16,7 @@ import Layout from '../layouts/Layout_markdown.astro';
 import Markdown_layout from '../layouts/Layout_markdown_item.astro';
 import Badge from "../components/Badge.astro";
 import Card from "../components/GridCard.astro";
+import Footer from '../components/Footer.astro';
 
 
 const events:Event[] =[
@@ -64,7 +65,8 @@ const bg_img = "bg-[url(https://cdn.midjourney.com/f7c252a9-2a5f-4fc1-90c9-6feca
 ---
 <Layout title="База знаний">
   <Appbar/> 
-  <!--_Секция главной новости -->
+
+  <!--_Секция главного события, аналогична странице короткометражек -->
   <div
     class="relative flex flex-col items-center justify-center w-full min-h-screen pb-4 mx-auto"
   >
@@ -170,33 +172,8 @@ const bg_img = "bg-[url(https://cdn.midjourney.com/f7c252a9-2a5f-4fc1-90c9-6feca
       </ul>
     </section>
 
-    <section>
-
-
-        <!-- Заголовок  -->
-      <div class="relative max-w-screen-xl pt-16 mx-auto">
-        <div class="flex flex-col gap-2">
-          <h2 class="text-3xl font-black tracking-wide uppercase">
-            Прошедшие события
-          </h2>
-        </div>
-        <div class="absolute -bottom-64 h-96 w-96 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl rotate-12 right-16"></div>
-      </div>
-      <!--  -->
-      <ul class="flex flex-wrap gap-16">
-      {
-        events.slice(1).map((event)=>(
-          <li class="px-4 py-3 min-w-min basis-1 grow _outline rounded-3xl">
-            <h3 class="pb-4 text-lg font-black leading-tight tracking-wider uppercase">{event.title}</h3>
-            <p>{event.post}</p>
-            <p>{event.day} {event.month} {event.time}</p>
-          </li>
-        ))
-      }
-      </ul>
-    </section>
-  </div>
-
+ </div>
+<Footer/>
 
 
 

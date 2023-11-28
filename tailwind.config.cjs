@@ -70,6 +70,9 @@ module.exports = {
       borderRadius: {
         "4xl": "2rem",
       },
+      ringWidth: {
+        '16': '16px',
+      },
     },
   },
   plugins: [

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.1",
+    "@fancyapps/ui": "^5.0.28",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-grid": "^0.4.1",
     "@tailwindcss/container-queries": "^0.1.1",

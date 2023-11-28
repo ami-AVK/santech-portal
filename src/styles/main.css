@@ -19,6 +19,7 @@
 
 }
 @layer utilities{
+
   .overlay::before{
     @apply absolute inset-0 z-10 transition-opacity opacity-100 group-hover:opacity-0 backdrop-grayscale content-['']
   }

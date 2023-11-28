@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/SectionLayout.astro";
 import NewsCard from "./NewsCard.astro";
-import Splide from "@splidejs/splide";
+
 const posts=[
   {
     title: "Выпущена новая линейка экологически чистых сантехнических решений",
@@ -60,7 +60,7 @@ const posts=[
 </Layout>
 
 <script>
-
+  import Splide from "@splidejs/splide";
   document.addEventListener('astro:page-load', () => {
   var splide = new Splide("#news", {
     type: "slide",
