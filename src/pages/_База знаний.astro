@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 
-import Appbar from '../components/Appbar3.astro'
+import Appbar from '../components/Appbar.astro'
 import Layout from '../layouts/Layout_markdown.astro';
 import Markdown_layout from '../layouts/Layout_markdown_item.astro';
 
@@ -32,13 +32,13 @@ allBlogPosts.forEach((obj) => {
   <Appbar/>
   <div class="flex px-16 py-16 scroll-smooth">
     <nav class="fixed flex flex-col gap-4 w-72" transition:animate="slide">
-        <a class=" font-extrabold pb-2 block text-main-900" href="../">
+        <a class="block pb-2 font-extrabold  text-main-900" href="../">
           Главная
         </a>
         <ul>
         {
           <li class="py-1">
-            <a class=" font-extrabold pb-2 block" href="">
+            <a class="block pb-2 font-extrabold " href="">
                 База знаний
             </a>
             <ul class="pl-4">
@@ -60,7 +60,7 @@ allBlogPosts.forEach((obj) => {
           Object.keys(articles).filter((category)=>category!=header).map( // наполняем остальные категории
             (category) => (
               <li class="py-1">
-                <a class=" font-extrabold pb-2 block" href={"./"+category}>
+                <a class="block pb-2 font-extrabold " href={"./"+category}>
                   {category}
                 </a>
               </li>
@@ -83,7 +83,7 @@ allBlogPosts.forEach((obj) => {
     <main class="pl-96">
       <section>
         <h2>
-          <header class=" text-3xl font-black text-main-900 uppercase leading-2 tracking-wider">
+          <header class="text-3xl font-black tracking-wider uppercase  text-main-900 leading-2">
             {header}
           </header>
         </h2>

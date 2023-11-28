@@ -1,6 +1,4 @@
 ---
-import Button__vertical from "../components/Button__vertical.astro";
-import Icon from "./Icon.astro";
 const menuItems=[
     {
         icon:"calendar",
@@ -41,7 +39,7 @@ const menuItems=[
 ];
 ---
 
-<div class="hidden lg:flex  place-content-between">
+<div class="hidden lg:flex place-content-between">
     {
         menuItems.map((item)=>(
             <a href={`#${item.link}`} data-active={item.select&&'active'} class="
@@ -51,7 +49,7 @@ const menuItems=[
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 stroke-1_5 " viewBox="0 0 24 24" fill="none">
                     <use href={`#${item.icon}`}></use>
                 </svg>
-            <div class="text-center  text-xs xl:text-base font-medium leading-none tracking-wide">{item.capture}</div>
+            <div class="text-xs font-medium leading-none tracking-wide text-center xl:text-base">{item.capture}</div>
             </a>
         ))
     }

@@ -2,15 +2,15 @@
 const { title, iconID,subtitle, class:className } = Astro.props;
 ---
 <header class:list={["flex gap-2 flex-wrap md:gap-4  md:max-w-none pl-8 md:pl-auto justify-start relative pb-8 items-center",className]}>
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 md:w-20 stroke-2 text-accent-400 " viewBox="0 0 24 24" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 stroke-2 md:w-20 text-accent-400" viewBox="0 0 24 24" fill="none">
       <use href={iconID}></use>
     </svg>
   
-    <div class="flex flex-col relative md:gap-1 text-gray-900 tracking-wide uppercase ">
+    <div class="relative flex flex-col tracking-wide text-gray-900 uppercase md:gap-1 ">
 
-      <h2 class="text-main-900 text-2xl md:text-4xl font-black tracking-wider leading-6">{title}</h2>
+      <h2 class="text-2xl font-black leading-6 tracking-wider text-main-900 md:text-4xl">{title}</h2>
 
-      {subtitle?<p class="text-md leading-5 mt-1 md:text-xl">{subtitle}</p>:false}
+      {subtitle?<p class="mt-1 leading-5 text-md md:text-xl">{subtitle}</p>:false}
       
     </div>
 </header>

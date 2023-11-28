@@ -3,18 +3,7 @@ const {url, title, icon, subtitle, type, valueToKeep,id, class:className} = Astr
 const Tag = url?"a":"button"; // если есть ссылка то это a
 ---
 
-  <Tag href={url} value-to-keep={valueToKeep} id={id} class:list={["flex flex-row place-items-center gap-4 px-3 py-2 rounded-3xl max-w-fit py-1 text-base font-400",className]}>
+  <Tag href={url} value-to-keep={valueToKeep} id={id} class:list={["flex flex-row place-items-center gap-4 px-3 py-2 rounded-3xl max-w-fit py-1 text-base font-400 ",className]}>
     {icon?<svg class="w-6 h-6 md:w-8 md:h-8 "><use xlink:href={"#"+icon}></use></svg>:false}
     {title && <span class="">{title}</span>}
-    <!-- <slot>{title}</slot> -->
   </Tag>
-
-
-
-  <!-- <button class:list={["flex flex-row place-items-center gap-4 px-3 py-2 rounded-3xl hover:shadow-active max-w-fit",className]}>
-    {icon?<svg class="w-8 h-8"><use xlink:href={"#"+icon}></use></svg>:false}
-
-    <a href={url} class="text-white py-1 text-base font-400">{title}</a>
-  </button> -->
-    <!-- {icon?<p class="frame-71__title2 ">{subtitle}</p>:false} -->
-    <!-- <svg class="w-8 h-8"><use xlink:href=`#${icon}`></use></svg> -->

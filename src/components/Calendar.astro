@@ -1,7 +1,5 @@
 ---
-import CalendarGrid from "./calendar/CalendarGrid.astro";
 import Button from "./Button.astro";
-import CalendarDateCapture from "./calendar/CalendarDateCapture.astro";
 import Layout from "../layouts/SectionLayout.astro";
 const events =[
     {
@@ -83,37 +81,33 @@ const events =[
         {
             events.map((event) => (
                     <div class="_outline bg-gray-200 hover:bg-white hover:shadow-2xl rounded-2xl p-4 first:bg-white [&>p]:max-h-0 [&>p]:first:max-h-fit [&>p]:hover:max-h-128 cursor-pointer transition-colors">
-                        <div class="flex justify-between flex-wrap">
-                            <div class="text-gray-900 flex justify-start pb-2">
+                        <div class="flex flex-wrap justify-between">
+                            <div class="flex justify-start pb-2 text-gray-900">
                                 <div class="text-4xl font-black">{event.day}</div> 
                                 <div class="pl-1 text-md font-bold leading-[1.05rem] pt-[0.15rem]">
                                         <div class="font-black"> {event.month}</div> 
                                         <div class="text-gray-600"> {event.time}</div> 
                                 </div>
                             </div>
-                            <div class="self-center rounded-3xl flex items-center gap-2 bg-gray-200 p-1 pr-3 text-accent-400">
+                            <div class="flex items-center self-center gap-2 p-1 pr-3 bg-gray-200 rounded-3xl text-accent-400">
                                 {event.location&&<svg class="w-8 h-8 "><use xlink:href="#pin-alt" class="stroke-2"></use></svg>}
                                 {event.location&&<span class="text-xs text-gray-900">{event.location}</span>}
                                 
                             </div>
                         </div>
-                        <h3 class="font-black text-xl tracking-wide">
+                        <h3 class="text-xl font-black tracking-wide">
                             {event.title}
                         </h3>
                         <p class="overflow-hidden text-sm font-normal tracking-wider transition-all duration-500">
                             {event.post}
                         </p>
-                        <Button title="Подробнее" url={event.url} class=" mt-2 bg-accent-400 hover:shadow-active"/>
+                        <Button title="Подробнее" url={event.url} class="mt-2 bg-accent-400 hover:shadow-active"/>
                     </div>
                 ))
         }
       
 
     </div>
-    <!-- <div class="calendar flex flex-wrap overflow-hidden" id="calendar">
-    <CalendarDateCapture dates={[1,2]}/>
-        <CalendarGrid/> 
-    </div> -->
 </Layout>
 <style>
 

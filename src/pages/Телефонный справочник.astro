@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Table from "../components/tables/Table.astro";
-import Appbar from '../components/Appbar3.astro'
+import Appbar from '../components/Appbar.astro'
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 const pathname = new URL(Astro.request.url).pathname;
 var count = (pathname.match(/\//g) || []).length;
@@ -10,20 +10,20 @@ console.log(count);
 <Layout title="Портал компании «Сантехкомплект»">
     <Appbar>
         <nav slot="drawer" class="flex flex-col gap-4 py-2">
-            <a class="text-md font-extrabold pb-2 block uppercase tracking-wide" href="/santech-portal/">
+            <a class="block pb-2 font-extrabold tracking-wide uppercase text-md" href="/santech-portal/">
               Главная
             </a>
             <ul class="">
               <li class="py-1">
-                  <a class=" font-bold pb-2 block leading-tight" href="">
+                  <a class="block pb-2 font-bold leading-tight " href="">
                     Департамент продаж "Строительство"
                   </a>
-                  <ul class=" pb-1">
+                  <ul class="pb-1 ">
                     {   
                       ["Отдел №1", "Отдел №2","Отдел №3","Отдел №4"].map( // наполняем навигацию из коллекции по текущей категории
                         (item:any) => (
                           <li class="relative">
-                            <a class="relative py-1 px-2 text-sm leading-tight hover:outline lg:hover:bg-white outline-gray-300/50  block rounded-2xl" href={"#"} >{item}</a>
+                            <a class="relative block px-2 py-1 text-sm leading-tight hover:outline lg:hover:bg-white outline-gray-300/50 rounded-2xl" href={"#"} >{item}</a>
                           </li>
                         )
                       )
@@ -32,7 +32,7 @@ console.log(count);
                         ["Департамент №1", "Департамент №2","Департамент №3","Департамент №4"].map( // наполняем остальные категории
                           (category) => (
                             <li class="py-1.5">
-                              <a class=" font-bold block leading-tight" href={"#"}>
+                              <a class="block font-bold leading-tight " href={"#"}>
                                 {category}
                               </a>
                             </li>
@@ -52,11 +52,11 @@ console.log(count);
             </ul>
         </nav>
     </Appbar>
-    <div class="flex flex-col px-4 md:px-16 py-16 scroll-smooth lg:ml-80">
+    <div class="flex flex-col px-4 py-16 md:px-16 scroll-smooth lg:ml-80">
         <div class="pl-4 md:pl-16">
             <div class="flex flex-col gap-2">
                 <Breadcrumbs level1="База знаний" level2="Телефонный справочник" class="-ml-4"></Breadcrumbs>
-                <h1 class="text-3xl uppercase font-black tracking-wide">Телефонный справочник</h1>
+                <h1 class="text-3xl font-black tracking-wide uppercase">Телефонный справочник</h1>
             </div>
         </div>
         <section>   

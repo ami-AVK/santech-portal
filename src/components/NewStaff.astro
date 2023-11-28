@@ -12,13 +12,12 @@ const { photo, name, post, department } = Astro.props;
   full
 >
 
-  <div class="overflow-x-clip lg:overflow-x-visible w-full relative">
+  <div class="relative w-full overflow-x-clip lg:overflow-x-visible">
     <div class="absolute h-128 w-128 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-6 rotate-12 right-8"></div>
-    <ul class="flex flex-col items-center lg:flex-row gap-48 lg:gap-12 pb-32 justify-between" id="staff">
+    <ul class="flex flex-col items-center justify-between gap-48 pb-32 lg:flex-row lg:gap-12" id="staff">
       <StaffItem photo="/santech-portal/img/staff_1.jpg" name="Афанасий Петрович Комсомольцев" post="Менеджер по продажам" department="Отдел Опт"/>
       <StaffItem photo="/santech-portal/img/staff_1.jpg" name="Афанасий Петрович Комсомольцев" post="Менеджер по продажам" department="Отдел Опт"/>
       <StaffItem photo="/santech-portal/img/staff_1.jpg" name="Афанасий Петрович Комсомольцев" post="Менеджер по продажам" department="Отдел Опт"/>
-      <!-- <StaffItem photo="/img/staff_1.jpg" name="Афанасий Петрович Комсомольцев" post="Менеджер по продажам" department="Отдел Опт"/> -->
     </ul>
 </div>
 </Layout>

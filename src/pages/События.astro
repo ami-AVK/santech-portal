@@ -9,15 +9,14 @@ interface Event {
     url?: string;
     image?: string;
 }
-import { getCollection, getEntry } from 'astro:content';
 
-import Appbar from '../components/Appbar3.astro'
+import Appbar from '../components/Appbar.astro'
 import Layout from '../layouts/Layout_markdown.astro';
-import Markdown_layout from '../layouts/Layout_markdown_item.astro';
 import Badge from "../components/Badge.astro";
 import Card from "../components/GridCard.astro";
 import Footer from '../components/Footer.astro';
-
+import HTMLSample from "../data/textsample.html";
+import Gallery from "../components/Gallery.astro";
 
 const events:Event[] =[
     {
@@ -90,21 +89,15 @@ const bg_img = "bg-[url(https://cdn.midjourney.com/f7c252a9-2a5f-4fc1-90c9-6feca
       </div>
     </div>
     
-    <div class="flex flex-col gap-4 pb-16">
+    <div class="flex flex-col max-w-screen-lg gap-4 pb-16">
       <div
-        class="flex flex-col max-w-screen-lg pl-2 font-normal leading-loose prose-sm normal-case md:prose-lg prose-p:text-lg prose-p:leading-9 prose-p:tracking-wide"
+        class="flex flex-col pl-2 font-normal leading-loose prose normal-case md:prose-lg prose-p:leading-9 prose-p:tracking-wide"
       >
-        <p>
-          {events[0].post}
-        </p>
-        <p>
-          {events[0].post}
-        </p>
-        <p>
-          {events[0].post}
-        </p>
+        <!--Сюда сырой html -->
+        <HTMLSample/>
+        <!--_Сюда сырой html -->
       </div>
-      
+      <Gallery/>
     </div>
   </div>
   <!--_/Секция главной новости  -->
