@@ -11,14 +11,14 @@ const UUID:string = crypto.randomUUID();
         <div class="flex flex-col gap-2 ">
             <h2 class="font-black leading-normal uppercase text-md md:text-lg">Менеджер по продажам</h2>
             <div class="flex flex-row text-sm lg:text-md">
-                <div class="flex flex-row">
+                <div class="flex flex-row items-center">
                     <Icon id="pin-alt" class="" data-size />
                     <div class="pl-1 font-bold">г. Видное</div>
                     <div class="pl-4">Департамент продаж</div>
                 </div>          
             </div>   
         </div>
-        <Button id={UUID} class="clipboard bg-accent-400" icon="share-ios" valueToKeep="Менеджер по продажам в г. Видное"/> 
+        <Button id={UUID} data-size="xs" data-type="active" data-clipboard="Менеджер по продажам в г. Видное"  icon="share-ios"/> 
     </div>
 
     <details data-buffer-id={UUID} class="py-4 [&_svg]:open:-rotate-180 flex ">

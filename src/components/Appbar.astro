@@ -22,7 +22,7 @@ const main = pathname[0];
 ---
 
 <header
-  class="fixed appbar-scroll-show z-10 w-full top-[-73px] p-4 text-gray-100 border-b border-white bg-gray-100/20 backdrop-blur-sm"
+  class="fixed z-10 w-full p-4 text-gray-100 border-b border-white appbar-scroll-show bg-gray-100/20 backdrop-blur-sm"
 >
   <div class="flex justify-between gap-4 px-4 transition-all h-fit">
     <a
@@ -141,7 +141,8 @@ const main = pathname[0];
               top:0px;
           }
       }
-      .appbar-scroll-show{
+      ._appbar-scroll-show{
+        /*  */
         animation: showAppbar ease-in forwards;
         animation-timeline: scroll();
         animation-range: 0vh  exit-crossing 20vh;

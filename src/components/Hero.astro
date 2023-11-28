@@ -22,7 +22,7 @@ import data from "../data/header_links.json";
     <div class="grid grid-cols md:grid-rows-5 lg:grid-rows-4 md:grid-flow-col gap-0.5 md:gap-4 justify-items-start max-w-3xl resize">
       {
         data.map((item) => (
-          <Button title={item.title} url={item.url} icon={item.icon} class="text-sm tracking-wider text-gray-100 border-gray-100/20 hover:shadow-active md:text-md "/>
+          <Button title={item.title} url={item.url} icon={item.icon} data-type="transparent" data-size="md"/>
         ))
       }
     </div>

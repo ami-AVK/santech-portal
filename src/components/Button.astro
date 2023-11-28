@@ -1,9 +1,20 @@
 ---
-const {url, title, icon, subtitle, type, valueToKeep,id, class:className} = Astro.props;
+import Icon from "./Icon.astro";
+const {url, title, icon, subtitle, type, valueToKeep,id, class:className, ...attributes} = Astro.props;
 const Tag = url?"a":"button"; // если есть ссылка то это a
+const data_type = [
+    "data-[type=active]:bg-accent-400","data-[type=active]:hover:shadow-active",
+    "data-[type=transparent]:text-gray-100","data-[type=transparent]:border-gray-100/20","data-[type=transparent]:hover:shadow-active",
+];
+const data_size = [
+    "data-[size=xs]:text-xs",
+    "data-[size=sm]:text-sm","data-[size=sm]:md:text-md",
+    "data-[size=lg]:text-md","data-[size=lg]:md:text-lg",
+];
+
 ---
 
-  <Tag href={url} value-to-keep={valueToKeep} id={id} class:list={["flex flex-row place-items-center gap-4 px-3 py-2 rounded-3xl max-w-fit py-1 text-base font-400 ",className]}>
-    {icon?<svg class="w-6 h-6 md:w-8 md:h-8 "><use xlink:href={"#"+icon}></use></svg>:false}
+  <Tag {...attributes} href={url} id={id} class:list={["flex flex-row place-items-center gap-2 px-3 py-2 rounded-3xl max-w-fit tracking-wide text-base font-400",data_type,data_size,className]}>
+    {icon?<Icon id={icon}/>:false}
     {title && <span class="">{title}</span>}
   </Tag>

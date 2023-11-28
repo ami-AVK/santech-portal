@@ -1,4 +1,13 @@
 ---
-const {text, type, class: className} = Astro.props;
+const {text, type, class: className, ...attributes} = Astro.props;
+const data_color = [
+    "data-[color=red]:badge-red",
+    "data-[color=blue]:badge-blue",
+    "data-[color=orange]:badge-orange",
+    "data-[color=yellow]:badge-yellow",
+    "data-[color=green]:badge-green",
+    "data-[color=indigo]:badge-indigo",
+    "data-[color=teal]:badge-teal",
+];
 ---
-<p class:list={["rounded-2xl text-xs tracking-wider px-2 py-1 bg-accent-400 text-gray-900 max-w-min whitespace-nowrap cursor-pointer",className]}>{text}</p>
+<span {...attributes} class:list={["rounded-2xl text-xs tracking-wider px-2 py-1 bg-accent-400 text-gray-900 max-w-min whitespace-nowrap",data_color,className]}>{text}</span>

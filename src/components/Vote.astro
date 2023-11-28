@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/SectionLayout.astro";
 import Button from "../components/Button.astro";
+import Icon from "../components/Icon.astro";
 // const vote_data=[{"title":"Знаменитые истории об Аладдине, Али-бабе и Синдбаде","value":65}];
 const vote_data = [
     {title: '"Думай как миллионер" - Т. Харв Экер', value:35},
@@ -105,10 +106,8 @@ const posts = [
                         ">
                             <div class="w-full gap-3 text-gray-700 ">
                                 <img src={post.url} alt="" class="object-cover h-full"/>
-                                <a href={post.url} data-fancybox class="absolute p-8 rounded-full -top-4 -right-4 backdrop-blur-xl">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" class="transition-transform rounded-full group-hover:scale-150">
-                                        <use href="#zoom-in"></use>
-                                    </svg>
+                                <a href={post.url} data-fancybox class="absolute p-8 rounded-full -top-4 -right-4 backdrop-blur-xl ">
+                                    <Icon id="zoom-in" data-size="sm" data-interaction="scales"/>
                                 </a>
                                 <div class="absolute bottom-0 w-full p-4 bg-white">
                                     <h3 class="pl-1 text-xs font-bold tracking-wide whitespace-normal grow">{post.title}</h3>

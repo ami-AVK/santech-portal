@@ -42,26 +42,37 @@ const catagories = [
     name: "PROчитай",
     
     colorClass: "badge-red",
+    data_attribute: "red",
   },
   {
     name: "Развитие",
     colorClass: "badge-blue",
+    data_attribute: "blue",
   },
   {
     name: "Обучение",
     colorClass: "badge-orange",
+    data_attribute: "orange",
   },
   {
     name: "Новинки ассортимента",
     colorClass: "badge-yellow",
+    data_attribute: "yellow",
   },
   {
     name: "Инновации",
     colorClass: "badge-green",
+    data_attribute: "green",
   },
   {
     name: "Стратегия",
     colorClass: "badge-indigo",
+    data_attribute: "indigo",
+  },
+  {
+    name: "Стратегия2",
+    colorClass: "badge-teal",
+    data_attribute: "teal",
   },
 ];
 
@@ -140,7 +151,7 @@ const bg_img = "bg-[url(https://cdn.midjourney.com/6490cc15-0005-4a48-ace7-a3a43
           {random_post.title}
         </h2>
         <div class="flex items-center w-full gap-8 py-2">
-          <Badge text={random_post.category.name} class={random_post.category.colorClass}/>
+          <Badge text={random_post.category.name} data-color={random_post.category.data_attribute}/>
           <span class="text-xs"> {random_post.date}</span>
         </div>
       </div>
@@ -220,38 +231,5 @@ const bg_img = "bg-[url(https://cdn.midjourney.com/6490cc15-0005-4a48-ace7-a3a43
       ))
     }
   </div>
-  <style>
-    @supports (animation-range: 0vh 40vh) {
-      @keyframes move-and-size {
-        from {
-          transform: scale(1.3);
-          opacity: 0;
-          /* filter: blur(12px); */
-          /* background-position: 50% 0; */
-        }
-
-        to {
-          /* background-position: 50% 100%; */
-          transform: scale(1);
-          opacity: 1;
-          /* height: 10vh; */
-        }
-      }
-
-      #scroll-driver {
-        /* animation: move-and-size linear forwards; */
-        view-timeline-name: --header-block;
-
-        /* animation-timeline: scroll(); */
-        /* animation-range: 00vh 60vh; */
-      }
-      .scoll-driven-element-scale {
-        animation: move-and-size ease-in forwards;
-        /* animation-timeline: --header-block; */
-        animation-timeline: view(block 80% 0%);
-        /* animation-range: exit-crossing 0vh  exit-crossing 120vh; */
-      }
-    }
-  </style>
   <Footer/>
 </Layout>

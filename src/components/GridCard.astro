@@ -3,37 +3,9 @@ import Button from "./Button.astro";
 import Badge from "./Badge.astro";
 
 const {post} = Astro.props;
-// const catagories = [
-//   {
-//     name: "PROчитай",
-//     colorClass: "badge-indigo",
-//   },
-//   {
-//     name: "Развитие",
-//     colorClass: "badge-blue",
-//   },
-//   {
-//     name: "Обучение",
-//     colorClass: "badge-orange",
-//   },
-//   {
-//     name: "Новинки ассортимента",
-//     colorClass: "badge-yellow",
-//   },
-//   {
-//     name: "Иновации",
-//     colorClass: "badge-green",
-//   },
-//   {
-//     name: "Стратегия",
-//     colorClass: "badge-red",
-//   },
-// ];
-// const badge_class = catagories[Math.round(Math.random()*5)];
-// const bg_img = `bg-[url(${post.url})]`;
 const bg_img = "bg-[url(https://cdn.midjourney.com/6490cc15-0005-4a48-ace7-a3a431b7d0e5/0_2.png)]";
 const category_color = "before:" + post.category.colorClass;
-// const bg_img = "bg-[url(" +post.url +")]";
+
 ---  
 <!--_HotNews-->
 <li class="@container group flex gap-4 hover:bg-white hover:shadow-xl rounded-4xl overflow-hidden ">
@@ -44,12 +16,12 @@ const category_color = "before:" + post.category.colorClass;
             <!-- <img src="" alt="" class="object-fill"/> -->
         </div>
         <div class="top-0 flex items-center justify-between w-full px-5 py-6 ">
-          <Badge text={post.category.name} class={post.category.colorClass + ""}/>
+          <Badge text={post.category.name} data-color={post.category.data_attribute}/>
           <span class="text-xs">{post.date}</span>
         </div>
         <div class="relative bottom-0 z-20 w-full mt-auto min-w-min ">
           <h3 class="z-10 self-center px-6 py-4 mt-auto font-bold leading-tight tracking-wider text-gray-900 uppercase shadow-sm">{post.title}</h3>
-          <div class=" -z-10 absolute top-0 bottom-0 w-full transition-transform translate-y-full bg-white group-hover:translate-y-0"></div>
+          <div class="absolute top-0 bottom-0 w-full transition-transform translate-y-full bg-white -z-10 group-hover:translate-y-0"></div>
         </div>
     </a>
 </li>
