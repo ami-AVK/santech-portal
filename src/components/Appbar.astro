@@ -23,7 +23,7 @@ const {...attributes}=Astro.props;
 ---
 
 <header {...attributes}
-  class="fixed top-0 z-10 w-full p-4 text-gray-100 border-b border-white bg-gray-100/20 backdrop-blur-sm data-[scroll-hide]:appbar-scroll-show"
+  class="fixed top-0 z-10 w-full p-4 text-gray-100 border-b border-white bg-gray-100/20 backdrop-blur-sm "
 >
   <div class="flex justify-between gap-4 px-4 transition-all h-fit">
     <a
@@ -126,7 +126,7 @@ const {...attributes}=Astro.props;
               top:0px;
           }
       }
-      [data-scroll=hide].appbar-scroll-show{
+      [data-scroll-hide]{
         /*  */
         top:-73px;
         animation: showAppbar ease-in forwards;
