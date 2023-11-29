@@ -16,12 +16,11 @@ import Story from "../components/Story.astro";
 <Layout title="Портал компании «Сантехкомплект»">
   <Hero />
 
-  <Appbar />
-  <div id="#observe" class="flex flex-col justify-around mx-auto">
+  <Appbar data-scroll-hide />
+  <div class="flex flex-col justify-around mx-auto">
     <section class="px-8 pt-16 pb-16 md:px-16 md:pb-32">
       <LinkSection />
     </section>
-    
     <Calendar />
     <Vote />
     <NewStaff />

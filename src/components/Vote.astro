@@ -66,11 +66,12 @@ const posts = [
         <div class="absolute -top-72 md:-top-128 -z-10 md:mx-auto lg:-top-96 lg:right-4">
           <img src="/santech-portal/asset/img/vote_.svg" alt="" class="w-full md:w-[38rem]">
         </div>
-        <form class="z-0 grid w-full gap-6 lg:grid-cols-2 lg:gap-6" action="/vote" method="post" >
-            
+        
+        <form action="/vote" method="post" >
+            <ul class="z-0 grid w-full gap-6 lg:grid-cols-2 lg:gap-6">   
             {vote_data.map((vote, index)=>(
-                <!-- Компонент простого голосования -->
-                <div class="flex rounded-4xl ">
+                <!--Компонент простого за текст -->
+                <li class="flex rounded-4xl ">
                     <input type="radio" id=`vote${index}` name="vote" value=`vote${index}` class="absolute opacity-0 peer">
                     <label for=`vote${index}` class="group p-4 bg-white  peer-checked:bg-accent-400  rounded-4xl relative flex gap-3 lg:max-w-full w-full cursor-pointer 
                     [&_.hidden-button]:peer-checked:visible [&_.hidden-button]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active
@@ -90,19 +91,21 @@ const posts = [
                             </div>
                             <Button class="self-start invisible h-full text-xs tracking-wide transition-transform scale-75 hidden-button bg-slate-100 hover:bg-white hover:shadow-active lg:max-w-min max-h-min place-self-start" title="Выбрать" type="submit"/> 
                     </label>
-                </div>
-                <!--_Компонент простого голосования -->
+                </li>
+                <!--_Компонент простого за текст -->
             ))}
+            </ul>
         </form> 
         <div class="py-16">Другой вариант</div>
         <form action="/vote" method="post" >
             <ul class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {
                 posts.map((post, index) =>(
+                <!--Компонент голосования за фото -->
                 <li class="flex rounded-4xl">
                     <input type="radio" id=`vote_${index}` name="vote" value=`vote_${index}` class="absolute opacity-0 peer">
                     <label for=`vote_${index}` class="group overflow-hidden bg-white  peer-checked:bg-accent-400  rounded-4xl relative flex gap-3 lg:max-w-full w-full cursor-pointer  
-                    [&_.hidden-button]:peer-checked:visible [&_.hidden-button]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active peer-checked:ring-accent-400 peer-checked:ring-8 
+                    [&_.invisible]:peer-checked:visible [&_.hidden-button]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active peer-checked:ring-accent-400 peer-checked:ring-8 
                         ">
                             <div class="w-full gap-3 text-gray-700 ">
                                 <img src={post.url} alt="" class="object-cover h-full"/>
@@ -115,14 +118,17 @@ const posts = [
                                         <div class="progress bg-accent-400 h-2 rounded-full w-[45%] relative">
                                             <div class="absolute text-xs text-gray-700 left-1 top-2.5">32 голоса</div> 
                                         </div>
+                                        <div class="invisible">
+                                          <Button class="w-full text-xs tracking-wide transition-transform scale-75  hidden-button bg-slate-100 hover:bg-accent-400 hover:shadow-active lg:max-w-min max-h-min" title="Выбрать" type="submit"/> 
+                                        </div>
                                         
-                                        <Button class="invisible w-full text-xs tracking-wide transition-transform scale-75 hidden-button bg-slate-100 hover:bg-accent-400 hover:shadow-active lg:max-w-min max-h-min" title="Выбрать" type="submit"/> 
                                     </div>
                                 </div>
                             </div>
                             
                     </label>
                 </li>
+                <!--_Компонент голосования за фото -->
                 ))
             }
             </ul>

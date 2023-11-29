@@ -8,6 +8,7 @@ const pathname = new URL(Astro.request.url).pathname;
 var count = (pathname.match(/\//g) || []).length;
 console.log(count);
 const main = pathname[0];
+const {...attributes}=Astro.props;
 // console.log(pathname.split("/")[1]);
 
 // data.map((item) => (
@@ -21,8 +22,8 @@ const main = pathname[0];
 //   )
 ---
 
-<header
-  class="fixed z-10 w-full p-4 text-gray-100 border-b border-white appbar-scroll-show bg-gray-100/20 backdrop-blur-sm"
+<header {...attributes}
+  class="fixed top-0 z-10 w-full p-4 text-gray-100 border-b border-white appbar-scroll-show bg-gray-100/20 backdrop-blur-sm data-[scroll-hide]:appbar-scroll-show"
 >
   <div class="flex justify-between gap-4 px-4 transition-all h-fit">
     <a
@@ -74,26 +75,10 @@ const main = pathname[0];
       }
     </ul>
     <Search />
-    <button
-      title="Open menu"
-      id="open_drawer_btn"
-      type="button"
-      class="p-1 lg:hidden bg-main rounded-2xl"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        class="w-8 h-8"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
+    <div class="text-white lg:hidden bg-main rounded-2xl">
+      <Button icon="menu" data-id="open_drawer_btn"/>
+    </div>
+    
   </div>
 
   {/* Навигация по странице скрытая в drawer */}
@@ -108,8 +93,8 @@ const main = pathname[0];
 </header>
 <script>
   document.addEventListener("astro:page-load", () => {
-    const drawer_btn: HTMLButtonElement = document.getElementById(
-      "open_drawer_btn"
+    const drawer_btn: HTMLButtonElement = document.querySelector(
+      "[data-id=open_drawer_btn]"
     ) as HTMLButtonElement;
     drawer_btn.addEventListener("click", () => {
       const main_nav_drawer: HTMLElement = document.getElementById(
@@ -141,11 +126,12 @@ const main = pathname[0];
               top:0px;
           }
       }
-      ._appbar-scroll-show{
+      .appbar-scroll-show{
         /*  */
+        top:-73px;
         animation: showAppbar ease-in forwards;
         animation-timeline: scroll();
-        animation-range: 0vh  exit-crossing 20vh;
+        animation-range: 90vh  exit-crossing 100vh;
       }
   }
   

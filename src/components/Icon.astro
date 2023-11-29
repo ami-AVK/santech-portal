@@ -14,7 +14,20 @@ const data_interaction = [
     xs,lg,header
     */
 }
-<svg {...attributes} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-class:list={["w-6 h-6 md:w-8 md:h-8 stroke-1_5",data_interaction,data_size,className]}>
+<!-- 
+>ИКОНКА
+
+АТТРИБУТЫ И ЗНАЧЕНИЯ
+
+data-interaction:
+  scale
+
+data-size:
+  xs
+  lg
+  header
+  -->
+<svg {...attributes} xmlns="http://www.w3.org/2000/svg" 
+class:list={["text-white w-6 h-6 md:w-8 md:h-8 stroke-1_5",data_interaction,data_size,className]}>
     <use href=`#${id}`></use>
 </svg>
