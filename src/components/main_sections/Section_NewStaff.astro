@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/SectionLayout.astro";
+import IconHeader from "../SectionHeader.astro";
+import StaffItem from "../StaffItem.astro";
+const { photo, name, post, department } = Astro.props;
+---
+
+<section class="relative max-w-full pb-56 mx-auto">
+  <IconHeader
+    title="Сотрудники"
+    iconID="add-user"
+    subtitle="Рады приветствовать новых специалистов в нашей компании"
+  />
+
+  <div class="relative w-full overflow-x-clip lg:overflow-x-visible">
+    <div
+      class="absolute h-128 w-128 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-6 rotate-12 right-8"
+    >
+    </div>
+    <ul
+      class="flex flex-col items-center justify-between gap-48 pb-32 lg:flex-row lg:gap-12"
+      id="staff"
+    >
+      <StaffItem
+        photo="/santech-portal/img/staff_1.jpg"
+        name="Афанасий Петрович Комсомольцев"
+        post="Менеджер по продажам"
+        department="Отдел Опт"
+      />
+      <StaffItem
+        photo="/santech-portal/img/staff_1.jpg"
+        name="Афанасий Петрович Комсомольцев"
+        post="Менеджер по продажам"
+        department="Отдел Опт"
+      />
+      <StaffItem
+        photo="/santech-portal/img/staff_1.jpg"
+        name="Афанасий Петрович Комсомольцев"
+        post="Менеджер по продажам"
+        department="Отдел Опт"
+      />
+    </ul>
+  </div>
+</section>

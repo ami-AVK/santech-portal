@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/SectionLayout.astro";
 import NewsCard from "../NewsCard.astro";
+import IconHeader from "../SectionHeader.astro";
 
 const posts=[
   {
@@ -41,8 +42,15 @@ const posts=[
   },
 ];
 ---
-
-<Layout title="Короткометражки" icon="#stats-report" full class="md:ml-32 [&_svg]:text-white">
+<section class="relative max-w-full pb-56 mx-0" id="vote">
+  <div class="[&_svg]:text-white ml-32">
+    <IconHeader
+      title="Короткометражки"
+      iconID="stats-report"
+      subtitle=""
+      whiteIcon
+    />
+  </div>
   <div class="absolute w-20 h-20 md:h-40 md:w-40 -z-50 bg-gradient-to-b from-accent-300 to-accent-400 shadow-active rounded-4xl -top-4 md:-top-12 -rotate-12 left-4 md:left-24"></div>
     <div class="absolute inset-x-0 h-72 bottom-64 bg-slate-300 -z-50 bg-gradient-to-b from-gray-300 to-gray-100"></div>
 
@@ -57,8 +65,7 @@ const posts=[
       </ul>
     </div>
   </section>
-</Layout>
-
+</section>
 <script>
   import Splide from "@splidejs/splide";
   document.addEventListener('astro:page-load', () => {

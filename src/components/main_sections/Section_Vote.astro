@@ -2,6 +2,7 @@
 import Layout from "../../layouts/SectionLayout.astro";
 import Button from "../Button.astro";
 import Icon from "../Icon.astro";
+import IconHeader from "../SectionHeader.astro";
 // const vote_data=[{"title":"Знаменитые истории об Аладдине, Али-бабе и Синдбаде","value":65}];
 const vote_data = [
     {title: '"Думай как миллионер" - Т. Харв Экер', value:35},
@@ -60,7 +61,13 @@ const posts = [
 ];
 
 ---
-<Layout title="Голосование" subtitle="Выбираем лучшую книгу по бизнесу" icon="#reports" id="vote" class="pt-32 lg:ml-16">
+<section class="relative max-w-full pt-32 pb-56 mx-auto lg:ml-16" id="vote">
+  <IconHeader
+    title="Голосование"
+    iconID="reports"
+    subtitle="Выбираем лучшую книгу по бизнесу"
+  />
+
     <div class="absolute h-72 w-72 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-6 rotate-[37deg]"></div>
     <div class="relative flex flex-col items-center max-w-screen-xl gap-2 px-8 pt-8 md:px-16">
         <div class="absolute -top-72 md:-top-128 -z-10 md:mx-auto lg:-top-96 lg:right-4">
@@ -135,7 +142,7 @@ const posts = [
             </ul>
           </form>
       </div> 
-</Layout>
+</section>
 
 <script>
 import { Fancybox } from "@fancyapps/ui";

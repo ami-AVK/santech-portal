@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/SectionLayout.astro";
-import IconHeader from "../IconHeader.astro";
+import IconHeader from "../SectionHeader.astro";
 import JobCard from "../Job.astro";
 ---
-<section class="flex flex-col px-4 md:px-8 lg:px-32" id="job">
-    <IconHeader title={"Вакансии"} iconID="#brain-research" />
+<section class="relative max-w-full pb-56 px-4 md:px-8 lg:px-32">
+    <IconHeader title="Вакансии" iconID="brain-research" subtitle=""/>
     <div class="grid grid-cols-1 gap-16 md:grid-cols-2 xl:grid-cols-3">
         <JobCard/>
         <JobCard/>
@@ -12,7 +12,7 @@ import JobCard from "../Job.astro";
         <JobCard/>
         <JobCard/>
     </div>
-    <div class="animate-spin"></div>
+
     <div id="buffer-copy-alert" class="fixed invisible h-8 transition-opacity opacity-0 bottom-8 right-8">
         <div class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-accent-400 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-gray-900">
             <div class="absolute w-5 h-5 top-2/4 left-1 -translate-y-2/4">

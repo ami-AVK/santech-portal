@@ -1,10 +1,12 @@
 ---
 import Layout from "../../layouts/SectionLayout.astro";
-import IconHeader from "../IconHeader.astro";
+import IconHeader from "../SectionHeader.astro";
 import Avatar from "../Avatar.astro";
 
 ---
-<Layout icon="#birthday-cake" title={"Дни рождения"} subtitle={"Поздравляем именинников!"} class=" md:ml-0" id="birthday" >
+<section class="relative max-w-full pb-56 mx-auto">
+  <IconHeader title="Дни рождения" iconID="birthday-cake" subtitle="Поздравляем именинников!"/>
+
   <div class="absolute h-96 w-96 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl bottom-52 rotate-[113deg] right-8"></div>
     <div class="absolute -left-6 md:left-auto md:right-8 -z-50 -top-52"> 
       <img src="/santech-portal/img/birthday_a_.svg" alt="" class="w-128">
@@ -27,4 +29,5 @@ import Avatar from "../Avatar.astro";
                     <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Михайлова Елизавета Робертовна" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
                 </ul>
     </div>
-</Layout>
+<!-- </Layout> -->
+</section>
