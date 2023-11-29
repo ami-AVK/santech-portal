@@ -74,7 +74,7 @@ const posts = [
                 <li class="flex rounded-4xl ">
                     <input type="radio" id=`vote${index}` name="vote" value=`vote${index}` class="absolute opacity-0 peer">
                     <label for=`vote${index}` class="group p-4 bg-white  peer-checked:bg-accent-400  rounded-4xl relative flex gap-3 lg:max-w-full w-full cursor-pointer 
-                    [&_.hidden-button]:peer-checked:visible [&_.hidden-button]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active
+                    [&_.invisible]:peer-checked:visible [&_[data-interaction]]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active
                         ">
                             <div class="flex w-full gap-3 text-gray-700">
                                 <div class="pl-1 text-xl font-extrabold shrink ">№{index}</div>
@@ -89,7 +89,10 @@ const posts = [
                                     </div>
                                 </div>
                             </div>
-                            <Button class="self-start invisible h-full text-xs tracking-wide transition-transform scale-75 hidden-button bg-slate-100 hover:bg-white hover:shadow-active lg:max-w-min max-h-min place-self-start" title="Выбрать" type="submit"/> 
+                            <div class="invisible">
+                                          <Button data-size="xs" data-type="simple" data-interaction="scale" title="Выбрать" type="submit"/> 
+                            </div>
+                            
                     </label>
                 </li>
                 <!--_Компонент простого за текст -->
@@ -105,12 +108,12 @@ const posts = [
                 <li class="flex rounded-4xl">
                     <input type="radio" id=`vote_${index}` name="vote" value=`vote_${index}` class="absolute opacity-0 peer">
                     <label for=`vote_${index}` class="group overflow-hidden bg-white  peer-checked:bg-accent-400  rounded-4xl relative flex gap-3 lg:max-w-full w-full cursor-pointer  
-                    [&_.invisible]:peer-checked:visible [&_.hidden-button]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active peer-checked:ring-accent-400 peer-checked:ring-8 
+                    [&_.invisible]:peer-checked:visible [&_[data-interaction]]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active peer-checked:ring-accent-400 peer-checked:ring-8 
                         ">
                             <div class="w-full gap-3 text-gray-700 ">
                                 <img src={post.url} alt="" class="object-cover h-full"/>
                                 <a href={post.url} data-fancybox class="absolute p-8 rounded-full -top-4 -right-4 backdrop-blur-xl ">
-                                    <Icon id="zoom-in" data-size="sm" data-interaction="scales"/>
+                                    <Icon id="zoom-in" data-size="sm" data-interaction="scale"/>
                                 </a>
                                 <div class="absolute bottom-0 w-full p-4 bg-white">
                                     <h3 class="pl-1 text-xs font-bold tracking-wide whitespace-normal grow">{post.title}</h3>
@@ -119,13 +122,11 @@ const posts = [
                                             <div class="absolute text-xs text-gray-700 left-1 top-2.5">32 голоса</div> 
                                         </div>
                                         <div class="invisible">
-                                          <Button class="w-full text-xs tracking-wide transition-transform scale-75  hidden-button bg-slate-100 hover:bg-accent-400 hover:shadow-active lg:max-w-min max-h-min" title="Выбрать" type="submit"/> 
+                                          <Button data-size="xs" data-type="simple" data-interaction="scale" title="Выбрать" type="submit"/> 
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
-                            
                     </label>
                 </li>
                 <!--_Компонент голосования за фото -->

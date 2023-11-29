@@ -4,12 +4,17 @@ const {url, title, icon, subtitle, type, valueToKeep,id, class:className, ...att
 const Tag = url?"a":"button"; // если есть ссылка то это a
 const data_type = [
     "data-[type=active]:bg-accent-400","data-[type=active]:hover:shadow-active",
+    "data-[type=simple-invert]:bg-accent-400","data-[type=simple-invert]:hover:shadow-active",
+    "data-[type=simple]:bg-gray-100","data-[type=simple]:hover:shadow-active", "data-[type=simple]:hover:bg-accent-400",
     "data-[type=transparent]:text-gray-100","data-[type=transparent]:border-gray-100/20","data-[type=transparent]:hover:shadow-active",
 ];
 const data_size = [
     "data-[size=xs]:text-xs",
     "data-[size=sm]:text-sm","data-[size=sm]:md:text-md",
     "data-[size=lg]:text-md","data-[size=lg]:md:text-lg",
+];
+const data_interaction = [ 
+    "data-[interaction=scale]:transition-transform","data-[interaction=scale]:scale-75",
 ];
 
 ---
@@ -26,8 +31,11 @@ data-size:
   xs
   sm
   md
+
+data_interaction:
+  scale
   -->
-<Tag {...attributes} href={url} id={id} class:list={["flex flex-row place-items-center gap-2 px-3 py-2 rounded-3xl max-w-fit tracking-wide text-base font-400",data_type,data_size,className]}>
+<Tag {...attributes} href={url} id={id} class:list={["flex flex-row place-items-center gap-2 px-3 py-2 rounded-3xl max-w-fit tracking-wide text-base font-400",data_type,data_size,data_interaction,className]}>
   {icon && <Icon id={icon}/>}
   {title && <span class="">{title}</span>}
 </Tag>

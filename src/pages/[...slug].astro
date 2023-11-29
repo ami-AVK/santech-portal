@@ -9,7 +9,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Appbar from '../components/Appbar.astro'
 import Layout from '../layouts/Layout_markdown.astro';
 import Markdown_layout from '../layouts/Layout_markdown_item.astro';
-
+import HTMLSample from "../data/textsample.html";
 export async function getStaticPaths() {
 
   // забираем все статьи из коллекции
@@ -72,14 +72,6 @@ console.log(count);
                     {category}
                   </a>
                 </li>
-                // ниже закоментил для генерации ссылок из других категорий
-                // articles[category].map(
-                //  (item) => (
-                //     <li>
-                //       <a href={"#"+item.id} class="" >{item.id.substring(item.id.lastIndexOf("/")+1,item.id.lastIndexOf("."))}</a>
-                //     </li>
-                //   )
-                // )
               )
             )
           }
@@ -88,20 +80,23 @@ console.log(count);
       <div class="border-b border-gray-900"></div>
   </Appbar>
 
-  <div class="flex px-4 py-16 md:px-16 scroll-smooth lg:ml-80 ">
+  <div class="flex px-4 py-16 mt-20 md:px-16 scroll-smooth lg:ml-80">
     <main class="w-full">
       <section>
           <div class="flex flex-col gap-2">
             <Breadcrumbs level1="База знаний" level2={header} class="-ml-4"></Breadcrumbs>
             <h1 class="text-4xl font-black tracking-wider uppercase text-main-900">{header}</h1>
           </div>
-
-        <!-- тут создаем список статей из текущей категории, рендер маркауна ассинхронный так что он происходит для каждой статьи в компоненте Markdown_layout -->
+        {/*<!-- тут создаем список статей из текущей категории, рендер маркауна ассинхронный так что он происходит для каждой статьи в компоненте Markdown_layout -->*/}
         {
           articles[header].map(
           (item:any) => (
-            <section id={item.id} class="observe-link py-32 prose prose-lg prose-headings:font-black prose-headings:tracking-wider [&_h1]:text-3xl [&_h1]:text-main-900 [&_h2]:text-xl [&_h3]:text-lg">
-              <Markdown_layout article={item}/>
+            <section id={item.id} class="max-w-screen-lg py-32 prose prose-lg observe-link min-w-min prose-headings:font-black prose-headings:tracking-wider prose-h1:text-3xl prose-h1:text-main-900 prose-h2:text-xl prose-h3:text-lg">
+              <Markdown_layout article={item}>
+                <!-- Пример HTML -->
+                <HTMLSample/>
+                <!-- Пример HTML -->
+              </Markdown_layout>          
             </section>
           )
           )
