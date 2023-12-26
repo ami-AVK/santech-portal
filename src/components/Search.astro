@@ -18,7 +18,6 @@ const UUID:string = crypto.randomUUID();
 
 </div>
 <script>
-  import type { objectInputType } from 'astro/zod'
   import Fuse from 'fuse.js'
   document.addEventListener('astro:page-load', () => {
     
@@ -108,7 +107,6 @@ const UUID:string = crypto.randomUUID();
     const fuse = new Fuse(list, options)
     
     const searches = document.querySelectorAll('[data-searchUUID]') as NodeListOf<HTMLElement>;
-    console.log(searches);
     searches.forEach((search:HTMLElement)=>
       {
         const searchUUID = search.dataset.searchuuid;

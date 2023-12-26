@@ -24,18 +24,18 @@ import PhotoSlider from "./PhotoSlider.astro";
 <StoryBlock class="min-w-min basis-1 grow" year=1993 events={["Открыли филиал в Киеве.","Заключен договор аренды нескольких ангаров на улице Дорожной в Москве и производственного цеха на Можайском арматурном заводе с целью производства трубной заготовки."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1994 events={["Открыли филиал в Киеве.","Заключен договор аренды нескольких ангаров на улице Дорожной в Москве и производственного цеха на Можайском арматурном заводе с целью производства трубной заготовки."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1995 events={["Открыты филиалы в Санкт-Петербурге, Екатеринбурге, Риге и Ульяновске.","Заключен договор аренды помещения под офис на ул. 1905 года в Москве."]}/>
-<PhotoSlider class="" id="slider_1"/>
+<PhotoSlider class="" data-story-slider/>
 <StoryBlock class="min-w-min basis-1 grow" year=1996 events={["Приобретен земельный участок с ЖД-терминалом площадью 1 Га в городе Видное Московской области.","Запущено параллельное производство трубной заготовки на складской базе в Видном.","Отремонтированы помещения под офис на ул. 1905 года в Москве."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1994 events={["Открыли филиал в Киеве.","Заключен договор аренды нескольких ангаров на улице Дорожной в Москве и производственного цеха на Можайском арматурном заводе с целью производства трубной заготовки."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1995 events={["Открыты филиалы в Санкт-Петербурге, Екатеринбурге, Риге и Ульяновске.","Заключен договор аренды помещения под офис на ул. 1905 года в Москве."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1996 events={["Приобретен земельный участок с ЖД-терминалом площадью 1 Га в городе Видное Московской области.","Запущено параллельное производство трубной заготовки на складской базе в Видном.","Отремонтированы помещения под офис на ул. 1905 года в Москве."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1994 events={["Открыли филиал в Киеве.","Заключен договор аренды нескольких ангаров на улице Дорожной в Москве и производственного цеха на Можайском арматурном заводе с целью производства трубной заготовки."]}/>
-<PhotoSlider class="" id="slider_2"/>
+<PhotoSlider class="" data-story-slider/>
 <StoryBlock class="min-w-min basis-1 grow" year=1995 events={["Открыты филиалы в Санкт-Петербурге, Екатеринбурге, Риге и Ульяновске.","Заключен договор аренды помещения под офис на ул. 1905 года в Москве."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1996 events={["Приобретен земельный участок с ЖД-терминалом площадью 1 Га в городе Видное Московской области.","Запущено параллельное производство трубной заготовки на складской базе в Видном.","Отремонтированы помещения под офис на ул. 1905 года в Москве."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1995 events={["Открыты филиалы в Санкт-Петербурге, Екатеринбурге, Риге и Ульяновске.","Заключен договор аренды помещения под офис на ул. 1905 года в Москве."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1996 events={["Приобретен земельный участок с ЖД-терминалом площадью 1 Га в городе Видное Московской области.","Запущено параллельное производство трубной заготовки на складской базе в Видном.","Отремонтированы помещения под офис на ул. 1905 года в Москве."]}/>
-<PhotoSlider class="" id="slider_3"/>
+<PhotoSlider class="" data-story-slider/>
 <StoryBlock class="min-w-min basis-1 grow" year=1995 events={["Открыты филиалы в Санкт-Петербурге, Екатеринбурге, Риге и Ульяновске.","Заключен договор аренды помещения под офис на ул. 1905 года в Москве."]}/>
 <StoryBlock class="min-w-min basis-1 grow" year=1996 events={["Приобретен земельный участок с ЖД-терминалом площадью 1 Га в городе Видное Московской области.","Запущено параллельное производство трубной заготовки на складской базе в Видном.","Отремонтированы помещения под офис на ул. 1905 года в Москве."]}/>
 
@@ -43,24 +43,29 @@ import PhotoSlider from "./PhotoSlider.astro";
 <script>
     import Splide from "@splidejs/splide";
     document.addEventListener('astro:page-load', () => {
-      const story_sliders = document.querySelectorAll("[data-id]") as NodeListOf<HTMLElement>;
-      story_sliders.forEach(slider => {
+      const story_sliders = document.querySelectorAll("[data-story-slider]") as NodeListOf<HTMLElement>;
+      story_sliders.forEach((slider, index) => {
+        try{
+            var splide = new Splide(slider, {
+                type: "slide",
+                perPage: 2,
+                gap: "2rem",
+                paginationKeyboard: true,
+                keyboard: "focused",
+                focus: "center",
+                start: 0,
+                easing: "ease",
+                waitForTransition: true,
+                updateOnMove: true,
+                autoWidth:true,
 
-        var splide = new Splide(`#photoSlider_${slider.dataset.id}`, {
-            type: "slide",
-            perPage: 2,
-            gap: "2rem",
-            paginationKeyboard: true,
-            keyboard: "focused",
-            focus: "center",
-            start: 0,
-            easing: "ease",
-            waitForTransition: true,
-            updateOnMove: true,
-            autoWidth:true,
-
-        });
-        splide.mount();
+            });
+            splide.mount();
+        }
+        catch(e){
+            console.log(index);
+            console.log(slider);
+        }
       })
   });
   </script>

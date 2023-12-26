@@ -47,6 +47,9 @@
   .badge-indigo{
     @apply bg-gradient-to-bl from-indigo-300/80 to-indigo-100/80;
   }
+  .hover-menu-link{
+    @apply bg-white outline;
+  }
 }
 
 

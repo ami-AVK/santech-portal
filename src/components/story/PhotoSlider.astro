@@ -1,6 +1,6 @@
 ---
 
-const {photos,id, class:className } = Astro.props;
+const {photos,id, class:className, ...attributes } = Astro.props;
 const photoset = [
   {
     src:"/santech-portal/img/Story/Gallery/1992 1-1.jpg",
@@ -29,7 +29,7 @@ const photoset = [
 ];
 ---
 <div class="">
-  <div id=`photoSlider_${id}` data-id={id} class="splide flex gap-16 h-96 items-center">
+  <div {...attributes} class="splide flex gap-16 h-96 items-center">
     <div class="splide__track">
       <ul class="splide__list">
         {
