@@ -39,7 +39,7 @@ const categories = Object.keys(sortedPosts);
           <a class="px-2 pb-1 font-extrabold leading-tight tracking-wide uppercase link-panel__header" href={"/santech-portal/"+category}>{category}</a>
           {sortedPosts[category].map((item:any) => (
             <li  class="text-gray-900 group ">
-              <a data-accent={item.data.accent} class=" group-hover:bg-white group-hover:shadow-lg group-hover::shadow-lg px-2 py-1 leading-tight block rounded-2xl data-[accent]:bg-accent-400 group-hover:data-[accent]:bg-accent-300 group-hover:data-[accent]:shadow-active" 
+              <a data-accent={item.data.accent} class=" group-hover:hover-menu-link group-hover:shadow-lg px-2 py-1 leading-tight block rounded-2xl data-[accent]:bg-accent-400 group-hover:data-[accent]:bg-accent-300 group-hover:data-[accent]:shadow-active" 
               href={"/santech-portal/" +item.id.split("/")[0]+"#" +item.id}>{item.data.title}</a>
             </li>
           ))}

@@ -84,6 +84,7 @@ module.exports = {
           outlineColor: theme("colors.outlines"),
           outlineOffset: "1rem",
           outlineStyle: "solid",
+          outlineWidth: "1px"
         },
         ".under":{
           borderBottom: "1px solid",

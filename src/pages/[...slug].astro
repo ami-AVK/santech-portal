@@ -11,6 +11,7 @@ import Layout from '../layouts/Layout_markdown.astro';
 import Markdown_layout from '../layouts/Layout_markdown_item.astro';
 import HTMLSample from "../data/textsample.html";
 import Footer from '../components/Footer.astro';
+
 export async function getStaticPaths() {
 
   // забираем все статьи из коллекции
@@ -127,19 +128,18 @@ console.log(count);
             let parentElement = entry.target.parentElement as HTMLElement;
             if(parentElement){
               const id = parentElement.getAttribute("id") as String;
-              const allLinks:NodeListOf<HTMLBaseElement> = document.querySelectorAll(`[data-link]`);
               allLinks?.forEach(function(other_link) {other_link.classList.remove("hover-menu-link");});
               const links:NodeListOf<HTMLBaseElement> = document.querySelectorAll(`[data-link="${id}"]`);
               links?.forEach(function(link) {link.classList.add("hover-menu-link");});
             }
           } else {
-            // const id = entry.target.getAttribute("id");
-            // const links:NodeListOf<HTMLBaseElement> = document.querySelectorAll(`[data-link="${id}"]`);
-            // links?.forEach(function(link) {link.classList.remove("font-black");});
+
           }
         });
       }, options);
       const elements:NodeListOf<HTMLBaseElement> = document.querySelectorAll('.observe-link');
+      const allLinks:NodeListOf<HTMLBaseElement> = document.querySelectorAll(`[data-link]`); 
+      // console.log(elements.length + " mounted");
       elements.forEach((element) => {
         observer.observe(element);
       });

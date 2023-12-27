@@ -69,6 +69,7 @@ const posts=[
 <script>
   import Splide from "@splidejs/splide";
   document.addEventListener('astro:page-load', () => {
+    try{
   var splide = new Splide("#news", {
     type: "slide",
     perPage: 1,
@@ -98,6 +99,10 @@ const posts=[
 
   });
   splide.mount();
+  }
+  catch(e){
+    // console.log(e);
+  }
 
 });
 </script>
