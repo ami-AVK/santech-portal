@@ -20,7 +20,10 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content={title}>
 		<meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+		<link rel="icon" href="/santech-portal/favicon.ico"> 
+		<link rel="icon" type="image/svg+xml" href="/santech-portal/asset/favicons/favicon.svg" />
+		<link rel="apple-touch-icon" href="/santech-portal/asset/favicons/favicon-180.png"> 
+		<link rel="manifest" href="/santech-portal/manifest.webmanifest">
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
