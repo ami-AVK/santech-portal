@@ -85,12 +85,8 @@ const {...attributes}=Astro.props;
   <Drawer id="main_nav_drawer">
     <slot name="drawer" />
   </Drawer>
-
-  {/* Навигация по странице сбоку */}
-  <div class="absolute hidden text-gray-900 lg:block left-8 top-36 w-72">
-    <slot name="drawer" />
-  </div>
 </header>
+
 <script>
   document.addEventListener("astro:page-load", () => {
     const drawer_btn: HTMLButtonElement = document.querySelector(

@@ -48,7 +48,7 @@
     @apply bg-gradient-to-bl from-indigo-300/80 to-indigo-100/80;
   }
   .hover-menu-link{
-    @apply bg-white outline outline-1 outline-gray-200/50;
+    @apply bg-white outline outline-1 outline-gray-200/50 text-gray-900;
   }
 }
 
