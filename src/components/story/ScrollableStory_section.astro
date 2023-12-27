@@ -39,7 +39,7 @@ import PhotoSlider from "./PhotoSlider.astro";
 </section>
 <script>
     import Splide from "@splidejs/splide";
-    document.addEventListener('astro:page-load', () => {
+    document.addEventListener('DOMContentLoaded', () => {
       const story_sliders = document.querySelectorAll("[data-id]") as NodeListOf<HTMLElement>;
       story_sliders.forEach(slider => {
 

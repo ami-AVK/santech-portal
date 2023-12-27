@@ -2,7 +2,7 @@
 import Search from "./Search.astro";
 import data from "../data/header_links.json";
 import Button from "./Button.astro";
-import Drawer from "./Drawer.astro";
+
 
 const pathname = new URL(Astro.request.url).pathname;
 var count = (pathname.match(/\//g) || []).length;
@@ -65,8 +65,8 @@ const {...attributes}=Astro.props;
                   <use xlink:href={"#" + item.icon_one} />
                 </svg>
               </div>
-              <div class="absolute invisible px-2 text-xs transition-transform bg-main-900 rounded-2xl group-hover:visible group-hover:translate-y-1 whitespace-nowrap">
-                {" "}
+              <div class="absolute invisible px-2 text-xs transition-transform bg-main-900 text-white rounded-2xl group-hover:visible group-hover:translate-y-1 whitespace-nowrap">
+
                 {item.title}
               </div>
             </a>
@@ -81,31 +81,31 @@ const {...attributes}=Astro.props;
     
   </div>
 
-  {/* Навигация по странице скрытая в drawer */}
-  <Drawer id="main_nav_drawer">
-    <slot name="drawer" />
-  </Drawer>
+
 </header>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const drawer_btn: HTMLButtonElement = document.querySelector(
-      "[data-id=open_drawer_btn]"
-    ) as HTMLButtonElement;
-    drawer_btn.addEventListener("click", () => {
-      const main_nav_drawer: HTMLElement = document.getElementById(
-        "main_nav_drawer"
-      ) as HTMLElement;
-      main_nav_drawer.classList.toggle("transform-none");
-    });
-    drawer_btn.addEventListener("keydown", (e) => {
-      if (e.code === "Escape") {
+  document.addEventListener("DOMContentLoaded", () => {
+    const drawer_btn: HTMLButtonElement = document.querySelector("[data-id=open_drawer_btn]") as HTMLButtonElement;
+    try{
+      drawer_btn.addEventListener("click", () => {
         const main_nav_drawer: HTMLElement = document.getElementById(
           "main_nav_drawer"
         ) as HTMLElement;
         main_nav_drawer.classList.toggle("transform-none");
-      }
-    });
+      });
+      drawer_btn.addEventListener("keydown", (e) => {
+        if (e.code === "Escape") {
+          const main_nav_drawer: HTMLElement = document.getElementById(
+            "main_nav_drawer"
+          ) as HTMLElement;
+          main_nav_drawer.classList.toggle("transform-none");
+        }
+      });
+    }
+    catch(e){
+      console.log("На странице отсутсвует элемент сайдбара\tdata-id=open_drawer_btn");
+    }
   });
 </script>
 
