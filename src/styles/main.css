@@ -20,6 +20,9 @@
 }
 @layer utilities{
 
+  .fitChild:nth-child(4){
+    @apply w-auto lg:w-96;
+  }
   .overlay::before{
     @apply absolute inset-0 z-10 transition-opacity opacity-100 group-hover:opacity-0 backdrop-grayscale content-['']
   }
