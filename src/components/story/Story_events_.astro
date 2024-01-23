@@ -54,34 +54,43 @@ import PhotoSlider from "./PhotoSlider.astro";
       <div class="relative -z-10 -mx-4 lg:-mx-16 xl:-mx-32 -mt-96 mb-4">
         <img loading="lazy" class="w-full relative " src="/santech-portal/img/Story/2016_2022_.jpg"/>
       </div>
-      <StoryBlock class="min-w-min basis-1/3 grow" year={events[16].year} events={events[16].events}>
+      <StoryBlock class="min-w-min basis-3/12 grow flex" year={events[16].year} events={events[16].events}>
         <div class="w-full px-4 mt-auto -translate-y-16 pt-16">
-            <img loading="lazy" class="w-full relative rounded-3xl max-h-52 object-cover" src="/santech-portal/img/Story/DSCN1659_.jpg"/>
+            <img loading="lazy" class="w-full relative rounded-3xl max-h-52 object-cover" src="/santech-portal/img/Story/MSBelg.jpg"/>
         </div>
-    </StoryBlock>
+      </StoryBlock>
 
 
-      <StoryBlock class="min-w-min basis-1/3 grow" year={events[17].year} events={events[17].events}/>
-      <StoryBlock class="min-w-min basis-1/3 grow" year={events[18].year} events={events[18].events}/>
-      <StoryBlock class="min-w-min basis-1/2 grow" year={events[19].year} events={events[19].events}/>
-      <StoryBlock class="min-w-min basis-1/2 grow" year={events[20].year} events={events[20].events}/>
+      <StoryBlock class="min-w-min basis-3/12 grow" year={events[17].year} events={events[17].events}/>
+      <StoryBlock class="min-w-min basis-3/12 grow" year={events[18].year} events={events[18].events}/>
+      <div class="min-w-min basis-1/12 grow justify-self-stretch my-8 bg-slate-800 rounded-3xl overflow-clip">
+        <img loading="lazy" class="w-full relative rounded-3xl h-full object-cover" src="/santech-portal/img/Story/2016.jpg"/>
+      </div>
+      <StoryBlock class="min-w-min basis-4/12 grow" year={events[19].year} events={events[19].events}/>
+      <div class="min-w-min basis-3/12 grow justify-self-stretch  bg-gray-200 p-8 rounded-4xl overflow-clip">
+        <img loading="lazy" class="w-full relative rounded-2xl h-full object-cover" src="/santech-portal/img/Story/2018.jpg"/>
+      </div>
+      <StoryBlock class="min-w-min basis-5/12 grow" year={events[20].year} events={events[20].events}/>
       <StoryBlock class="min-w-min basis-full grow" year={events[21].year} events={events[21].events}/>
-      <div class="relative -z-10 -mx-4 lg:-mx-16 xl:-mx-32">
+      <div class="relative -z-10 -mx-4 lg:-mx-16 xl:-mx-32  md:-mt-28">
         <img loading="lazy" class="w-full relative " src="/santech-portal/img/Story/new2.jpg"/>
       </div>
-      <StoryBlock class="w-full" year={events[22].year} events={events[22].events}/>
+      <StoryBlock class="min-w-min basis-2/3 grow" year={events[22].year} events={events[22].events}/>
+      <div class="min-w-min basis-1/3 grow justify-self-stretch my-8 bg-slate-800 rounded-3xl overflow-clip">
+        <img loading="lazy" class="w-full relative rounded-3xl h-full object-cover" src="/santech-portal/img/Story/2018.jpg"/>
+      </div>
       <StoryBlock class="min-w-min basis-1 grow" year={events[23].year} events={events[23].events}>
-        <div class="w-full px-8 hover:scale-125 transition-transform mt-auto -translate-y-16 pt-16">
+        <div class="w-full px-8  mt-auto -translate-y-16 pt-16">
             <img loading="lazy" class="w-full relative rounded-br-3xl rounded-bl-3xl h-40 object-cover" src="/santech-portal/img/Story/DSCN1659_.jpg"/>
         </div>
-    </StoryBlock>
+      </StoryBlock>
       <StoryBlock class="min-w-min basis-1 grow" year={events[24].year} events={events[24].events}/>
       <StoryBlock class="min-w-min basis-1 grow" year={events[25].year} events={events[25].events}/>
       <div class="absolute h-96 w-96 -z-50 bg-gradient-to-l from-gray-300 to-gray-100 rounded-4xl bottom-20 right-16 rotate-12"></div>
       <!-- 
 
         >
-        <div class="w-full px-8 hover:scale-125 transition-transform ">
+        <div class="w-full px-8  ">
             <img loading="lazy" class="w-full relative rounded-br-3xl rounded-bl-3xl shadow-2xl" src="/santech-portal/img/Story/P1000434.jpg"/>
           </div>
     </StoryBlock>
