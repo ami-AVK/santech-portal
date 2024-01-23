@@ -4,7 +4,7 @@ import events from "./events.json";
 import PhotoSlider from "./PhotoSlider.astro";
 
 ---
-<section class="relative flex flex-wrap max-w-full py-16 px-4 lg:px-16 xl:px-32">
+<ul class="relative flex flex-wrap max-w-full py-16 px-4 lg:px-16 xl:px-32 overflow-x-clip">
     <li class="flex flex-col md:flex-row">
         <div class="hover:bg-gray-200 rounded-3xl p-2 m-4 md:p-8 md:m-8 flex-col justify-start gap-4 flex  min-w-min  md:w-1/2 order-last md:order-first ">
             <h4 class="self-stretch flex-col justify-start items-start gap-2 flex ">
@@ -24,22 +24,22 @@ import PhotoSlider from "./PhotoSlider.astro";
       <StoryBlock class="min-w-min basis-1 grow" year={events[1].year} events={events[1].events}/>
       <StoryBlock class="min-w-min basis-1 grow" year={events[2].year} events={events[2].events}/>
       <StoryBlock class="min-w-min basis-1 grow" year={events[3].year} events={events[3].events}/>
-      <div class="relative -z-10 h-40">
-        <img loading="lazy" class="w-full relative  -top-80" src="/santech-portal/img/Story/l_1996_.jpg"/>
-      </div>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[4].year} events={events[4].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[5].year} events={events[5].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[6].year} events={events[6].events}>
+      <li class="relative -z-10 h-auto lg:h-64 xl:h-40 -mx-32 lg:-mx-64 xl:-mx-80 -mt-64 lg:mt-auto">
+        <img loading="lazy" class="w-full relative top-auto lg:-top-96 xl:-top-128" src="/santech-portal/img/Story/l_1996_.jpg"/>
+      </li>
+      <StoryBlock class="min-w-min basis-2/12 grow" year={events[4].year} events={events[4].events}/>
+      <StoryBlock class="min-w-min basis-4/12 grow" year={events[5].year} events={events[5].events}/>
+      <StoryBlock class="min-w-min basis-2/12 grow" year={events[6].year} events={events[6].events}>
         <div class="w-full px-8 hover:scale-125 transition-transform ">
-            <img loading="lazy" class="w-full relative rounded-br-3xl rounded-bl-3xl shadow-2xl" src="/santech-portal/img/Story/DSCN1659.jpg"/>
+            <img loading="lazy" class="w-full relative rounded-br-3xl rounded-bl-3xl " src="/santech-portal/img/Story/DSCN1659.jpg"/>
           </div>
     </StoryBlock>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[7].year} events={events[7].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[8].year} events={events[8].events}/>
+      <StoryBlock class="min-w-min basis-2/12 grow" year={events[7].year} events={events[7].events}/>
+      <StoryBlock class="min-w-min basis-2/12 grow" year={events[8].year} events={events[8].events}/>
 
-      <StoryBlock class="min-w-min basis-1 grow" year={events[9].year} events={events[9].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[10].year} events={events[10].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[11].year} events={events[11].events}/>
+      <StoryBlock class="min-w-min basis-4/12 grow" year={events[9].year} events={events[9].events}/>
+      <StoryBlock class="min-w-min basis-2/12 grow" year={events[10].year} events={events[10].events}/>
+      <StoryBlock class="min-w-min basis-2/12 grow" year={events[11].year} events={events[11].events}/>
       <div class="relative -z-10 -mx-4 lg:-mx-16 xl:-mx-32">
         <img loading="lazy" class="w-full relative " src="/santech-portal/img/Story/2003_ОП1.jpg"/>
       </div>
@@ -47,22 +47,33 @@ import PhotoSlider from "./PhotoSlider.astro";
       <StoryBlock class="min-w-min basis-1 grow" year={events[13].year} events={events[13].events}/>
       <StoryBlock class="min-w-min basis-1 grow" year={events[14].year} events={events[14].events}/>
       <StoryBlock class="min-w-min basis-1 grow" year={events[15].year} events={events[15].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[16].year} events={events[16].events}/>
-      <div class="relative -z-10 -mx-4 lg:-mx-16 xl:-mx-32">
-        <img loading="lazy" class="w-full relative " src="/santech-portal/img/Story/2003_ОП1.jpg"/>
-      </div>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[17].year} events={events[17].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[18].year} events={events[18].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[19].year} events={events[19].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[20].year} events={events[20].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[21].year} events={events[21].events}/>
-      <div class="relative -z-10 -mx-4 lg:-mx-16 xl:-mx-32">
+      <div class="relative -z-10 -mx-4 lg:-mx-16 xl:-mx-32 -mt-16">
         <img loading="lazy" class="w-full relative " src="/santech-portal/img/Story/2016_2022.jpg"/>
       </div>
+      <StoryBlock class="min-w-min basis-1/3 grow" year={events[16].year} events={events[16].events}>
+        <div class="w-full px-8 hover:scale-125 transition-transform mt-auto -translate-y-16 ">
+            <img loading="lazy" class="w-full relative rounded-br-3xl rounded-bl-3xl h-32" src="/santech-portal/img/Story/DSCN1659.jpg"/>
+        </div>
+    </StoryBlock>
+
+
+      <StoryBlock class="min-w-min basis-1/3 grow" year={events[17].year} events={events[17].events}/>
+      <StoryBlock class="min-w-min basis-1/3 grow" year={events[18].year} events={events[18].events}/>
+      <StoryBlock class="min-w-min basis-1/2 grow" year={events[19].year} events={events[19].events}/>
+      <StoryBlock class="min-w-min basis-1/2 grow" year={events[20].year} events={events[20].events}/>
+      <StoryBlock class="min-w-min basis-full grow" year={events[21].year} events={events[21].events}/>
+      <div class="relative -z-10 -mx-4 lg:-mx-16 xl:-mx-32">
+        <img loading="lazy" class="w-full relative " src="/santech-portal/img/Story/new2.jpg"/>
+      </div>
       <StoryBlock class="w-full" year={events[22].year} events={events[22].events}/>
-      <StoryBlock class="min-w-min basis-1 grow" year={events[23].year} events={events[23].events}/>
+      <StoryBlock class="min-w-min basis-1 grow" year={events[23].year} events={events[23].events}>
+        <div class="w-full px-8 hover:scale-125 transition-transform mt-auto -translate-y-16 ">
+            <img loading="lazy" class="w-full relative rounded-br-3xl rounded-bl-3xl h-32" src="/santech-portal/img/Story/DSCN1659.jpg"/>
+        </div>
+    </StoryBlock>
       <StoryBlock class="min-w-min basis-1 grow" year={events[24].year} events={events[24].events}/>
       <StoryBlock class="min-w-min basis-1 grow" year={events[25].year} events={events[25].events}/>
+      <div class="absolute h-96 w-96 -z-50 bg-gradient-to-l from-gray-300 to-gray-100 rounded-4xl bottom-20 right-16 rotate-12"></div>
       <!-- 
 
         >
@@ -78,4 +89,4 @@ import PhotoSlider from "./PhotoSlider.astro";
     ))} -->
 
 
-</section>
+</ul>
