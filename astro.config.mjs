@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import htmlBeautifier from "astro-html-beautifier";
+import svgSprite from "astro-svg-sprite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,10 +14,18 @@ export default defineConfig({
   }), htmlBeautifier({
     extra_liners: [],
     indent_inner_html: true
+  }), svgSprite({
+    include: [
+      "./src/svg_sprite",
+    ],
+    emitFile: {
+      compress: "standard",
+      path: "assets/sprite",
+    },
   })],
   site: "https://ami-AVK.github.io",
   base: "/",
   build: {
-    assets: "assets"
+    assets: "assets/astro"
   }
 });
