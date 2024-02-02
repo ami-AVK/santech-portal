@@ -1,9 +1,0 @@
-<svg width="600" height="450" viewBox="0 0 600 450">
-    <filter id="glow">
-    <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
-    <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-</filter>
-</svg>
