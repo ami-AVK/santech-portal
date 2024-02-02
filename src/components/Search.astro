@@ -19,9 +19,10 @@ const UUID:string = crypto.randomUUID();
 </div>
 <script>
   import Fuse from 'fuse.js'
-  document.addEventListener('astro:page-load', () => {
+
+  document.addEventListener('DOMContentLoaded', () => {
     
-      const options = {
+    const options = {
       keys: ['title','sname',"ext" ,'tags']
     }
     const list = [
@@ -121,12 +122,12 @@ const UUID:string = crypto.randomUUID();
             },100);
             
           });
-          // ищем 
-          input.oninput = function() {
-            if(search_result){
-              search_result.innerHTML = generateOptionList(fuse.search(input.value).slice(0, 4)) as string;
-            }
-          };
+        // ищем 
+        input.oninput = function() {
+          if(search_result){
+            search_result.innerHTML = generateOptionList(fuse.search(input.value).slice(0, 4)) as string;
+          }
+        };
               
         }
 
@@ -134,7 +135,7 @@ const UUID:string = crypto.randomUUID();
     )
    
     function generateOptionList(results:any){
-      let html = ""
+      let html = "";
       for (let item of results) {
         if(item.item.sname){
           html +=
