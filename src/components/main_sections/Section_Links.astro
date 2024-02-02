@@ -36,11 +36,11 @@ const categories = Object.keys(sortedPosts);
  {
     categories.map((category:string) => (
         <ul class="flex flex-col items-start justify-start mb-16 rounded-2xl _outline break-inside-avoid">
-          <a class="px-2 pb-1 font-extrabold leading-tight tracking-wide uppercase link-panel__header" href={"/santech-portal/"+category}>{category}</a>
+          <a class="px-2 pb-1 font-extrabold leading-tight tracking-wide uppercase link-panel__header" href={"/"+category}>{category}</a>
           {sortedPosts[category].map((item:any) => (
             <li  class="text-gray-900 group ">
               <a data-accent={item.data.accent} class=" group-hover:hover-menu-link group-hover:shadow-lg px-2 py-1 leading-tight block rounded-2xl data-[accent]:bg-accent-400 group-hover:data-[accent]:bg-accent-300 group-hover:data-[accent]:shadow-active" 
-              href={"/santech-portal/" +item.id.split("/")[0]+"#" +item.id}>{item.data.title}</a>
+              href={"/" +item.id.split("/")[0]+"#" +item.id}>{item.data.title}</a>
             </li>
           ))}
       </ul>

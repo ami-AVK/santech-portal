@@ -17,15 +17,15 @@ module.exports = {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(20deg)" },
         },
-		backgroundActive:{
-			"0%":{backgroundPosition:"0% 76%"},
-			"50%":{backgroundPosition:"100% 25%"},
-			"100%":{backgroundPosition:"0% 76%"}
-		}
+        backgroundActive: {
+          "0%": { backgroundPosition: "0% 76%" },
+          "50%": { backgroundPosition: "100% 25%" },
+          "100%": { backgroundPosition: "0% 76%" },
+        },
       },
       animation: {
         add: "ping 800ms ease-in-out 1",
-		bg_rotation: "backgroundActive 4s ease infinite"
+        bg_rotation: "backgroundActive 4s ease infinite",
       },
       colors: {
         outlines: "#E1E4E9",
@@ -71,25 +71,24 @@ module.exports = {
         "4xl": "2rem",
       },
       ringWidth: {
-        '16': '16px',
+        16: "16px",
       },
     },
   },
   plugins: [
     require("@tailwindcss/typography"),
-    require('@tailwindcss/container-queries'),
+    require("@tailwindcss/container-queries"),
     function ({ addComponents, theme }) {
       addComponents({
         "._outline": {
           outlineColor: theme("colors.outlines"),
           outlineOffset: "1rem",
           outlineStyle: "solid",
-          outlineWidth: "1px"
+          outlineWidth: "1px",
         },
-        ".under":{
+        ".under": {
           borderBottom: "1px solid",
         },
-
       });
     },
 
@@ -108,7 +107,7 @@ module.exports = {
             "5n": "5n",
             //... so on if you need
           },
-        }
+        },
       );
     },
   ],

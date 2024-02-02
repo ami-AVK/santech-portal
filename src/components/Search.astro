@@ -3,7 +3,7 @@ const UUID:string = crypto.randomUUID();
 ---
 <div data-searchUUID={UUID} class="flex items-center w-full gap-4 ml-auto shrink isolate lg:max-w-sm text-normal">
   <div class="relative w-full h-fit">
-    <input tabindex="1" list="suggestions" type="search" id=`main-search_${UUID}` name="Search" placeholder="Поиск..." class="z-50 w-full py-2 pl-10 pr-4 text-sm  peer rounded-3xl text-main transition-color hover:shadow-active hover:outline outline-gray-100/50 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+    <input tabindex="1" list="suggestions" type="search" id=`main-search_${UUID}` name="Search" placeholder="Поиск..." class="z-50 w-full py-2 pl-10 pr-4 text-sm  peer rounded-3xl text-main transition-color hover:shadow-active hover:outline outline-gray-100/50 focus:outline-none focus:bg-gray-100 focus:text-gray-900"/>
     <span class="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-600 peer-focus:text-gray-900">
       <button type="submit" title="Search" class="p-1 focus:outline-none focus:ring">
         <svg class="w-4 h-4 stroke-2 "><use xlink:href="#search"></use></svg>
@@ -28,80 +28,80 @@ const UUID:string = crypto.randomUUID();
       {
         "title": "Больничный лист",
         "tags": ["Больничный лист", "Болезнь"],
-        "url": "/santech-portal/Кадровые%20вопросы#больничный-лист"
+        "url": "/Кадровые%20вопросы#больничный-лист"
       },
       {
         "title": "График обучения",
         "tags": ["График", "Обучение"],
-        "url": "/santech-portal/Активный%20сантеховец#график-обучения"
+        "url": "/Активный%20сантеховец#график-обучения"
       },
       {
         "sname": "Купятов",
         "ext": "1253",
         "name": "Иван Васильевич",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       },
       {
         "sname": "Иванов",
         "ext": "3274",
         "name": "Полина Демидовна",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       }
       ,
       {
         "sname": "Семенов",
         "ext": "5313",
         "name": "Екатерина Викторовна",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       }
       ,
       {
         "sname": "Семенов",
         "ext": "8558",
         "name": "Владислав Сергеевич",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       }
       ,
       {
         "sname": "Денисов",
         "ext": "6565",
         "name": "Платон Макарович",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       }
       ,
       {
         "sname": "Тихонов",
         "ext": "8723",
         "name": "Екатерина Викторовна",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       }
       ,
       {
         "sname": "Евсеева",
         "ext": "3302",
         "name": "Варвара Ивановна",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       }
       ,
       {
         "sname": "Шувалов",
         "ext": "3413",
         "name": "Иван Георгиевич",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       }
       ,
       {
         "sname": "Евсеева",
         "ext": "4625",
         "name": "Варвара Ивановна",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       }
       ,
       {
         "sname": "Потапова",
         "ext": "7473",
         "name": "Полина Демидовна",
-        "url": "/santech-portal/Телефонный%20справочник"
+        "url": "/Телефонный%20справочник"
       }
     ]
     const fuse = new Fuse(list, options);

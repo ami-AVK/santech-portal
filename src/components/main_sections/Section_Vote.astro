@@ -71,7 +71,7 @@ const posts = [
     <div class="absolute h-72 w-72 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-6 rotate-[37deg]"></div>
     <div class="relative flex flex-col items-center max-w-screen-xl gap-2 px-8 pt-8 md:px-16">
         <div class="absolute -top-72 md:-top-128 -z-10 md:mx-auto lg:-top-96 lg:right-4">
-          <img src="/santech-portal/asset/img/vote_.svg" alt="" class="w-full md:w-[38rem]">
+          <img src="/asset/img/vote_.svg" alt="" class="w-full md:w-[38rem]"/>
         </div>
         
         <form action="/vote" method="post" >
@@ -79,7 +79,7 @@ const posts = [
             {vote_data.map((vote, index)=>(
                 <!--Компонент простого за текст -->
                 <li class="flex rounded-4xl ">
-                    <input type="radio" id=`vote${index}` name="vote" value=`vote${index}` class="absolute opacity-0 peer">
+                    <input type="radio" id=`vote${index}` name="vote" value=`vote${index}` class="absolute opacity-0 peer"/>
                     <label for=`vote${index}` class="group p-4 bg-white  peer-checked:bg-accent-400  rounded-4xl relative flex gap-3 lg:max-w-full w-full cursor-pointer 
                     [&_.invisible]:peer-checked:visible [&_[data-interaction]]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active
                         ">
@@ -92,14 +92,12 @@ const posts = [
                                         <div class="progress bg-accent-400 h-2 rounded-full w-[45%] relative">
                                             <div class="absolute left-1 top-2.5 text-gray-700 text-xs">{vote.value} голосов</div>  
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
                             <div class="invisible">
                                           <Button data-size="xs" data-type="simple" data-interaction="scale" title="Выбрать" type="submit"/> 
                             </div>
-                            
                     </label>
                 </li>
                 <!--_Компонент простого за текст -->
@@ -113,7 +111,7 @@ const posts = [
                 posts.map((post, index) =>(
                 <!--Компонент голосования за фото -->
                 <li class="flex rounded-4xl">
-                    <input type="radio" id=`vote_${index}` name="vote" value=`vote_${index}` class="absolute opacity-0 peer">
+                    <input type="radio" id=`vote_${index}` name="vote" value=`vote_${index}` class="absolute opacity-0 peer"/>
                     <label for=`vote_${index}` class="group overflow-hidden bg-white  peer-checked:bg-accent-400  rounded-4xl relative flex gap-3 lg:max-w-full w-full cursor-pointer  
                     [&_.invisible]:peer-checked:visible [&_[data-interaction]]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active peer-checked:ring-accent-400 peer-checked:ring-8 
                         ">
@@ -147,7 +145,7 @@ const posts = [
 <script>
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-  Fancybox.bind("[data-fancybox]", {
+  Fancybox.bind("[data-fancybox],.fancybox", {
     Thumbs: {
         type: "classic",
     },

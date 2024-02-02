@@ -49,7 +49,7 @@ console.log(count);
   {/* Навигация по странице скрытая в drawer */}
   <Drawer id="main_nav_drawer">
     <nav class="flex flex-col gap-4 py-2 text-white">
-      <a class="block pb-2 font-extrabold tracking-wide uppercase text-md" href="/santech-portal/">
+      <a class="block pb-2 font-extrabold tracking-wide uppercase text-md" href="/">
         Главная
       </a>
       <ul class="">
@@ -73,7 +73,7 @@ console.log(count);
         Object.keys(articles).filter((category)=>category!=header).map( // наполняем остальные категории
           (category) => (
             <li class="py-1.5">
-              <a class="block font-bold leading-tight " href={"/santech-portal/"+category}>
+              <a class="block font-bold leading-tight " href={"/"+category}>
                 {category}
               </a>
             </li>
@@ -83,20 +83,29 @@ console.log(count);
       </ul>
   </nav>
   </Drawer>
-  <div class=" flex px-4 py-16 mt-20 md:px-8 scroll-smooth">
-    <main class="w-full flex gap-16">
-      <section class="sidebar hidden lg:block sticky top-32 self-start ">
-          <nav class="flex flex-col gap-4 py-2 w-72">
-            <a class="block pb-2 font-extrabold tracking-wide uppercase text-md" href="/santech-portal/">
-              Главная
-            </a>
+  <div class="flex px-4 py-6 md:px-8 xl:px-0 scroll-smooth max-w-screen-lg mx-auto">
+    <main class="w-full flex gap-16 relative">
+      <section class="sidebar hidden lg:block sticky top-20 self-start">
+          <nav class="flex flex-col gap-4 w-72 overflow-y-scroll h-[calc(100vh-98px)] scrollbar-hide">
+            <a class="block pb-2 font-extrabold tracking-wide uppercase text-md" href="/">Главная</a>
+            <ul class="border-l-4 border-gray-400 pl-2 py-2">
+              <li class="relative">
+                  <a href="" class="block pb-2 font-bold leading-tight">ТЕСТЫ ПО ОХРАНЕ ТРУДА</a>
+              </li>
+              <li class="relative">
+                  <a href="" class="relative block px-2 py-1 text-sm leading-tight hover:outline lg:hover:bg-white outline-gray-300/50 rounded-2xl">Тестовая статья</a>
+              </li>
+              <li class="relative">
+                  <a href="" class="relative block px-2 py-1 text-sm leading-tight hover:outline lg:hover:bg-white outline-gray-300/50 rounded-2xl">Материалы для самоподготовки к ежегодным тестам</a>
+              </li>
+            </ul>
             <ul class="">
               <li class="py-1">
                   <a class="block pb-2 font-bold leading-tight " href="">
                     {header}
                   </a>
                   <ul class="pb-1 ">
-                    {   
+                    {
                       articles[header].map( // наполняем навигацию из коллекции по текущей категории
                         (item:any) => (
                           <li class="relative">
@@ -111,7 +120,7 @@ console.log(count);
               Object.keys(articles).filter((category)=>category!=header).map( // наполняем остальные категории
                 (category) => (
                   <li class="py-1.5">
-                    <a class="block font-bold leading-tight " href={"/santech-portal/"+category}>
+                    <a class="block font-bold leading-tight " href={"/"+category}>
                       {category}
                     </a>
                   </li>
@@ -130,20 +139,14 @@ console.log(count);
         {
           articles[header].map(
           (item:any) => (
-            <section id={item.id} class="relative max-w-screen-lg py-32 prose prose-lg  min-w-min prose-headings:font-black prose-headings:tracking-wider prose-h1:text-3xl prose-h1:text-main-900 prose-h2:text-xl prose-h3:text-lg">
-              <div class="observe-link h-[50vh] absolute max-h-full"></div>
-              <div class="observe-link h-[50vh] bottom-0 absolute max-h-full w-full"></div>
-              <Markdown_layout article={item}>
-                <!-- Пример HTML -->
+            <section class="relative max-w-screen-lg py-32 prose prose-lg min-w-min prose-headings:font-black prose-headings:tracking-wider prose-h1:text-3xl prose-h1:text-main-900 prose-h2:text-xl prose-h3:text-lg">
+              <h1 id={item.id}>{item.id.substring(item.id.lastIndexOf("/")+1,item.id.lastIndexOf("."))}</h1>
                 <HTMLSample/>
-                <!-- Пример HTML -->
-              </Markdown_layout>          
             </section>
           )
           )
         }
       </section>
-      
     </main>
   </div>
   <!-- <Content/>  -->

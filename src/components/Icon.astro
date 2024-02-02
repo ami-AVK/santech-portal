@@ -12,30 +12,29 @@ const data_color = [
     "data-[color=teal]:text-accent-400",
     "data-[color=white]:text-white",
 ];
----
 {   /*
-    3 типа иконок, управляется добавлением аттрибута data-size
-    xs,lg,header
-    */
+  3 типа иконок, управляется добавлением аттрибута data-size
+  xs,lg,header
+  */
 }
-<!-- 
->ИКОНКА
 
-АТТРИБУТЫ И ЗНАЧЕНИЯ
-
-data-interaction:
-  scale
-
-data-size:
-  xs
-  lg
-  header
-
-data-color:
-  teal
-  white
-  -->
-<svg {...attributes} xmlns="http://www.w3.org/2000/svg" 
+  // >ИКОНКА
+  
+  // АТТРИБУТЫ И ЗНАЧЕНИЯ
+  
+  // data-interaction:
+  // scale
+  
+  // data-size:
+  // xs
+  // lg
+  // header
+  
+  // data-color:
+  // teal
+  // white
+  ---
+  <svg {...attributes} xmlns="http://www.w3.org/2000/svg" 
 class:list={["w-6 h-6 md:w-8 md:h-8 stroke-1_5",data_interaction,data_size,data_color,className]}>
     <use href=`#${id}`></use>
 </svg>

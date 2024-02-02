@@ -6,52 +6,49 @@
 @layer base {
   @font-face {
     font-family: "Golos Text VF";
-    src: url("/santech-portal/asset/fonts/golos-text_vf.woff2") format("woff2");
+    src: url("/asset/fonts/golos-text_vf.woff2") format("woff2");
     font-weight: 400 900;
     font-display: fallback;
   }
   html {
     font-family: "Golos Text VF", system-ui, sans-serif;
   }
-  body{
+  body {
     @apply bg-gray-100;
   }
-
 }
-@layer utilities{
-
-  .overlay::before{
-    @apply absolute inset-0 z-10 transition-opacity opacity-100 group-hover:opacity-0 backdrop-grayscale content-['']
+@layer utilities {
+  .overlay::before {
+    @apply absolute inset-0 z-10 transition-opacity opacity-100 group-hover:opacity-0 backdrop-grayscale content-[''];
   }
-  .badge-main{
+  .badge-main {
     @apply bg-gradient-to-bl from-main-300/80 to-main-100/80;
   }
-  .badge-yellow{
+  .badge-yellow {
     @apply bg-gradient-to-bl from-yellow-300/80 to-yellow-100/80;
   }
-  .badge-red{
+  .badge-red {
     @apply bg-gradient-to-bl from-red-300/80 to-red-100/80;
   }
-  .badge-green{
+  .badge-green {
     @apply bg-gradient-to-bl from-green-300/80 to-green-100/80;
   }
-  .badge-teal{
+  .badge-teal {
     @apply bg-gradient-to-bl from-teal-300/80 to-teal-100/80;
   }
-  .badge-blue{
+  .badge-blue {
     @apply bg-gradient-to-bl from-blue-300/80 to-blue-100/80;
   }
-  .badge-orange{
+  .badge-orange {
     @apply bg-gradient-to-bl from-orange-300/80 to-orange-100/80;
   }
-  .badge-indigo{
+  .badge-indigo {
     @apply bg-gradient-to-bl from-indigo-300/80 to-indigo-100/80;
   }
-  .hover-menu-link{
+  .hover-menu-link {
     @apply bg-white outline outline-1 outline-gray-200/50 text-gray-900;
   }
 }
-
 
 @-webkit-keyframes BackgroundActive {
   0% {
@@ -123,30 +120,40 @@
   background-color: white !important;
 }
 
-.grid-4-col{
+.grid-4-col {
   display: grid;
   grid-auto-flow: dense;
   /* grid-auto-rows: 100px; */
   /* grid-auto-column: 1fr; */
   /* grid-gap: 5px; */
 }
-.grid-4-col>li{
+.grid-4-col > li {
   height: 16rem;
 }
-.grid-4-col> li:nth-child(10n + 2),
-.grid-4-col> li:nth-child(10n + 5),
-.grid-4-col> li:nth-child(10n + 7),
-.grid-4-col> li:nth-child(10n + 8) {
+.grid-4-col > li:nth-child(10n + 2),
+.grid-4-col > li:nth-child(10n + 5),
+.grid-4-col > li:nth-child(10n + 7),
+.grid-4-col > li:nth-child(10n + 8) {
   grid-column: span 2;
 }
-.grid-4-col> li:nth-child(10n + 9) {
+.grid-4-col > li:nth-child(10n + 9) {
   grid-column: 2;
 }
-.grid-4-col> li:nth-child(10n + 3) {
+.grid-4-col > li:nth-child(10n + 3) {
   grid-column: 3;
 }
-.grid-4-col> li:nth-child(10n + 1),
-.grid-4-col> li:nth-child(10n + 10) {
+.grid-4-col > li:nth-child(10n + 1),
+.grid-4-col > li:nth-child(10n + 10) {
   grid-row: span 2;
   height: 34rem;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

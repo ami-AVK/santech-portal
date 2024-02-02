@@ -17,24 +17,23 @@ const data_interaction = [
     "data-[interaction=scale]:transition-transform","data-[interaction=scale]:scale-75",
 ];
 
+// >КНОПКА
+
+// АТТРИБУТЫ И ЗНАЧЕНИЯ
+
+// data-type:
+//   active
+//   transparent
+
+// data-size:
+//   xs
+//   sm
+//   md
+
+// data_interaction:
+//   scale
+
 ---
-<!-- 
->КНОПКА
-
-АТТРИБУТЫ И ЗНАЧЕНИЯ
-
-data-type:
-  active
-  transparent
-
-data-size:
-  xs
-  sm
-  md
-
-data_interaction:
-  scale
-  -->
 <Tag {...attributes} href={url} id={id} class:list={["flex flex-row place-items-center gap-2 px-3 py-2 rounded-3xl max-w-fit tracking-wide text-base font-400",data_type,data_size,data_interaction,className]}>
   {icon && <Icon id={icon}/>}
   {title && <span class="">{title}</span>}
