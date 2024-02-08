@@ -1,9 +1,9 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 import Appbar from '../components/Appbar.astro'
-import Layout from '../layouts/Layout_markdown.astro';
-import Markdown_layout from '../layouts/Layout_markdown_item.astro';
+import Layout from '../layouts/Layout.astro';
+import Markdown from '../components/Markdown.astro';
 
 
 const allBlogPosts = await getCollection('articles');
@@ -77,9 +77,6 @@ allBlogPosts.forEach((obj) => {
         }
         </ul>
     </nav>
-    
-      
-    
     <main class="pl-96">
       <section>
         <h2>
@@ -92,20 +89,12 @@ allBlogPosts.forEach((obj) => {
           articles[header].map(
           (item) => (
             <section id={item.id} class="py-32 prose prose-lg">
-              <Markdown_layout article={item}/>
+              <Markdown article={item}/>
               </section>
           )
           )
         }
       </section>
-      
     </main>
   </div>
-  <!-- <Content/> -->
-
-
-  
 </Layout>
-
-
-

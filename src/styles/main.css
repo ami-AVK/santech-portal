@@ -6,7 +6,7 @@
 @layer base {
   @font-face {
     font-family: "Golos Text VF";
-    src: url("/asset/fonts/golos-text_vf.woff2") format("woff2");
+    src: url("/assets/fonts/golos-text_vf.woff2") format("woff2");
     font-weight: 400 900;
     font-display: fallback;
   }
@@ -160,4 +160,16 @@
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+.svg-sprite {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

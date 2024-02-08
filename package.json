@@ -10,20 +10,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^5.0.1",
+    "@astrojs/tailwind": "^5.1.0",
     "@fancyapps/ui": "^5.0.28",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-grid": "^0.4.1",
     "@tailwindcss/container-queries": "^0.1.1",
-    "astro": "^3.5.4",
+    "astro": "^4.3.3",
     "astro-html-beautifier": "^1.0.4",
     "astro-svg-sprite": "^1.1.0",
     "fuse.js": "^6.6.2",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.3",
     "postcss-import": "^15.1.0",
     "prettier": "3.2.4"
   }

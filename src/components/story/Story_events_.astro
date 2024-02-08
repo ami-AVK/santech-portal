@@ -1,101 +1,77 @@
 ---
 import StoryBlock from "./Story_event_block.astro";
 import events from "./events.json";
-import PhotoSlider from "./PhotoSlider.astro";
-
 ---
 <ul class="relative flex flex-wrap max-w-full px-4 py-16 mb-16 lg:px-16 xl:px-32 overflow-x-clip">
     <li class="flex flex-col md:flex-row">
-        <div class="flex flex-col justify-start order-last gap-4 p-2 m-4 hover:bg-gray-200 rounded-3xl md:p-8 md:m-8 min-w-min md:w-1/2 md:order-first ">
+        <div class="flex flex-col justify-start order-last gap-4 p-2 m-4 hover:bg-gray-200 rounded-3xl md:p-8 md:m-8 min-w-min md:w-1/2 md:order-first">
             <h4 class="flex flex-col items-start self-stretch justify-start gap-2 ">
-                <div class=" text-main-900 text-3xl md:text-5xl font-black font-['Golos Text VF'] uppercase leading-9 tracking-widest">1992</div>
+                <span class=" text-main-900 text-3xl md:text-5xl font-black font-['Golos Text VF'] uppercase leading-9 tracking-widest">1992</span>
             </h4>
             <ul class="self-stretch flex-col justify-start items-start gap-2.5 flex">
-
-                    <li class="text-xl font-bold tracking-tight text-gray-900 uppercase md:text-2xl">ОТКРЫТИЕ КОМПАНИИ</li>
-                    <li class="tracking-tight text-gray-900 text-md md:text-xl">Арендованы помещения в детском саду под офис и половина
-                        ангара под склад на ул. Архитектора Власова в Москве.</li>
+                <li class="text-xl font-bold tracking-tight text-gray-900 uppercase md:text-2xl">ОТКРЫТИЕ КОМПАНИИ</li>
+                <li class="tracking-tight text-gray-900 text-md md:text-xl">Арендованы помещения в детском саду под офис и половина ангара под склад на ул. Архитектора Власова в Москве.</li>
             </ul>
         </div>
-        <img loading="lazy" class="object-cover rounded-3xl max-w-xxl md:w-1/2 md:max-w-lg" src="/santech-portal/img/Story/1992.jpg" height="200"/>
+        <img loading="lazy" class="object-cover rounded-3xl max-w-xxl md:w-1/2 md:max-w-lg" src="/img/Story/1992.jpg" height="200"/>
       </li>
-      
       <StoryBlock class="min-w-min basis-full sm:basis-1/2 xl:basis-1/3 grow" year={events[0].year} events={events[0].events}/>
       <StoryBlock class="min-w-min basis-full sm:basis-1/2 xl:basis-1/3 grow" year={events[1].year} events={events[1].events}/>
       <StoryBlock class="min-w-min basis-full sm:basis-1/2 xl:basis-1/3 grow" year={events[2].year} events={events[2].events}/>
       <StoryBlock class="min-w-min basis-full sm:basis-1/2 xl:basis-1 grow" year={events[3].year} events={events[3].events}/>
       <li class="relative hidden mb-8 -mx-4 -mt-64 lg:block xl:-mt-96 -z-10 lg:-mx-16 xl:-mx-32 xl:-96 xl:mb-4">
-        <img loading="lazy" class="relative w-full" src="/santech-portal/img/Story/l_1996__.jpg"/>
+        <img loading="lazy" class="relative w-full" src="/img/Story/l_1996__.jpg"/>
       </li>
       <StoryBlock class="min-w-min basis-full lg:basis-4/12 xl:basis-4/12 grow" year={events[4].year} events={events[4].events}>
         <div class="w-full px-4 mt-auto">
-            <img loading="lazy" class="relative object-cover w-full rounded-3xl max-h-80" src="/santech-portal/img/Story/2003.jpg"/>
+            <img loading="lazy" class="relative object-cover w-full rounded-3xl max-h-80" src="/img/Story/2003.jpg"/>
         </div>
     </StoryBlock>
       <StoryBlock class="min-w-min basis-full lg:basis-8/12 xl:basis-4/12 grow" year={events[5].year} events={events[5].events}/>
       <StoryBlock class="min-w-min basis-full lg:basis-4/12 xl:basis-4/12 grow" year={events[6].year} events={events[6].events}>
         <div class="w-full px-4 mt-auto">
-            <img loading="lazy" class="relative object-cover w-full rounded-3xl max-h-80" src="/santech-portal/img/Story/DSCN1659_.jpg"/>
+            <img loading="lazy" class="relative object-cover w-full rounded-3xl max-h-80" src="/img/Story/DSCN1659_.jpg"/>
         </div>
     </StoryBlock>
       <StoryBlock class="min-w-min basis-full lg:basis-4/12 xl:basis-4/12 grow" year={events[7].year} events={events[7].events}/>
       <StoryBlock class="min-w-min basis-full lg:basis-4/12 xl:basis-4/12 grow" year={events[8].year} events={events[8].events}/>
-
       <StoryBlock class="min-w-min basis-full lg:basis-1/4 xl:basis-4/12 grow" year={events[9].year} events={events[9].events}/>
       <StoryBlock class="min-w-min basis-full lg:basis-1/4 xl:basis-2/12 grow" year={events[10].year} events={events[10].events}/>
       <StoryBlock class="min-w-min basis-full lg:basis-1 xl:basis-2/12 grow" year={events[11].year} events={events[11].events}/>
       <div class="relative mt-0 mb-4 -mx-4 -z-10 lg:-mx-16 xl:-mx-32 lg:-mt-16">
-        <img loading="lazy" class="relative w-full " src="/santech-portal/img/Story/2003_ОП1_.jpg"/>
+        <img loading="lazy" class="relative w-full " src="/img/Story/2003_ОП1_.jpg"/>
       </div>
       <StoryBlock class="min-w-min basis-full md:basis-1/2 grow" year={events[12].year} events={events[12].events}/>
       <StoryBlock class="min-w-min basis-full md:basis-1/2 grow" year={events[13].year} events={events[13].events}/>
       <StoryBlock class="min-w-min basis-full md:basis-1/2 grow" year={events[14].year} events={events[14].events}/>
       <StoryBlock class="min-w-min basis-full md:basis-1/2 grow" year={events[15].year} events={events[15].events}/>
       <div class="relative mb-8 -mx-4 -mt-16 -z-10 lg:-mx-16 xl:-mx-32 md:-mt-64 xl:-mt-96 xl:mb-4">
-        <img loading="lazy" class="relative w-full " src="/santech-portal/img/Story/2016_2022_.jpg"/>
+        <img loading="lazy" class="relative w-full " src="/img/Story/2016_2022_.jpg"/>
       </div>
       <StoryBlock class="flex min-w-min basis-1/2 xl:basis-3/12 grow" year={events[16].year} events={events[16].events}>
         <div class="w-full px-4 pt-16 mt-auto -translate-y-16">
-            <img loading="lazy" class="relative object-cover w-full rounded-3xl max-h-52" src="/santech-portal/img/Story/MSBelg.jpg"/>
+          <img loading="lazy" class="relative object-cover w-full rounded-3xl max-h-52" src="/img/Story/MSBelg.jpg"/>
         </div>
       </StoryBlock>
-
-
       <StoryBlock class="min-w-min basis-full sm:basis-1/2 xl:basis-3/12 grow" year={events[17].year} events={events[17].events}/>
       <StoryBlock class="min-w-min basis-full sm:basis-10/2 xl:basis-3/12 grow" year={events[18].year} events={events[18].events}/>
       <div class="hidden my-8 min-w-min 2xl:block sm:basis-2/12 xl:basis-1/12 grow justify-self-stretch rounded-3xl overflow-clip">
-        <img loading="lazy" class="relative object-cover h-full rounded-3xl" src="/santech-portal/img/Story/2016.jpg"/>
+        <img loading="lazy" class="relative object-cover h-full rounded-3xl" src="/img/Story/2016.jpg"/>
       </div>
       <StoryBlock class="min-w-min basis-full sm:basis-8/12 xl:basis-4/12 grow" year={events[19].year} events={events[19].events}/>
       <div class="bg-gray-200 sm:p-8 min-w-min basis-full sm:basis-4/12 grow justify-self-stretch rounded-4xl overflow-clip">
-        <img loading="lazy" class="relative object-cover w-full h-full rounded-2xl" src="/santech-portal/img/Story/2018.jpg"/>
+        <img loading="lazy" class="relative object-cover w-full h-full rounded-2xl" src="/img/Story/2018.jpg"/>
       </div>
       <StoryBlock class="min-w-min basis-full sm:basis-1/2 xl:basis-4/12 grow" year={events[20].year} events={events[20].events}/>
       <StoryBlock class="min-w-min basis-full max-sm:basis-1/2 grow" year={events[21].year} events={events[21].events}/>
       <div class="relative mt-4 mb-8 -mx-4 -z-10 lg:-mx-16 xl:-mx-32">
-        <img loading="lazy" class="relative w-full min-h-[16rem] object-cover" src="/santech-portal/img/Story/new2.jpg"/>
+        <img loading="lazy" class="relative w-full min-h-[16rem] object-cover" src="/img/Story/new2.jpg"/>
       </div>
       <StoryBlock class="min-w-min basis-full sm:basis-2/3 grow" year={events[22].year} events={events[22].events}/>
       <div class="my-4 bg-gray-200 sm:p-8 min-w-min basis-full sm:basis-1/3 grow justify-self-stretch rounded-4xl overflow-clip">
-        <img loading="lazy" class="relative object-cover w-full h-full rounded-2xl" src="/santech-portal/img/Story/2021.jpg"/>
+        <img loading="lazy" class="relative object-cover w-full h-full rounded-2xl" src="/img/Story/2021.jpg"/>
       </div>
       <StoryBlock class="min-w-min basis-full sm:basis-1/4 grow" year={events[23].year} events={events[23].events}/>
       <StoryBlock class="min-w-min basis-full sm:basis-1/2 grow" year={events[24].year} events={events[24].events}/>
       <StoryBlock class="min-w-min basis-full sm:basis-1/4 grow" year={events[25].year} events={events[25].events}/>
-      <!-- <div class="absolute h-96 w-96 -z-50 bg-gradient-to-l from-gray-300 to-gray-100 rounded-4xl bottom-20 right-16 rotate-12"></div> -->
-      <!-- 
-
-        >
-        <div class="w-full px-8 ">
-            <img loading="lazy" class="relative w-full shadow-2xl rounded-br-3xl rounded-bl-3xl" src="/santech-portal/img/Story/P1000434.jpg"/>
-          </div>
-    </StoryBlock>
-       -->
-
-      
-<!-- {events.map((event,index)=>(
-    <StoryBlock class="min-w-min basis-1 grow" year={event.year} events={event.events} img={false||event.img}/>
-    ))} -->
-
-
 </ul>

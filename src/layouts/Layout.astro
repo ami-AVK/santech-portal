@@ -1,10 +1,7 @@
 ---
-// import '../styles/destyle.css';
 import '../styles/main.css';
-// import '../styles/variables.css';
 import '../styles/splide-default.min.css';
-// import '@splidejs/splide/css';
-import SVG_sprite from '../icons/SVG_sprite.astro';
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 interface Props {
 	title: string;
@@ -12,7 +9,6 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth overflow-x-clip">
 	<head>
@@ -20,14 +16,20 @@ const { title } = Astro.props;
 		<meta name="description" content={title}>
 		<meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0" />
 		<link rel="icon" href="/favicon.ico"> 
-		<link rel="icon" type="image/svg+xml" href="/asset/favicons/favicon.svg" />
-		<link rel="apple-touch-icon" href="/asset/favicons/favicon-180.png"> 
+		<link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+		<link rel="apple-touch-icon" href="/assets/favicons/favicon-180.png"> 
 		<link rel="manifest" href="/manifest.webmanifest">
 		<title>{title}</title>
 	</head>
-	<body class="">
-		<SVG_sprite/>
+	<body>
 		<slot />
 	</body>
 </html>
-
+<script>
+	import { Fancybox } from "@fancyapps/ui";
+	Fancybox.bind("[data-fancybox], .fancybox", {
+	  Thumbs: {
+		  type: "classic",
+	  },
+	});
+  </script>

@@ -1,23 +1,16 @@
 ---
-interface MyInterface {
-    [key: string]: any;
-}
-
-import { getCollection, getEntry } from 'astro:content';
-
+import { getCollection } from 'astro:content';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Appbar from '../components/Appbar.astro'
-import Layout from '../layouts/Layout_markdown.astro';
-import Markdown_layout from '../layouts/Layout_markdown_item.astro';
+import Layout from "../layouts/Layout.astro";
 import HTMLSample from "../data/textsample.html";
 import Footer from '../components/Footer.astro';
 import Drawer from "../components/Drawer.astro";
 
 export async function getStaticPaths() {
-
   // забираем все статьи из коллекции
   const allBlogPosts = await getCollection('articles');
-  
+
   // создаем словарь
   let sortedPosts:any = Object();
 
@@ -152,9 +145,6 @@ console.log(count);
   <!-- <Content/>  -->
   <Footer/>
 </Layout>
-
-
-
 <script>
   	document.addEventListener('DOMContentLoaded', () => {
       const options = {
