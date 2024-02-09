@@ -6,14 +6,12 @@ interface Props {
 	body: string;
 	href: string;
 }
-
-const { href, title, body } = Astro.props;
 ---
 <Panel class="flex flex-col">
 	<div class="relative">
 		<img class="pl-3 h-16" src="/assets/icons/Kraaz.svg" alt=""/>
 	</div>
-	 <h4 class="pl-3 font-bold text-lg/6 uppercase text-main-900 ">КРАСНОКУТСКИЙ АРМАТУРНЫЙ ЗАВОД</h4>
+	<h4 class="pl-3 font-bold text-lg/6 uppercase text-main-900 ">КРАСНОКУТСКИЙ АРМАТУРНЫЙ ЗАВОД</h4>
 	<p class="pl-3 text-md font-normal">Производство арматуры из цветных сплавов для трубопроводов, кранов 11б6бк с Ду 15 мм по Ду 50 мм</p>
-	<Button class="hover:bg-gray-200 text-gray-900 border border-gray-300 mt-auto" title="Полный список брендов" url=""/> 
+	<Button class="hover:bg-gray-200 text-gray-900 border border-gray-300 mt-auto" title="Полный список брендов" url=""/>
 </Panel>

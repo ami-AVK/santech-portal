@@ -4,8 +4,8 @@ const { title, iconID,subtitle,whiteIcon, class:className, ...attributes } = Ast
 ---
 <header {...attributes} class="relative flex flex-wrap items-center justify-start gap-2 pb-8 pl-8 md:gap-4 md:max-w-none md:pl-auto">
     <Icon data-size="header" data-color={whiteIcon?"white":"teal"} id={iconID}/>
-    <div class="relative flex flex-col tracking-wide text-gray-900 uppercase md:gap-1 ">
+    <div class="relative flex flex-col tracking-wide text-gray-900 uppercase md:gap-1">
       <h2 class="text-2xl font-black leading-6 tracking-wider text-main-900 md:text-4xl">{title}</h2>
-      {subtitle?<p class="mt-1 leading-5 text-md md:text-xl">{subtitle}</p>:false}
+      {subtitle ? <p class="mt-1 leading-5 text-md md:text-xl">{subtitle}</p> : false}
     </div>
 </header>

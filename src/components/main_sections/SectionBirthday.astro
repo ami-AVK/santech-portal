@@ -1,0 +1,29 @@
+---
+import IconHeader from "../SectionHeader.astro";
+import Avatar from "../Avatar.astro";
+---
+<section class="relative max-w-full pb-56 mx-auto">
+  <IconHeader title="Дни рождения" iconID="birthday-cake" subtitle="Поздравляем именинников!"/>
+  <div class="absolute h-96 w-96 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl bottom-52 rotate-[113deg] right-8"></div>
+    <div class="absolute -left-6 md:left-auto md:right-8 -z-50 -top-52">
+      <img src="/assets/img/birthday.svg" alt="" class="w-128"/>
+    </div>
+    <div class="flex items-center max-w-screen-xl gap-16 p-8 mx-auto md:justify-center md:gap-8 rounded-3xl bg-gradient-to-tr from-white to-gray-100 _outline">
+      <ul class="grid items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-4 md:gap-y-4 justify-items-start">
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Некрасов Матвей Захарович" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Лебедева Василиса Демидовна" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Зимин Артём Маркович" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Лукьянов Степан Артёмович" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Новиков Кирилл Романович" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Герасимов Сергей Дмитриевич" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Михайлова Елизавета Робертовна" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Некрасов Матвей Захарович" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Лебедева Василиса Демидовна" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Зимин Артём Маркович" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Лукьянов Степан Артёмович" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Новиков Кирилл Романович" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Герасимов Сергей Дмитриевич" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+        <li class="pb-1 hover:bg-white rounded-2xl"><Avatar name="Михайлова Елизавета Робертовна" mail="kuznets_ys@santech.ru" data-status={Math.random()>.5&&"crown"}></li>
+      </ul>
+    </div>
+</section>

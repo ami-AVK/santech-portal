@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
+    "noImplicitThis": false,
     "plugins": [
       {
         "name": "@astrojs/ts-plugin",

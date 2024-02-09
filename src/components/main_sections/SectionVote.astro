@@ -1,0 +1,126 @@
+---
+import Button from "../Button.astro";
+import Icon from "../Icon.astro";
+import IconHeader from "../SectionHeader.astro";
+
+const vote_data = [
+    {title: '"Думай как миллионер" - Т. Харв Экер', value:35},
+    {title: '"Богатый папа, бедный папа" - Р. Кийосаки', value:22},
+    {title: '"Искусство войны" - Сунь Цзы', value:11},
+    {title: '"Мастерство общения" - Д. Карнеги', value:5},
+    {title: '"7 навыков высокоэффективных людей" - С. Кови', value:66},
+    {title: '"Миф о лидерстве" - Дж. Коллинз', value:54},
+    {title: '"Мозг и деньги" - Дж. Макконелл', value:32},
+    {title: '"Искусство управления людьми" - Д. Карнеги', value:69},
+    {title: '"Путь к финансовой свободе" - Б. Бичара', value:32},
+];
+
+const posts = [
+  {
+    title: "Вася Петечкин, 7 лет",
+    post: "Ведущая компания по производству инженерного сантехнического оборудования выпустила новую линейку экологичных продуктов, предназначенных для снижения потребления воды и обеспечения экологической безопасности. Инновационные решения включают в себя смесители с низким расходом воды, водосберегающие душевые лейки и энергоэффективные водонагреватели, позволяющие клиентам минимизировать воздействие на окружающую среду без ущерба для производительности.",
+    date: "14.10.2023 10:18",
+    url: "https://cdn.midjourney.com/6490cc15-0005-4a48-ace7-a3a431b7d0e5/0_2.png"
+  },
+  {
+    title: "Иван Потемкин, 9 лет",
+    post: "В рамках стратегического курса на комплексное обслуживание своих клиентов компания, производящая инженерное сантехническое оборудование, заключила партнерство с ведущей строительной фирмой. Сотрудничество позволит компании предоставлять комплексные сантехнические решения для крупномасштабных проектов, предлагая клиентам из строительной отрасли универсальное решение.",
+    date: "17.10.2023 14:25",
+    url: "https://cdn.midjourney.com/f7c252a9-2a5f-4fc1-90c9-6feca42c59bf/0_3.png"
+  },
+  {
+    title: "Вася Петечкин, 7 лет",
+    post: "Осознавая важность квалифицированных специалистов в области сантехники, компания, производящая инженерное сантехническое оборудование, представила ведущую в отрасли программу обучения. Программа направлена на повышение уровня знаний и навыков специалистов-сантехников, ознакомление их с новейшими методиками и передовым опытом установки и обслуживания продукции компании.",
+    date: "26.10.2023 12:37",
+    url: "https://cdn.midjourney.com/28abed28-9b27-4c44-81c8-287031d59326/0_3.png"
+  },
+  {
+    title: "Иван Потемкин, 9 лет",
+    post: "Компания, производящая инженерное сантехническое оборудование, представила новую линейку клапанов высокого давления, специально разработанных для применения в промышленности. Эти клапаны рассчитаны на эксплуатацию в экстремальных условиях и обеспечивают надежную и эффективную работу в сложных условиях, что делает их идеальными для использования на заводах, электростанциях и других промышленных объектах.",
+    date: "14.10.2023 10:18",
+    url: "https://cdn.midjourney.com/fc8b51c7-b4cc-4e99-b0e2-e7ce462f6fb5/0_1.png"
+  },
+  {
+    title: "Вася Петечкин, 7 лет",
+    post: "Для поддержки растущего спроса на экологичные методы строительства компания, производящая инженерное сантехническое оборудование, разработала инновационные решения в области водоподготовки. Эти решения помогают подрядчикам и застройщикам соблюдать экологические нормы и снижать воздействие на местные источники воды за счет эффективной очистки и повторного использования воды на строительных площадках.",
+    date: "17.10.2023 14:25",
+    url: "https://cdn.midjourney.com/bfe5118f-5e69-4e0d-a40e-1a2f67cdfd65/0_1.png"
+  },
+  {
+    title: "Иван Потемкин, 9 лет",
+    post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Целью партнерства является разработка интеллектуальных сантехнических систем, интегрированных с системами автоматизации и управления зданием, оптимизирующих использование воды и повышающих общую энергоэффективность.",
+    date: "26.10.2023 12:37",
+    url: "https://cdn.midjourney.com/d386ca4e-bbbb-443e-af93-75f6fd82ed46/0_3.png"
+  },
+];
+---
+<section class="relative max-w-full pt-32 pb-56 mx-auto" id="vote">
+  <IconHeader
+    title="Голосование"
+    iconID="reports"
+    subtitle="Выбираем лучшую книгу по бизнесу"
+  />
+    <div class="absolute h-72 w-72 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-6 rotate-[37deg]"></div>
+    <div class="relative flex flex-col items-center max-w-screen-xl gap-2 px-8 pt-8 md:px-16">
+        <div class="absolute -top-72 md:-top-128 -z-10 md:mx-auto lg:-top-96 lg:right-4">
+          <img src="/assets/img/vote.svg" alt="" class="w-full md:w-[38rem]"/>
+        </div>
+        <form action="/vote" method="post">
+            <ul class="z-0 grid w-full gap-6 lg:grid-cols-2 lg:gap-6">
+            {vote_data.map((vote, index)=>(
+                <li class="flex rounded-4xl ">
+                  <input type="radio" id=`vote${index}` name="vote" value=`vote${index}` class="absolute opacity-0 peer" />
+                  <label for=`vote${index}` class="group p-4 bg-white peer-checked:bg-accent-400 rounded-4xl relative flex gap-3 lg:max-w-full w-full cursor-pointer [&_.invisible]:peer-checked:visible [&_[data-interaction]]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active">
+                    <div class="flex w-full gap-3 text-gray-700">
+                      <div class="pl-1 text-xl font-extrabold shrink">№{index}</div>
+                      <div class="w-full">
+                        <h3 class="pb-1 pl-1 font-bold tracking-wide whitespace-normal text-md grow">{vote.title}</h3>
+                        <p class="pb-1 text-sm"></p>
+                        <div class="relative w-full mb-2 rounded-full bg-gray-300/20">
+                          <div class="progress bg-accent-400 h-2 rounded-full w-[45%] relative">
+                            <div class="absolute left-1 top-2.5 text-gray-700 text-xs">{vote.value} голосов</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="invisible">
+                      <Button data-size="xs" data-type="simple" data-interaction="scale" title="Выбрать" type="submit" />
+                    </div>
+                  </label>
+                </li>
+            ))}
+            </ul>
+        </form>
+        <div class="py-16">Другой вариант</div>
+        <form action="/vote" method="post">
+            <ul class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {
+                posts.map((post, index) =>(
+                <li class="flex rounded-4xl">
+                    <input type="radio" id=`vote_${index}` name="vote" value=`vote_${index}` class="absolute opacity-0 peer"/>
+                    <label for=`vote_${index}` class="group overflow-hidden bg-white peer-checked:bg-accent-400 rounded-4xl relative flex gap-3 lg:max-w-full w-full cursor-pointer [&_.invisible]:peer-checked:visible [&_[data-interaction]]:peer-checked:scale-100 [&_.progress]:peer-checked:bg-gray-100 hover:shadow-xl peer-checked:shadow-active peer-checked:ring-accent-400 peer-checked:ring-8">
+                      <div class="w-full gap-3 text-gray-700">
+                        <img src={post.url} alt="" class="object-cover h-full"/>
+                        <a href={post.url} data-fancybox class="absolute p-8 rounded-full -top-4 -right-4 backdrop-blur-xl ">
+                          <Icon id="zoom-in" data-size="sm" data-interaction="scale"/>
+                        </a>
+                        <div class="absolute bottom-0 w-full p-4 bg-white">
+                          <h3 class="pl-1 text-xs font-bold tracking-wide whitespace-normal grow">{post.title}</h3>
+                          <div class="relative flex items-center justify-between w-full rounded-full">
+                            <div class="progress bg-accent-400 h-2 rounded-full w-[45%] relative">
+                              <div class="absolute text-xs text-gray-700 left-1 top-2.5">32 голоса</div>
+                            </div>
+                            <div class="invisible">
+                              <Button data-size="xs" data-type="simple" data-interaction="scale" title="Выбрать" type="submit"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </label>
+                </li>
+                ))
+            }
+            </ul>
+          </form>
+      </div> 
+</section>

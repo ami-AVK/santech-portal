@@ -1,24 +1,6 @@
 ---
 import Search from "./Search.astro";
 import data from "../data/header_links.json";
-import Button from "./Button.astro";
-
-const pathname = new URL(Astro.request.url).pathname;
-var count = (pathname.match(/\//g) || []).length;
-console.log(count);
-const main = pathname[0];
-const { ...attributes } = Astro.props;
-// console.log(pathname.split("/")[1]);
-
-// data.map((item) => (
-// 	<li class="bg-white group hover:outline outline-gray-200/50 hover:shadow-lg rounded-2xl">
-// 		<a href={item.url} class="flex items-center">
-//   			<div class="p-2"><svg class="w-6 h-6 text-gray-600 group-hover:text-main-900"><use xlink:href={"#"+item.icon_one}></use></svg></div>
-// 			<div class="text-xs text-gray-900 transition-all rounded-2xl max-w-0 group-hover:max-w-xs whitespace-nowrap overflow-clip" > {item.title}</div>
-// 		</a>
-// 	</li>
-//   )
-//   )
 ---
 <header class="sticky z-40 top-0 w-full p-4 text-gray-100 border-b border-white bg-gray-100/20 backdrop-blur-sm">
   <div class="flex justify-between gap-4 px-4 transition-all h-fit">
@@ -34,7 +16,7 @@ const { ...attributes } = Astro.props;
       {
         data.map((item) => (
           <li class="transition-transform bg-white rounded-full group hover:hover-menu-link hover:shadow-lg hover:-translate-y-1">
-            <a href={item.url} class="">
+            <a href={item.url}>
               <div class="p-2">
                 <svg class="w-6 h-6 text-gray-600 group-hover:text-main-900">
                   <use xlink:href={"#" + item.icon_one} />
@@ -58,28 +40,21 @@ const { ...attributes } = Astro.props;
 </header>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const drawer_btn: HTMLButtonElement = document.querySelector(
-      "[data-id=open_drawer_btn]",
-    ) as HTMLButtonElement;
+    const
+      drawer_btn: HTMLButtonElement = document.querySelector("[data-id=open_drawer_btn]") as HTMLButtonElement,
+      main_nav_drawer: HTMLElement = document.getElementById("main_nav_drawer") as HTMLElement;
+
     try {
       drawer_btn.addEventListener("click", () => {
-        const main_nav_drawer: HTMLElement = document.getElementById(
-          "main_nav_drawer",
-        ) as HTMLElement;
         main_nav_drawer.classList.toggle("transform-none");
       });
       drawer_btn.addEventListener("keydown", (e) => {
-        if (e.code === "Escape") {
-          const main_nav_drawer: HTMLElement = document.getElementById(
-            "main_nav_drawer",
-          ) as HTMLElement;
+        if (e.code === 'Escape')
           main_nav_drawer.classList.toggle("transform-none");
-        }
       });
     } catch (e) {
-      console.log(
-        "На странице отсутсвует элемент сайдбара\tdata-id=open_drawer_btn",
-      );
+      console.log("На странице отсутсвует элемент сайдбара\tdata-id=open_drawer_btn");
+      console.error(e);
     }
   });
 </script>

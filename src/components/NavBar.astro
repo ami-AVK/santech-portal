@@ -1,5 +1,5 @@
 ---
-const menuItems=[
+const menuItems = [
     {
         icon:"calendar",
         link:"calendar",
@@ -38,22 +38,15 @@ const menuItems=[
     },
 ];
 ---
-
 <div class="hidden lg:flex place-content-between">
     {
         menuItems.map((item)=>(
-            <a href={`#${item.link}`} data-active={item.select&&'active'} class="
-            flex flex-col justify-start items-center gap-1 xl:gap-2 px-3 py-2 xl:px-4 xl:py-3 border-gray-100/20 border rounded-3xl hover:shadow-active text-white
-            data-[active=active]:bg-gradient-to-b data-[active=active]:from-accent-300 data-[active=active]:to-accent-400 data-[active=active]:text-gray-900
-            ">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 stroke-1_5 " viewBox="0 0 24 24" fill="none">
+            <a href={`#${item.link}`} data-active={item.select&&'active'} class="flex flex-col justify-start items-center gap-1 xl:gap-2 px-3 py-2 xl:px-4 xl:py-3 border-gray-100/20 border rounded-3xl hover:shadow-active text-white data-[active=active]:bg-gradient-to-b data-[active=active]:from-accent-300 data-[active=active]:to-accent-400 data-[active=active]:text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 stroke-1_5" viewBox="0 0 24 24" fill="none">
                     <use href={`#${item.icon}`}></use>
                 </svg>
-            <div class="text-xs font-medium leading-none tracking-wide text-center xl:text-base">{item.capture}</div>
+                <div class="text-xs font-medium leading-none tracking-wide text-center xl:text-base">{item.capture}</div>
             </a>
         ))
     }
-
-    
-
 </div>

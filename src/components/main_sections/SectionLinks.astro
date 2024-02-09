@@ -1,0 +1,55 @@
+---
+import { getCollection, getEntry } from "astro:content";
+
+const articlesEntries = await getCollection("articles");
+
+let sortedBlogPosts = articlesEntries.sort((a, b) => {
+  const article_1:number = a.data.order as number;
+  const article_2:number = b.data.order as number? b.data.order as number:10000000;
+  return article_1-article_2;
+});
+
+let sortedPosts: any = {};
+
+sortedBlogPosts.forEach((obj) => {
+  let cat = obj.id.substring(0, obj.id.indexOf("/"));
+  const sortBy = cat;
+  if (sortedPosts[sortBy]) {
+    sortedPosts[sortBy].push(obj);
+  } else {
+    sortedPosts[sortBy] = [obj];
+  }
+});
+const categoryOrder = ["Наша компания", "Всё для менеджеров по продажам и закупкам", "Кадровые вопросы", "Бухгалтерские вопросы", "Правила IT", "Административные вопросы", "Активный сантеховец", "Заявки"];
+sortedPosts = Object.keys(sortedPosts)
+  .sort((a, b) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b))
+  .reduce((acc:any, key:string) => {
+    acc[key] = sortedPosts[key as any] as any;
+    return acc;
+  }, {});
+
+const categories = Object.keys(sortedPosts);
+
+---
+<section class="gap-16 mx-auto columns-1 md:columns-2 lg:columns-3 xl:columns-4 max-w-screen-2xl">
+ {
+    categories.map((category:string) => (
+        <ul class="flex flex-col items-start justify-start mb-16 rounded-2xl _outline break-inside-avoid">
+          <a class="px-2 pb-1 font-extrabold leading-tight tracking-wide uppercase link-panel__header" href={"/"+category}>{category}</a>
+          {sortedPosts[category].map((item:any) => (
+            <li  class="text-gray-900 group">
+              <a data-accent={item.data.accent} class=" group-hover:hover-menu-link group-hover:shadow-lg px-2 py-1 leading-tight block rounded-2xl data-[accent]:bg-accent-400 group-hover:data-[accent]:bg-accent-300 group-hover:data-[accent]:shadow-active" href={"/" +item.id.split("/")[0]+"#" +item.id}>{item.data.title}</a>
+            </li>
+          ))}
+      </ul>
+    ))
+  }
+  <!--Баннер -->
+  <a href="#" class="my-4 bg-slate-400 ">
+    <img
+        class="w-full rounded-3xl"
+      src="https://cdn.midjourney.com/bfe5118f-5e69-4e0d-a40e-1a2f67cdfd65/0_1.png"
+    />
+  </a>
+  <!--_Баннер -->
+</section>

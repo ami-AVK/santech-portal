@@ -8,27 +8,26 @@ const UUID:string = crypto.randomUUID();
 ---
 <div class="flex flex-col gap-4 p-2 m-2 transition-all shadow-sm cursor-pointer md:m-4 md:p-4 _outline rounded-2xl hover:border-slate-100 bg-slate-0 hover:bg-gray-50/100 hover:shadow-xl">
     <div class="flex flex-row items-start place-content-between">
-        <div class="flex flex-col gap-2 ">
+        <div class="flex flex-col gap-2">
             <h2 class="font-black leading-normal uppercase text-md md:text-lg">Менеджер по продажам</h2>
             <div class="flex flex-row text-sm lg:text-md">
                 <div class="flex flex-row items-center">
                     <Icon id="pin-alt" class="" data-size />
                     <div class="pl-1 font-bold">г. Видное</div>
                     <div class="pl-4">Департамент продаж</div>
-                </div>          
-            </div>   
+                </div>
+            </div>
         </div>
-        <Button id={UUID} data-size="xs" data-type="active" data-clipboard="Менеджер по продажам в г. Видное"  icon="share-ios"/> 
+        <Button data-size="xs" data-type="active" data-send-email={UUID} data-send-email-title='Вакансия "Менеджер по продажам в г. Видное"' icon="share-ios"/>
     </div>
-
-    <details data-buffer-id={UUID} class="py-4 [&_svg]:open:-rotate-180 flex ">
-        <summary class="flex flex-row items-center gap-4 px-3 py-2 list-none cursor-pointer place-items-center rounded-3xl ">
+    <details class="py-4 [&_svg]:open:-rotate-180 flex">
+        <summary class="flex flex-row items-center gap-4 px-3 py-2 list-none cursor-pointer place-items-center rounded-3xl">
             <Icon id="arrow-down" class="transition-transform duration-300 transform rotate-0" data-size />
             <label class="flex-shrink-0">Подробнее</label>
         </summary>
-        <div class="prose-sm prose">
+        <div class="prose-sm prose" data-send-email-text={UUID}>
             <!--Сюда сырой html -->
-            <h3 >Задачи</h3>
+            <h3>Задачи</h3>
             <p>Активно выполнять план продаж, а для этого:</p>
             <ul>
                 <li>Терпеливо консультировать клиентов по продукции компании, помогать им с выбором;</li>
@@ -37,7 +36,7 @@ const UUID:string = crypto.randomUUID();
                 <li>Учиться и постоянно развиваться (мы поможем!);</li>
                 <li>Работать на 100% результат.</li>
             </ul>
-            <h3 >Наши ожидания от вас:</h3>
+            <h3>Наши ожидания от вас:</h3>
             <ul>
                 <li>Высшее образование (техническое или экономическое);</li>
                 <li>Опыт работы в продажах от года (оптимально- B2B/ FMCG);</li>
@@ -46,8 +45,7 @@ const UUID:string = crypto.randomUUID();
                 <li>Грамотная речь;</li>
                 <li>Целеустремлённость, умение работать в команде, желание работать и развиваться.</li>          
             </ul>
-
-            <h3 >От нас:</h3>
+            <h3>От нас:</h3>
             <ul>
                 <li>Полное соблюдение ТК РФ;</li>
                 <li>График работы 5/2 с 08.00 до 17.00;</li>
@@ -65,7 +63,4 @@ const UUID:string = crypto.randomUUID();
             <!--_Сюда сырой html-->
         </div>
     </details>
-
-
-
 </div>

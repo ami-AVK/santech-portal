@@ -1,0 +1,49 @@
+---
+import IconHeader from "../SectionHeader.astro";
+import JobCard from "../Job.astro";
+---
+<section class="relative max-w-full pb-56 px-4 md:px-8 lg:px-32">
+    <IconHeader title="Вакансии" iconID="brain-research" subtitle=""/>
+    <div class="grid grid-cols-1 gap-16 md:grid-cols-2 xl:grid-cols-3">
+        <JobCard/>
+        <JobCard/>
+        <JobCard/>
+        <JobCard/>
+        <JobCard/>
+    </div>
+    <div class="absolute h-48 w-48 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl -top-16 rotate-12 left-96"></div>
+    <div class="absolute h-96 w-96 -z-50 bg-gradient-to-b from-gray-100 to-gray-200 rounded-4xl bottom-52 -rotate-12 right-32"></div>
+    <div id="buffer-copy-alert" class="fixed invisible h-8 transition-opacity opacity-0 bottom-8 right-8">
+        <div class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-accent-400 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-gray-900">
+            <div class="absolute w-5 h-5 top-2/4 left-1 -translate-y-2/4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293zM9 4a1 1 0 012 0v2H9V4z"></path>
+                </svg>
+            </div>
+            <div class="mt-px ml-4">Данные по вакансии скопированы в буфер</div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const
+            onClickClipboardHandler = function(e: Event) {
+                const
+                    t = this || document.createElement('button'),
+                    id = t.getAttribute('data-send-email'),
+                    title = t.getAttribute('data-send-email-title'),
+                    textEl = document.querySelector(`[data-send-email-text="${id}"]`);
+
+                if(!textEl) return;
+
+                const
+                    text = textEl.textContent || '';
+
+                location.href = 'mailto:?subject=' + title + '&body=' + encodeURIComponent(text);
+            };
+
+        document.querySelectorAll("[data-send-email]").forEach(el => {
+            el.addEventListener("click", onClickClipboardHandler);
+        });
+    });
+</script>

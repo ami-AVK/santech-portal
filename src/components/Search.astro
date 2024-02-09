@@ -3,25 +3,23 @@ const UUID:string = crypto.randomUUID();
 ---
 <div data-searchUUID={UUID} class="flex items-center w-full gap-4 ml-auto shrink isolate lg:max-w-sm text-normal">
   <div class="relative w-full h-fit">
-    <input tabindex="1" list="suggestions" type="search" id=`main-search_${UUID}` name="Search" placeholder="Поиск..." class="z-50 w-full py-2 pl-10 pr-4 text-sm  peer rounded-3xl text-main transition-color hover:shadow-active hover:outline outline-gray-100/50 focus:outline-none focus:bg-gray-100 focus:text-gray-900"/>
+    <input tabindex="1" list="suggestions" type="search" id=`main-search_${UUID}` name="Search" placeholder="Поиск..." class="z-50 w-full py-2 pl-10 pr-4 text-sm peer rounded-3xl text-main transition-color hover:shadow-active hover:outline outline-gray-100/50 focus:outline-none focus:bg-gray-100 focus:text-gray-900"/>
     <span class="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-600 peer-focus:text-gray-900">
       <button type="submit" title="Search" class="p-1 focus:outline-none focus:ring">
-        <svg class="w-4 h-4 stroke-2 "><use xlink:href="#search"></use></svg>
+        <svg class="w-4 h-4 stroke-2">
+          <use xlink:href="#search"></use>
+        </svg>
       </button>
     </span>
-
-    <div class="absolute inset-x-0 px-10 bg-gray-200 shadow-xl h-fit rounded-b-3xl -z-10 top-5" >
-      <ul id=`suggestions_${UUID}` class="pt-8 pb-4 space-y-2 text-xs text-gray-900 empty:py-0 md:text-md">
-      </ul>
+    <div class="absolute inset-x-0 px-10 bg-gray-200 shadow-xl h-fit rounded-b-3xl -z-10 top-5">
+      <ul id=`suggestions_${UUID}` class="pt-8 pb-4 space-y-2 text-xs text-gray-900 empty:py-0 md:text-md"></ul>
     </div>
   </div>
-
 </div>
 <script>
   import Fuse from 'fuse.js'
 
   document.addEventListener('DOMContentLoaded', () => {
-    
     const options = {
       keys: ['title','sname',"ext" ,'tags']
     }
@@ -104,56 +102,51 @@ const UUID:string = crypto.randomUUID();
         "name": "Полина Демидовна",
         "url": "/Телефонный%20справочник"
       }
-    ]
-    const fuse = new Fuse(list, options);
-    
-    const searches = document.querySelectorAll('[data-searchUUID]') as NodeListOf<HTMLElement>;
-    searches.forEach((search:HTMLElement)=>
+    ];
+
+    const
+      fuse = new Fuse(list, options),
+      searches = document.querySelectorAll('[data-searchUUID]') as NodeListOf<HTMLElement>;
+
+    searches.forEach((search:HTMLElement) =>
       {
-        const searchUUID = search.dataset.searchuuid;
-        const input:HTMLInputElement = document.getElementById(`main-search_${searchUUID}`) as HTMLInputElement;
-        const search_result:HTMLBaseElement = document.getElementById(`suggestions_${searchUUID}`) as HTMLBaseElement;
+        const
+          searchUUID = search.dataset.searchuuid,
+          input:HTMLInputElement = document.getElementById(`main-search_${searchUUID}`) as HTMLInputElement,
+          search_result:HTMLBaseElement = document.getElementById(`suggestions_${searchUUID}`) as HTMLBaseElement;
 
-        if(input){
+        if(input) {
           // добавил чтобы при клике по ссылке успевал перейти, а то не успевает сработать
-          input.addEventListener("focusout", function(){
-            setTimeout(function(){
-              search_result.innerHTML ="";
-            },100);
-            
+          input.addEventListener("focusout", function() {
+            setTimeout(function() {
+              search_result.innerHTML = '';
+            }, 100);
           });
-        // ищем 
-        input.oninput = function() {
-          if(search_result){
-            search_result.innerHTML = generateOptionList(fuse.search(input.value).slice(0, 4)) as string;
-          }
-        };
-              
+          // ищем
+          input.oninput = function() {
+            if(search_result)
+              search_result.innerHTML = generateOptionList(fuse.search(input.value).slice(0, 4)) as string;
+          };
         }
-
       }
-    )
-   
-    function generateOptionList(results:any){
-      let html = "";
+    );
+
+    function generateOptionList(results:any) {
+      let html = '';
       for (let item of results) {
-        if(item.item.sname){
+        if(item.item.sname) {
           html +=
           `<li class="font-bold">
             <a href="${item.item.url}" class="relative z-50">&#9990; ${item.item.sname} <span class="text-normal">${item.item.name}</span> <span class="text-normal text-main-900">${item.item.ext}</span> </a>
           </li>`;
-        }
-        else{
+        } else {
           html +=
           `<li class="">
             <a href="${item.item.url}">${item.item.title?item.item.title:""}${item.item.sname?item.item.sname:""}</a>
           </li>`;
         }
-
       }
       return html;
     }
 });
 </script>
-
-  

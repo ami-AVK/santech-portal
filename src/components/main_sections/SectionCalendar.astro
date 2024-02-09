@@ -1,0 +1,70 @@
+---
+import Button from "../Button.astro";
+import IconHeader from "../SectionHeader.astro"
+const events = [
+    {
+        day: 23,
+        month: "октября",
+        time:"08:00—10:00",
+        location: "Корпус 4, кабинет 24",
+        title: "Обучение Alcaplast",
+        post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Цель партнерства - разработать интеллектуальные сантехнические системы, интегрированные с системами автоматизации и управления зданием, оптимизирующие использование воды и повышающие общую энергоэффективность.",
+        url: "/События",
+    },
+    {
+        day: 24,
+        month: "октября",
+        time:"13:20",
+        location: "Корпус 1, кабинет 11",
+        title: "Обучение Alcaplast",
+        post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Цель партнерства - разработать интеллектуальные сантехнические системы, интегрированные с системами автоматизации и управления зданием, оптимизирующие использование воды и повышающие общую энергоэффективность.",
+        url: "/События",
+    },
+    {
+        day: 26,
+        month: "октября",
+        time:"14:10",
+        location: "Корпус 1, кабинет 16",
+        title: "Обучение Alcaplast",
+        post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Цель партнерства - разработать интеллектуальные сантехнические системы, интегрированные с системами автоматизации и управления зданием, оптимизирующие использование воды и повышающие общую энергоэффективность.",
+        url: "/События",
+    },
+    {
+        day: 30,
+        month: "октября",
+        time:"14:50",
+        location: "Корпус 3, кабинет 7",
+        title: "Обучение Alcaplast",
+        post: "В рамках совместной работы по созданию более эффективных и экологичных зданий компания, производящая инженерное сантехническое оборудование, заключила партнерство с группой ведущих архитекторов. Цель партнерства - разработать интеллектуальные сантехнические системы, интегрированные с системами автоматизации и управления зданием, оптимизирующие использование воды и повышающие общую энергоэффективность.",
+        url: "/События",
+    }
+];
+---
+<section class="relative max-w-full pb-56 mx-auto">
+    <IconHeader title="Ближайшие события" iconID="calendar" subtitle=""/>
+    <div class="absolute h-96 w-96 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl bottom-52 rotate-12 right-16"></div>
+    <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16 pb-8 md:pb-16 px-8 md:px-16 max-w-screen-xl [&>*:nth-child(1)]:lg:col-span-2 [&>*:nth-child(2)]:lg:row-span-2 lg:max-h-128 justify-start content-start place-items-start">
+        {
+            events.map((event) => (
+                <div class="_outline bg-gray-200 hover:bg-white hover:shadow-2xl rounded-2xl p-4 first:bg-white [&>p]:max-h-0 [&>p]:first:max-h-fit [&>p]:hover:max-h-128 cursor-pointer transition-colors">
+                    <div class="flex flex-wrap justify-between">
+                        <div class="flex justify-start pb-2 text-gray-900">
+                            <div class="text-4xl font-black">{event.day}</div>
+                            <div class="pl-1 text-md font-bold leading-[1.05rem] pt-[0.15rem]">
+                                <div class="font-black"> {event.month}</div>
+                                <div class="text-gray-600"> {event.time}</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center self-center gap-2 p-1 pr-3 bg-gray-200 rounded-3xl text-accent-400">
+                            {event.location && <svg class="w-8 h-8 "><use xlink:href="#pin-alt" class="stroke-2"></use></svg>}
+                            {event.location && <span class="text-xs text-gray-900">{event.location}</span>}
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-black tracking-wide">{event.title}</h3>
+                    <p class="mb-2 overflow-hidden text-sm font-normal tracking-wider transition-all duration-500">{event.post}</p>
+                    <Button icon="" data-type="active" data-size="sm" title="Подробнее" url={event.url} class=""/>
+                </div>
+            ))
+        }
+    </div>
+</section>
