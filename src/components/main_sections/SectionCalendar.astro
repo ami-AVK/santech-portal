@@ -41,7 +41,7 @@ const events = [
 ];
 ---
 <section class="relative max-w-full pb-56 mx-auto">
-    <IconHeader title="Ближайшие события" iconID="calendar" subtitle=""/>
+    <IconHeader title="Ближайшие события" iconID="ico_calendar" subtitle=""/>
     <div class="absolute h-96 w-96 -z-50 bg-gradient-to-b from-gray-300 to-gray-100 rounded-4xl bottom-52 rotate-12 right-16"></div>
     <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16 pb-8 md:pb-16 px-8 md:px-16 max-w-screen-xl [&>*:nth-child(1)]:lg:col-span-2 [&>*:nth-child(2)]:lg:row-span-2 lg:max-h-128 justify-start content-start place-items-start">
         {
@@ -56,7 +56,7 @@ const events = [
                             </div>
                         </div>
                         <div class="flex items-center self-center gap-2 p-1 pr-3 bg-gray-200 rounded-3xl text-accent-400">
-                            {event.location && <svg class="w-8 h-8 "><use xlink:href="#pin-alt" class="stroke-2"></use></svg>}
+                            {event.location && <svg class="w-8 h-8 "><use xlink:href="#ico_pin_alt" class="stroke-2"></use></svg>}
                             {event.location && <span class="text-xs text-gray-900">{event.location}</span>}
                         </div>
                     </div>

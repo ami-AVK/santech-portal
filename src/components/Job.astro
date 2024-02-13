@@ -12,17 +12,17 @@ const UUID:string = crypto.randomUUID();
             <h2 class="font-black leading-normal uppercase text-md md:text-lg">Менеджер по продажам</h2>
             <div class="flex flex-row text-sm lg:text-md">
                 <div class="flex flex-row items-center">
-                    <Icon id="pin-alt" class="" data-size />
+                    <Icon id="ico_pin_alt" class="" data-size />
                     <div class="pl-1 font-bold">г. Видное</div>
                     <div class="pl-4">Департамент продаж</div>
                 </div>
             </div>
         </div>
-        <Button data-size="xs" data-type="active" data-send-email={UUID} data-send-email-title='Вакансия "Менеджер по продажам в г. Видное"' icon="share-ios"/>
+        <Button data-size="xs" data-type="active" data-send-email={UUID} data-send-email-title='Вакансия "Менеджер по продажам в г. Видное"' icon="ico_share_ios"/>
     </div>
     <details class="py-4 [&_svg]:open:-rotate-180 flex">
         <summary class="flex flex-row items-center gap-4 px-3 py-2 list-none cursor-pointer place-items-center rounded-3xl">
-            <Icon id="arrow-down" class="transition-transform duration-300 transform rotate-0" data-size />
+            <Icon id="ico_arrow_down" class="transition-transform duration-300 transform rotate-0" data-size />
             <label class="flex-shrink-0">Подробнее</label>
         </summary>
         <div class="prose-sm prose" data-send-email-text={UUID}>
